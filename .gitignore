@@ -1,0 +1,27 @@
+# Flutter
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+**/Generated.xcconfig
+**/Flutter.podspec
+**/flutter_export_environment.sh
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Android
+**/local.properties
+**/key.properties
+*.jks
+*.keystore
+
+# Misc
+*.log
+.DS_Store
+
+# Superpowers brainstorm companion sessions
+.superpowers/
