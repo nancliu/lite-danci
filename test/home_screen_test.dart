@@ -41,6 +41,8 @@ Widget _wrapHome(WordLiteRepository repo) {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  setUp(WordBank.resetForTest);
+
   testWidgets('有当日检查点时显示继续学习与已完成 x/y', (WidgetTester tester) async {
     final String day = _dateKey(DateTime.now());
     final List<String> ids =
@@ -105,5 +107,26 @@ void main() {
     expect(find.text('复习'), findsOneWidget);
     expect(find.text('${c.newCount}'), findsOneWidget);
     expect(find.text('${c.reviewCount}'), findsOneWidget);
+  });
+
+  testWidgets('点击新词卡片展开只读入队说明', (WidgetTester tester) async {
+    final WordLiteRepository repo = await _repoFromPrefs(<String, Object>{});
+    await tester.pumpWidget(_wrapHome(repo));
+    await tester.pump();
+    await tester.tap(find.byKey(const Key('home_queue_card_new')));
+    await tester.pumpAndSettle();
+    expect(find.text('今日新词入队（只读）'), findsOneWidget);
+    expect(find.textContaining('apple'), findsWidgets);
+  });
+
+  testWidgets('点击复习卡片在无复习入队时提示只读说明', (WidgetTester tester) async {
+    final WordLiteRepository repo = await _repoFromPrefs(<String, Object>{});
+    expect(repo.todayQueuePreviewCounts.reviewCount, 0);
+    await tester.pumpWidget(_wrapHome(repo));
+    await tester.pump();
+    await tester.tap(find.byKey(const Key('home_queue_card_review')));
+    await tester.pumpAndSettle();
+    expect(find.text('今日复习入队（只读）'), findsOneWidget);
+    expect(find.text('今日暂无复习入队。'), findsOneWidget);
   });
 }

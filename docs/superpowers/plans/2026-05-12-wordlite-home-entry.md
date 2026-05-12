@@ -32,7 +32,7 @@
 
 **说明：** 将 `Random(now.millisecondsSinceEpoch)` 改为基于 **当日零点** 的确定性种子（例如 `Random(todayStart.millisecondsSinceEpoch)` 或对 `dayKey` 做固定 hash 再 `Random(seed)`），使同一自然日内多次调用 `buildTodayQueue()` 得到**相同**的复习词顺序与队列长度。
 
-- [ ] **Step 1: 写失败单测（同日两次 build 应一致）**
+- [x] **Step 1: 写失败单测（同日两次 build 应一致）**
 
 在 `test/word_lite_repository_test.dart` 的 `group('WordLiteRepository')` 内新增：
 
@@ -57,7 +57,7 @@ test('buildTodayQueue：同一自然日内多次调用复习顺序一致', () as
 });
 ```
 
-- [ ] **Step 2: 运行测试确认失败**
+- [x] **Step 2: 运行测试确认失败**
 
 运行：
 
@@ -67,7 +67,7 @@ flutter test test/word_lite_repository_test.dart --plain-name "同一自然日�
 
 **预期：** 失败（当前实现用毫秒级 `Random`，连续两次调用几乎必然不同）。
 
-- [ ] **Step 3: 最小实现**
+- [x] **Step 3: 最小实现**
 
 在 `buildTodayQueue` 中，将：
 
@@ -82,11 +82,11 @@ final int shuffleSeed = todayStart.millisecondsSinceEpoch;
 dueIds.shuffle(Random(shuffleSeed));
 ```
 
-- [ ] **Step 4: 运行测试确认通过**
+- [x] **Step 4: 运行测试确认通过**
 
 同上 `flutter test ...`，**预期：** PASS。
 
-- [ ] **Step 5: 提交**
+- [x] **Step 5: 提交**
 
 ```bash
 git add lib/services/word_lite_repository.dart test/word_lite_repository_test.dart
@@ -113,7 +113,7 @@ git commit -m "fix: stabilize daily review shuffle seed for queue preview"
 
 以及在有 `checkpoint` 且 `dayKey` 为今日时，优先用 `checkpoint.queueWordIds` 做拆分（与已开始会话一致）。
 
-- [ ] **Step 1: 单测 — 无进度时 preview 新词为 5、复习为 0**
+- [x] **Step 1: 单测 — 无进度时 preview 新词为 5、复习为 0**
 
 ```dart
 test('todayQueuePreviewCounts：无进度时仅新词段', () async {
@@ -129,7 +129,7 @@ test('todayQueuePreviewCounts：无进度时仅新词段', () async {
 
 （若 getter 命名不同，在实现 Task 中同步改名。）
 
-- [ ] **Step 2: 运行失败 → Step 3 实现 getter → Step 4 通过 → Step 5 commit**（命令同 Task 1 模式，`flutter test test/word_lite_repository_test.dart` 相关用例）。
+- [x] **Step 2: 运行失败 → Step 3 实现 getter → Step 4 通过 → Step 5 commit**（命令同 Task 1 模式，`flutter test test/word_lite_repository_test.dart` 相关用例）。
 
 ---
 
@@ -148,7 +148,7 @@ test('todayQueuePreviewCounts：无进度时仅新词段', () async {
 - `_rollDailyIfNeeded` 换日时置 `false`。
 - 对外：`bool get shouldShowHomeSessionCompleteCelebration`（或更短命名）为 `true` 当且仅当标志为 `true` 且 `!hasActiveCheckpoint`。
 
-- [ ] **Step 1: 单测「多词队列整段完成后标志为 true，再 start 后变 false」**
+- [x] **Step 1: 单测「多词队列整段完成后标志为 true，再 start 后变 false」**
 
 伪代码级断言（实现时写成合法 Dart）：
 
@@ -165,7 +165,7 @@ test('整段会话完成后首页完成态为 true，重新开始后为 false', 
 
 （具体造数可直接复制 `test/word_lite_repository_test.dart` 中 `多词队列` 相关用例的 `SharedPreferences` 初始 JSON 并补全循环。）
 
-- [ ] **Step 2–5:** 红 → 绿 → `flutter test test/word_lite_repository_test.dart` → commit。
+- [x] **Step 2–5:** 红 → 绿 → `flutter test test/word_lite_repository_test.dart` → commit。
 
 ---
 
@@ -184,13 +184,13 @@ test('整段会话完成后首页完成态为 true，重新开始后为 false', 
 4. **完成态 C**：当 `shouldShowHomeSessionCompleteCelebration` 为 `true` 时：主入口为次要 `OutlinedButton`「再学一组」；统计 `Card` 前置并强化为「今日成就」区块；保留 AppBar 家长入口。
 5. **重置今日会话**：在完成态下仍可显示；点击后调用 `abandonCheckpoint()`（并依赖 Task 3 清除完成态标志）。
 
-- [ ] **Step 1（可选 widget 测）:** `pumpWidget` 带 `ChangeNotifierProvider`，断言 `本会话：已完成 0 / 2`、完成态 `再学一组`、`进度：今日已通关` 等（见 `test/home_screen_test.dart`）。
+- [x] **Step 1（可选 widget 测）:** `pumpWidget` 带 `ChangeNotifierProvider`，断言 `本会话：已完成 0 / 2`、完成态 `再学一组`、`进度：今日已通关` 等（见 `test/home_screen_test.dart`）。
 
-- [ ] **Step 2:** `flutter analyze` 无新增问题。
+- [x] **Step 2:** `flutter analyze` 无新增问题。
 
-- [ ] **Step 3:** `flutter test` 全绿。
+- [x] **Step 3:** `flutter test` 全绿。
 
-- [ ] **Step 4:** commit message 示例：`feat(home): align home entry with superpowers design spec`。
+- [x] **Step 4:** commit message 示例：`feat(home): align home entry with superpowers design spec`。
 
 ---
 

@@ -1,10 +1,97 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../data/word_bank.dart';
+import '../models/session_checkpoint.dart';
 import '../models/user_stats.dart';
+import '../models/word_entry.dart';
 import '../services/word_lite_repository.dart';
 import 'learn_screen.dart';
 import 'parent_screen.dart';
+
+String _wordLiteDayKey(DateTime d) {
+  final DateTime t = DateTime(d.year, d.month, d.day);
+  return '${t.year}-${t.month.toString().padLeft(2, '0')}-'
+      '${t.day.toString().padLeft(2, '0')}';
+}
+
+/// 卡片轻点：只读展示今日该段入队词表（不导航、不改变学习顺序）。
+Future<void> _showQueueSegmentSheet(
+  BuildContext context,
+  WordLiteRepository repo, {
+  required bool newWordsCard,
+}) async {
+  final String day = _wordLiteDayKey(DateTime.now());
+  final SessionCheckpoint? c = repo.checkpoint;
+  final List<String> queue;
+  if (c != null && c.dayKey == day && c.queueWordIds.isNotEmpty) {
+    queue = List<String>.from(c.queueWordIds);
+  } else {
+    queue = List<String>.from(repo.buildTodayQueue());
+  }
+  final int n = repo.todayQueuePreviewCounts.newCount;
+  final List<String> segmentIds = newWordsCard
+      ? queue.take(n).toList(growable: false)
+      : queue.skip(n).toList(growable: false);
+  final List<String> lines = segmentIds
+      .map((String id) => WordBank.byId(id))
+      .whereType<WordEntry>()
+      .map((WordEntry e) => '${e.word}（${e.meaningZh}）')
+      .toList();
+
+  if (!context.mounted) {
+    return;
+  }
+  await showModalBottomSheet<void>(
+    context: context,
+    showDragHandle: true,
+    builder: (BuildContext sheetContext) {
+      return SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Text(
+                  newWordsCard ? '今日新词入队（只读）' : '今日复习入队（只读）',
+                  style: Theme.of(sheetContext).textTheme.titleMedium,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  newWordsCard
+                      ? '先学新词再进入复习。请用下方主按钮开始或继续学习，此处不会进入学习或改变顺序。'
+                      : '复习从今日到期的词中抽取，不超过 8 个。请用下方主按钮进入学习。',
+                  style: Theme.of(sheetContext).textTheme.bodySmall?.copyWith(
+                        color: Theme.of(sheetContext)
+                            .colorScheme
+                            .onSurfaceVariant,
+                      ),
+                ),
+                const SizedBox(height: 12),
+                if (lines.isEmpty)
+                  Text(
+                    newWordsCard ? '今日暂无新词入队。' : '今日暂无复习入队。',
+                    style: Theme.of(sheetContext).textTheme.bodyMedium,
+                  )
+                else
+                  ...lines.map(
+                    (String line) => ListTile(
+                      dense: true,
+                      title: Text(line),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+  );
+}
 
 /// 首页：今日队列预览卡、统计、主学习入口与完成态（C）鼓励布局。
 ///
@@ -48,6 +135,12 @@ class HomeScreen extends StatelessWidget {
         final Widget queueRow = _QueuePreviewRow(
           newCount: slice.newCount,
           reviewCount: slice.reviewCount,
+          onNewTap: () {
+            unawaited(_showQueueSegmentSheet(context, r, newWordsCard: true));
+          },
+          onReviewTap: () {
+            unawaited(_showQueueSegmentSheet(context, r, newWordsCard: false));
+          },
         );
         final Widget statsCard = _HomeStatsCard(
           stats: s,
@@ -309,10 +402,14 @@ class _QueuePreviewRow extends StatelessWidget {
   const _QueuePreviewRow({
     required this.newCount,
     required this.reviewCount,
+    required this.onNewTap,
+    required this.onReviewTap,
   });
 
   final int newCount;
   final int reviewCount;
+  final VoidCallback onNewTap;
+  final VoidCallback onReviewTap;
 
   @override
   Widget build(BuildContext context) {
@@ -321,15 +418,21 @@ class _QueuePreviewRow extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: _CountInfoCard(
+            key: const Key('home_queue_card_new'),
             title: '新词',
             value: newCount,
+            onTap: onNewTap,
+            semanticsLabel: '新词入队说明',
           ),
         ),
         const SizedBox(width: 12),
         Expanded(
           child: _CountInfoCard(
+            key: const Key('home_queue_card_review'),
             title: '复习',
             value: reviewCount,
+            onTap: onReviewTap,
+            semanticsLabel: '复习入队说明',
           ),
         ),
       ],
@@ -339,36 +442,53 @@ class _QueuePreviewRow extends StatelessWidget {
 
 class _CountInfoCard extends StatelessWidget {
   const _CountInfoCard({
+    super.key,
     required this.title,
     required this.value,
+    required this.onTap,
+    required this.semanticsLabel,
   });
 
   final String title;
   final int value;
+  final VoidCallback onTap;
+  final String semanticsLabel;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Text(
-              title,
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+    final ThemeData theme = Theme.of(context);
+    return Semantics(
+      button: true,
+      label: semanticsLabel,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(16),
+          child: Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(
+                    title,
+                    style: theme.textTheme.titleSmall?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
                   ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              '$value',
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.w600,
+                  const SizedBox(height: 4),
+                  Text(
+                    '$value',
+                    style: theme.textTheme.headlineSmall?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
                   ),
+                ],
+              ),
             ),
-          ],
+          ),
         ),
       ),
     );

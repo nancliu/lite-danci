@@ -21,3 +21,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/word_packs/extra_grade1_sample.json
+    - assets/word_packs/elementary_grade1_more.json

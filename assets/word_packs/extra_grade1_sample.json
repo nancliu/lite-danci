@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "ext_pen_001",
+      "word": "pen",
+      "meaningZh": "钢笔",
+      "emoji": "✏️",
+      "exampleEn": "I write with a blue pen.",
+      "exampleClozeEn": "I write with a blue ___.",
+      "exampleFillAnswer": "pen",
+      "exampleFillWrongEn": ["pens", "pencil", "paper"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_pencil_001",
+      "word": "pencil",
+      "meaningZh": "铅笔",
+      "emoji": "📝",
+      "exampleEn": "Please use your pencil.",
+      "exampleClozeEn": "Please use your ___.",
+      "exampleFillAnswer": "pencil",
+      "exampleFillWrongEn": ["pencils", "ruler", "eraser"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_desk_001",
+      "word": "desk",
+      "meaningZh": "课桌",
+      "emoji": "🪑",
+      "exampleEn": "My bag is on the desk.",
+      "exampleClozeEn": "My bag is on the ___.",
+      "exampleFillAnswer": "desk",
+      "exampleFillWrongEn": ["desks", "chair", "floor"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_teacher_001",
+      "word": "teacher",
+      "meaningZh": "老师",
+      "emoji": "👩‍🏫",
+      "exampleEn": "Our teacher is very kind.",
+      "exampleClozeEn": "Our ___ is very kind.",
+      "exampleFillAnswer": "teacher",
+      "exampleFillWrongEn": ["teachers", "doctor", "driver"],
+      "gradeTag": "一年级"
+    }
+  ]
+}

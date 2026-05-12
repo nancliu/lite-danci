@@ -19,6 +19,8 @@ const String _kSessionDoneHome = 'wl_session_done_home_v1';
 const String _kTodayDone = 'wl_today_done_v1';
 const String _kYesterdayMastered = 'wl_yesterday_mastered_v1';
 const String _kSkin = 'wl_skin_v1';
+const String _kLastStudy = 'wl_last_study_v1';
+const String _kStreak = 'wl_streak_v1';
 
 String _dateKey(DateTime d) {
   final DateTime t = DateTime(d.year, d.month, d.day);
@@ -41,12 +43,25 @@ ReviewStage _stageForWord(Map<String, dynamic> progress, String wordId) {
   return ReviewStageCodec.fromName(entry['stage'] as String?);
 }
 
+DateTime? _nextReviewAtForWord(Map<String, dynamic> progress, String wordId) {
+  final Object? entry = progress[wordId];
+  if (entry is! Map<String, dynamic>) {
+    return null;
+  }
+  final String? raw = entry['nextReviewAt'] as String?;
+  if (raw == null || raw.isEmpty) {
+    return null;
+  }
+  return DateTime.tryParse(raw);
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   SharedPreferences.setMockInitialValues(<String, Object>{});
 
   setUp(() {
     SharedPreferences.setMockInitialValues(<String, Object>{});
+    WordBank.resetForTest();
   });
 
   group('WordLiteRepository', () {
@@ -296,6 +311,53 @@ void main() {
       final SharedPreferences p = await SharedPreferences.getInstance();
       final Map<String, dynamic> map = _readProgressJson(p);
       expect(_stageForWord(map, wordId), ReviewStage.review_1);
+      final DateTime? nr = _nextReviewAtForWord(map, wordId);
+      expect(nr, isNotNull);
+      final DateTime n = DateTime.now();
+      expect(nr!.year, n.year);
+      expect(nr.month, n.month);
+      expect(nr.day, n.day);
+    });
+
+    test('答对四步后 review_1 进阶 review_3 且 nextReviewAt 为通关日起 +3 自然日', () async {
+      const String wordId = 'w_apple';
+      final String day = _dateKey(DateTime.now());
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: day,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        wordId: WordProgress(
+          wordId: wordId,
+          stage: ReviewStage.review_1,
+          nextReviewAt: DateTime.now().subtract(const Duration(days: 1)),
+        ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+        _kCheckpoint: jsonEncode(cp.toJson()),
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      for (int i = 0; i < 4; i++) {
+        await repo.onStepCorrect();
+      }
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      final Map<String, dynamic> map = _readProgressJson(p);
+      expect(_stageForWord(map, wordId), ReviewStage.review_3);
+      final DateTime? nr = _nextReviewAtForWord(map, wordId);
+      expect(nr, isNotNull);
+      final DateTime today = DateTime(
+        DateTime.now().year,
+        DateTime.now().month,
+        DateTime.now().day,
+      );
+      final DateTime want = today.add(const Duration(days: 3));
+      expect(nr!.year, want.year);
+      expect(nr.month, want.month);
+      expect(nr.day, want.day);
     });
 
     test('答错时从 mastered 回退到 review_14（PRD 4.2.3 补充）', () async {
@@ -324,6 +386,77 @@ void main() {
       final SharedPreferences p = await SharedPreferences.getInstance();
       final Map<String, dynamic> map = _readProgressJson(p);
       expect(_stageForWord(map, wordId), ReviewStage.review_14);
+      final DateTime? nr = _nextReviewAtForWord(map, wordId);
+      expect(nr, isNotNull);
+      final DateTime n = DateTime.now();
+      expect(nr!.year, n.year);
+      expect(nr.month, n.month);
+      expect(nr.day, n.day);
+    });
+
+    test('答错回退后 review_* 的 nextReviewAt 为当日（未来日期不保留）', () async {
+      const String wordId = 'w_apple';
+      final String day = _dateKey(DateTime.now());
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: day,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      final DateTime farFuture =
+          DateTime.now().add(const Duration(days: 60));
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        wordId: WordProgress(
+          wordId: wordId,
+          stage: ReviewStage.review_7,
+          nextReviewAt: farFuture,
+        ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+        _kCheckpoint: jsonEncode(cp.toJson()),
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      await repo.onStepWrong();
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      final Map<String, dynamic> map = _readProgressJson(p);
+      expect(_stageForWord(map, wordId), ReviewStage.review_3);
+      final DateTime? nr = _nextReviewAtForWord(map, wordId);
+      expect(nr, isNotNull);
+      final DateTime n = DateTime.now();
+      expect(nr!.year, n.year);
+      expect(nr.month, n.month);
+      expect(nr.day, n.day);
+    });
+
+    test('答错回退到 learning 时 nextReviewAt 清空', () async {
+      const String wordId = 'w_apple';
+      final String day = _dateKey(DateTime.now());
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: day,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        wordId: WordProgress(
+          wordId: wordId,
+          stage: ReviewStage.review_1,
+          nextReviewAt: DateTime.now(),
+        ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+        _kCheckpoint: jsonEncode(cp.toJson()),
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      await repo.onStepWrong();
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      final Map<String, dynamic> map = _readProgressJson(p);
+      expect(_stageForWord(map, wordId), ReviewStage.learning);
+      expect(_nextReviewAtForWord(map, wordId), isNull);
     });
 
     test('换日后今日完成数归零，昨日掌握快照更新为换日时的掌握数', () async {
@@ -379,6 +512,136 @@ void main() {
       final SharedPreferences p = await SharedPreferences.getInstance();
       expect(p.getInt(_kShards), 0);
       expect(p.getInt(_kSkin), 1);
+    });
+
+    test('连续自然日学习：昨日 lastStudy 时完成一词 streak+1', () async {
+      final DateTime yesterday = DateTime.now().subtract(const Duration(days: 1));
+      final String yesterdayKey = _dateKey(yesterday);
+      final String todayKey = _dateKey(DateTime.now());
+      const String wordId = 'w_apple';
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: todayKey,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        wordId: const WordProgress(
+          wordId: wordId,
+          stage: ReviewStage.learning,
+          nextReviewAt: null,
+        ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+        _kCheckpoint: jsonEncode(cp.toJson()),
+        _kTodayKey: todayKey,
+        _kLastStudy: yesterdayKey,
+        _kStreak: 4,
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      expect(repo.stats.streakDays, 4);
+      for (int i = 0; i < 4; i++) {
+        await repo.onStepCorrect();
+      }
+      expect(repo.stats.streakDays, 5);
+      expect(repo.stats.lastStudyDateKey, todayKey);
+    });
+
+    test('同日完成第二词 streak 不递增', () async {
+      final String todayKey = _dateKey(DateTime.now());
+      final List<String> ids =
+          WordBank.all.take(2).map((WordEntry e) => e.id).toList();
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: todayKey,
+        queueWordIds: ids,
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kCheckpoint: jsonEncode(cp.toJson()),
+        _kTodayKey: todayKey,
+        _kLastStudy: todayKey,
+        _kStreak: 6,
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      for (int i = 0; i < 4; i++) {
+        await repo.onStepCorrect();
+      }
+      expect(repo.stats.streakDays, 6);
+      for (int i = 0; i < 4; i++) {
+        await repo.onStepCorrect();
+      }
+      expect(repo.stats.streakDays, 6);
+    });
+
+    test('间隔超过一天再学 streak 重置为 1', () async {
+      final DateTime fourDaysAgo =
+          DateTime.now().subtract(const Duration(days: 4));
+      final String oldKey = _dateKey(fourDaysAgo);
+      final String todayKey = _dateKey(DateTime.now());
+      const String wordId = 'w_apple';
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: todayKey,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        wordId: const WordProgress(
+          wordId: wordId,
+          stage: ReviewStage.learning,
+          nextReviewAt: null,
+        ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+        _kCheckpoint: jsonEncode(cp.toJson()),
+        _kTodayKey: todayKey,
+        _kLastStudy: oldKey,
+        _kStreak: 20,
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      for (int i = 0; i < 4; i++) {
+        await repo.onStepCorrect();
+      }
+      expect(repo.stats.streakDays, 1);
+    });
+
+    test('从 SharedPreferences 恢复当日检查点后可继续答对并结算', () async {
+      const String wordId = 'w_apple';
+      final String day = _dateKey(DateTime.now());
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: day,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 2,
+      );
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        wordId: const WordProgress(
+          wordId: wordId,
+          stage: ReviewStage.learning,
+          nextReviewAt: null,
+        ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+        _kCheckpoint: jsonEncode(cp.toJson()),
+        _kTodayKey: day,
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      expect(repo.checkpoint?.stepIndex, 2);
+      expect(repo.currentWord()?.id, wordId);
+      await repo.onStepCorrect();
+      expect(repo.checkpoint?.stepIndex, 3);
+      await repo.onStepCorrect();
+      expect(repo.checkpoint, isNull);
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      expect(_stageForWord(_readProgressJson(p), wordId), ReviewStage.review_1);
     });
   });
 }

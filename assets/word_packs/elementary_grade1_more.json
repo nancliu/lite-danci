@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "ext_g1_red",
+      "word": "red",
+      "meaningZh": "红色",
+      "emoji": "🔴",
+      "exampleEn": "My bag is red.",
+      "exampleClozeEn": "My bag is ___.",
+      "exampleFillAnswer": "red",
+      "exampleFillWrongEn": ["blue", "green", "black"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_g1_blue",
+      "word": "blue",
+      "meaningZh": "蓝色",
+      "emoji": "🔵",
+      "exampleEn": "The sky is blue today.",
+      "exampleClozeEn": "The sky is ___ today.",
+      "exampleFillAnswer": "blue",
+      "exampleFillWrongEn": ["red", "white", "gray"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_g1_green",
+      "word": "green",
+      "meaningZh": "绿色",
+      "emoji": "🟢",
+      "exampleEn": "Grass is green in spring.",
+      "exampleClozeEn": "Grass is ___ in spring.",
+      "exampleFillAnswer": "green",
+      "exampleFillWrongEn": ["brown", "yellow", "white"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_g1_yellow",
+      "word": "yellow",
+      "meaningZh": "黄色",
+      "emoji": "🟡",
+      "exampleEn": "The sun looks yellow.",
+      "exampleClozeEn": "The sun looks ___.",
+      "exampleFillAnswer": "yellow",
+      "exampleFillWrongEn": ["orange", "white", "pink"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_g1_mother",
+      "word": "mother",
+      "meaningZh": "妈妈",
+      "emoji": "👩",
+      "exampleEn": "I love my mother.",
+      "exampleClozeEn": "I love my ___.",
+      "exampleFillAnswer": "mother",
+      "exampleFillWrongEn": ["father", "sister", "teacher"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_g1_father",
+      "word": "father",
+      "meaningZh": "爸爸",
+      "emoji": "👨",
+      "exampleEn": "My father reads books.",
+      "exampleClozeEn": "My ___ reads books.",
+      "exampleFillAnswer": "father",
+      "exampleFillWrongEn": ["mother", "uncle", "brother"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_g1_sister",
+      "word": "sister",
+      "meaningZh": "姐姐；妹妹",
+      "emoji": "👧",
+      "exampleEn": "I have a little sister.",
+      "exampleClozeEn": "I have a little ___.",
+      "exampleFillAnswer": "sister",
+      "exampleFillWrongEn": ["brother", "cousin", "friend"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_g1_brother",
+      "word": "brother",
+      "meaningZh": "哥哥；弟弟",
+      "emoji": "👦",
+      "exampleEn": "My brother plays football.",
+      "exampleClozeEn": "My ___ plays football.",
+      "exampleFillAnswer": "brother",
+      "exampleFillWrongEn": ["sister", "father", "cousin"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_g1_chair",
+      "word": "chair",
+      "meaningZh": "椅子",
+      "emoji": "🪑",
+      "exampleEn": "Please sit on the chair.",
+      "exampleClozeEn": "Please sit on the ___.",
+      "exampleFillAnswer": "chair",
+      "exampleFillWrongEn": ["desk", "floor", "sofa"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_g1_window",
+      "word": "window",
+      "meaningZh": "窗户",
+      "emoji": "🪟",
+      "exampleEn": "Open the window, please.",
+      "exampleClozeEn": "Open the ___, please.",
+      "exampleFillAnswer": "window",
+      "exampleFillWrongEn": ["door", "book", "box"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_g1_door",
+      "word": "door",
+      "meaningZh": "门",
+      "emoji": "🚪",
+      "exampleEn": "Close the door quietly.",
+      "exampleClozeEn": "Close the ___ quietly.",
+      "exampleFillAnswer": "door",
+      "exampleFillWrongEn": ["window", "gate", "wall"],
+      "gradeTag": "一年级"
+    },
+    {
+      "id": "ext_g1_bag",
+      "word": "bag",
+      "meaningZh": "书包；袋子",
+      "emoji": "🎒",
+      "exampleEn": "Put your book in the bag.",
+      "exampleClozeEn": "Put your book in the ___.",
+      "exampleFillAnswer": "bag",
+      "exampleFillWrongEn": ["box", "desk", "hand"],
+      "gradeTag": "一年级"
+    }
+  ]
+}

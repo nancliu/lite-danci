@@ -10,9 +10,18 @@ import '../models/session_checkpoint.dart';
 import '../models/user_stats.dart';
 import '../models/word_entry.dart';
 import '../models/word_progress.dart';
+import 'review_srs.dart';
 
 /// 本地存储 + 业务规则（间隔重复、每日任务、奖励、统计）。
-/// 碎片在「整段会话完成」时结算，见 [shardsPerSessionCompleted]。
+///
+/// **PRD §4.2 复习系统（SRS）** 规则由 [ReviewSrs] 实现；本仓库在
+/// [_advanceAfterSuccess]、[onStepWrong]、[_computeReviewPickForToday] 等处委托调用。
+///
+/// **PRD §4.3 奖励系统**：每词四步成功 +1 能量；整段会话完成时发碎片（[shardsPerSessionCompleted]）；
+/// 满 [shardsPerSkin] 碎片解锁一档主题（至多 [skinLevels] 档），见 [_tryUnlockSkin]。
+///
+/// **PRD §4.4 家长观察**：[UserStats] 中今日完成、累计掌握、连续天数、比昨天提升由
+/// [_rollDailyIfNeeded]、[_touchStreak]、[_countMastered] 等维护。
 class WordLiteRepository extends ChangeNotifier {
   WordLiteRepository();
 
@@ -181,13 +190,7 @@ class WordLiteRepository extends ChangeNotifier {
   }
 
   bool _isDue(WordProgress w, DateTime todayStart) {
-    if (w.stage == ReviewStage.mastered) {
-      return false;
-    }
-    if (w.nextReviewAt == null) {
-      return w.stage == ReviewStage.learning;
-    }
-    return !_startOfDay(w.nextReviewAt!).isAfter(todayStart);
+    return ReviewSrs.isDue(w, todayStart);
   }
 
   /// 今日队列中「新词段 / 复习段 / 总长」的只读预览。
@@ -351,11 +354,12 @@ class WordLiteRepository extends ChangeNotifier {
     final WordProgress? existing = _progress[w.id];
     final ReviewStage base =
         existing?.stage ?? ReviewStage.learning;
-    final ReviewStage rolled = _rollback(base);
+    final ReviewStage rolled = ReviewSrs.rollbackAfterWrong(base);
+    final DateTime now = DateTime.now();
     _progress[w.id] = WordProgress(
       wordId: w.id,
       stage: rolled,
-      nextReviewAt: existing?.nextReviewAt,
+      nextReviewAt: ReviewSrs.nextReviewAtAfterWrongRollback(rolled, now),
     );
     await _persist();
     notifyListeners();
@@ -446,70 +450,12 @@ class WordLiteRepository extends ChangeNotifier {
     }
   }
 
-  ReviewStage _rollback(ReviewStage s) {
-    switch (s) {
-      case ReviewStage.mastered:
-        return ReviewStage.review_14;
-      case ReviewStage.review_14:
-        return ReviewStage.review_7;
-      case ReviewStage.review_7:
-        return ReviewStage.review_3;
-      case ReviewStage.review_3:
-        return ReviewStage.review_1;
-      case ReviewStage.review_1:
-      case ReviewStage.learning:
-        return ReviewStage.learning;
-    }
-  }
-
   WordProgress _advanceAfterSuccess(
     String wordId,
     WordProgress? before,
     DateTime now,
   ) {
-    final ReviewStage current = before?.stage ?? ReviewStage.learning;
-    final ReviewStage nextStage = _nextStage(current);
-    final DateTime? nextAt = _nextReviewTime(nextStage, now);
-    return WordProgress(
-      wordId: wordId,
-      stage: nextStage,
-      nextReviewAt: nextAt,
-    );
-  }
-
-  ReviewStage _nextStage(ReviewStage s) {
-    switch (s) {
-      case ReviewStage.learning:
-        return ReviewStage.review_1;
-      case ReviewStage.review_1:
-        return ReviewStage.review_3;
-      case ReviewStage.review_3:
-        return ReviewStage.review_7;
-      case ReviewStage.review_7:
-        return ReviewStage.review_14;
-      case ReviewStage.review_14:
-        return ReviewStage.mastered;
-      case ReviewStage.mastered:
-        return ReviewStage.mastered;
-    }
-  }
-
-  DateTime? _nextReviewTime(ReviewStage stage, DateTime now) {
-    final DateTime start = _startOfDay(now);
-    switch (stage) {
-      case ReviewStage.learning:
-        return null;
-      case ReviewStage.review_1:
-        return start.add(const Duration(days: 1));
-      case ReviewStage.review_3:
-        return start.add(const Duration(days: 3));
-      case ReviewStage.review_7:
-        return start.add(const Duration(days: 7));
-      case ReviewStage.review_14:
-        return start.add(const Duration(days: 14));
-      case ReviewStage.mastered:
-        return null;
-    }
+    return ReviewSrs.progressAfterWordSuccess(wordId, before, now);
   }
 
   static const String _kProgress = 'wl_progress_v1';

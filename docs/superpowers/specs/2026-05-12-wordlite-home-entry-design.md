@@ -64,7 +64,26 @@
 - 完成态（第 5 节）下，主操作 **不为「开始学习」**；奖励与统计展示 **不与 PRD 计数定义矛盾**。
 - 整段会话结束后，**允许** 在 `buildTodayQueue()` 为空时仍展示完成态；再次进入学习时若无队列则仅 SnackBar 提示（见 5.2）。
 
-## 7. 后续工作
+## 7. 首页入口实现状态（验收标记）
 
-- 首页实现已与 **`superpowers:writing-plans`** 产出计划及本 spec 对齐；后续迭代以 `WordLite_PRD.md` 与 `RALPH_LOOP.md` 为验收基线。
-- 单测中已覆盖 **检查点副文案、完成态按钮类型、队列预览数、空队列 + 完成态标志** 等组合；新增场景时延续同一风格。
+对照上文 §3～§6 与 `lib/screens/home_screen.dart`，**必选入口与状态均已实现**，可视为首页专项闭环。
+
+| 验收项 | 状态 | 说明 |
+|--------|:----:|------|
+| 新词 / 复习数量预览（与当日队列或检查点一致） | ✅ | `_QueuePreviewRow` + `todayQueuePreviewCounts` |
+| 单独主按钮进入学习（卡片不承担主路径） | ✅ | `FilledButton` / `OutlinedButton` + `startOrResumeStudy` |
+| 主标题三态：开始学习 / 继续学习 / 再学一组 | ✅ | `primaryLabel` + `slice.hasActiveCp` / `slice.celebrate` |
+| 进度副文案三态（本会话 x/y · 今日 t/计划 y · 完成态总结） | ✅ | `_progressSubtitle` |
+| 完成态（C）：弱化主按钮、成就型统计卡强调 | ✅ | `celebrate` 分支 + `_HomeStatsCard(emphasize)` |
+| 完成态下仍可展示；再学一组时空队列 SnackBar | ✅ | `startOrResumeSession` 后 `checkpoint == null` |
+| 放弃 / 重置今日会话（可选操作） | ✅ | `_AbandonSessionButton` + `abandonCheckpoint` |
+| 家长观察入口（AppBar） | ✅ | `ParentScreen` 路由 |
+| 底部轻量提示文案 | ✅ | 「提示：每天约 5 分钟…」 |
+| 队列卡片可点交互（§4.3 可选） | ✅ | 轻点新词/复习卡 → `showModalBottomSheet` 只读入队列表与说明，**不导航**、不改变 B1 顺序 |
+
+**单测**：`test/home_screen_test.dart` 覆盖检查点主按钮、完成态按钮类型、队列预览数字、**队列卡片只读弹层**等。
+
+## 8. 后续工作
+
+- 后续迭代以 `WordLite_PRD.md` 与 `RALPH_LOOP.md` 为验收基线；首页若有新入口（如设置页）在 PRD §3.3 定稿后另开任务。
+- 新增首页场景时延续现有 `Selector<_HomeSlice>` 与单测风格。

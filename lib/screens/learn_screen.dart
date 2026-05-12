@@ -19,13 +19,15 @@ class LearnScreen extends StatefulWidget {
 }
 
 class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
+  static const Duration _wrongChoiceCooldown = Duration(milliseconds: 1000);
+
   static bool get _isAndroid =>
       !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
   static const List<String> _stepTitles = <String>[
     '看图识词',
     '听音选词',
     '看词选图',
-    '例句选择',
+    '例句填空',
   ];
 
   /// Android 原生 TTS：`prepare` / `speak` / `stop` 在学习页使用；
@@ -41,7 +43,10 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
   String? _choiceKey;
   List<String>? _englishOptions;
   List<String>? _emojiOptions;
-  List<String>? _meaningOptions;
+  List<String>? _fillWordOptions;
+
+  /// 答错后的冷却：防止连续乱点刷过当前步。
+  bool _choicePickLocked = false;
 
   void _ensureChoices(WordEntry w, int step) {
     final String k = '${w.id}|$step';
@@ -54,7 +59,7 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
     } else if (step == 2) {
       _emojiOptions = _buildEmojiChoices(w);
     } else {
-      _meaningOptions = _buildMeaningChoices(w);
+      _fillWordOptions = _buildFillWordChoices(w);
     }
   }
 
@@ -460,10 +465,10 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
     return out;
   }
 
-  List<String> _buildMeaningChoices(WordEntry correct) {
+  List<String> _buildFillWordChoices(WordEntry correct) {
     final List<String> out = <String>[
-      correct.meaningZh,
-      ...correct.exampleWrongZh.take(3),
+      correct.exampleFillAnswer,
+      ...correct.exampleFillWrongEn.take(3),
     ];
     out.shuffle(Random());
     return out;
@@ -474,14 +479,32 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
     WordLiteRepository repo,
     bool isCorrect,
   ) async {
+    if (_choicePickLocked) {
+      return;
+    }
     if (!isCorrect) {
-      await repo.onStepWrong();
-      if (!context.mounted) {
-        return;
+      setState(() {
+        _choicePickLocked = true;
+      });
+      try {
+        await Future<void>.delayed(_wrongChoiceCooldown);
+        if (!context.mounted) {
+          return;
+        }
+        await repo.onStepWrong();
+        if (!context.mounted) {
+          return;
+        }
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('再想想～（记忆阶段已回退）')),
+        );
+      } finally {
+        if (mounted) {
+          setState(() {
+            _choicePickLocked = false;
+          });
+        }
       }
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('再想想～（记忆阶段已回退）')),
-      );
       return;
     }
     await repo.onStepCorrect();
@@ -540,11 +563,12 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
                   child: _StepBody(
                     step: step,
                     word: w,
+                    choicesEnabled: !_choicePickLocked,
                     ttsReady: _ttsReady,
                     onSpeak: _speak,
                     englishChoices: _englishOptions ?? _buildEnglishChoices(w),
                     emojiChoices: _emojiOptions ?? _buildEmojiChoices(w),
-                    meaningChoices: _meaningOptions ?? _buildMeaningChoices(w),
+                    fillWordChoices: _fillWordOptions ?? _buildFillWordChoices(w),
                     onPick: (bool ok) => _onPick(context, repo, ok),
                   ),
                 ),
@@ -561,22 +585,28 @@ class _StepBody extends StatelessWidget {
   const _StepBody({
     required this.step,
     required this.word,
+    required this.choicesEnabled,
     required this.ttsReady,
     required this.onSpeak,
     required this.englishChoices,
     required this.emojiChoices,
-    required this.meaningChoices,
+    required this.fillWordChoices,
     required this.onPick,
   });
 
   final int step;
   final WordEntry word;
+  final bool choicesEnabled;
   final bool ttsReady;
   final Future<void> Function(String text) onSpeak;
   final List<String> englishChoices;
   final List<String> emojiChoices;
-  final List<String> meaningChoices;
+  final List<String> fillWordChoices;
   final Future<void> Function(bool isCorrect) onPick;
+
+  static bool _fillMatches(String picked, String expected) {
+    return picked.trim().toLowerCase() == expected.trim().toLowerCase();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -586,6 +616,7 @@ class _StepBody extends StatelessWidget {
           emoji: word.emoji,
           choices: englishChoices,
           correct: word.word,
+          choicesEnabled: choicesEnabled,
           onPick: onPick,
         );
       case 1:
@@ -595,6 +626,7 @@ class _StepBody extends StatelessWidget {
           onSpeak: onSpeak,
           choices: englishChoices,
           correct: word.word,
+          choicesEnabled: choicesEnabled,
           onPick: onPick,
         );
       case 2:
@@ -602,14 +634,17 @@ class _StepBody extends StatelessWidget {
           word: word.word,
           choices: emojiChoices,
           correct: word.emoji,
+          choicesEnabled: choicesEnabled,
           onPick: onPick,
         );
       default:
-        return _SentenceStep(
-          sentence: word.exampleEn,
-          choices: meaningChoices,
-          correct: word.meaningZh,
-          onPick: onPick,
+        return _ClozeSentenceStep(
+          clozeTemplate: word.exampleClozeEn,
+          choices: fillWordChoices,
+          choicesEnabled: choicesEnabled,
+          onPick: (String label) async {
+            await onPick(_fillMatches(label, word.exampleFillAnswer));
+          },
         );
     }
   }
@@ -620,12 +655,14 @@ class _PictureStep extends StatelessWidget {
     required this.emoji,
     required this.choices,
     required this.correct,
+    required this.choicesEnabled,
     required this.onPick,
   });
 
   final String emoji;
   final List<String> choices;
   final String correct;
+  final bool choicesEnabled;
   final Future<void> Function(bool isCorrect) onPick;
 
   @override
@@ -638,6 +675,7 @@ class _PictureStep extends StatelessWidget {
           ),
         ),
         _ChoiceGrid(
+          enabled: choicesEnabled,
           labels: choices,
           onTap: (String label) async {
             await onPick(label == correct);
@@ -655,6 +693,7 @@ class _ListenStep extends StatelessWidget {
     required this.onSpeak,
     required this.choices,
     required this.correct,
+    required this.choicesEnabled,
     required this.onPick,
   });
 
@@ -663,6 +702,7 @@ class _ListenStep extends StatelessWidget {
   final Future<void> Function(String text) onSpeak;
   final List<String> choices;
   final String correct;
+  final bool choicesEnabled;
   final Future<void> Function(bool isCorrect) onPick;
 
   @override
@@ -686,6 +726,7 @@ class _ListenStep extends StatelessWidget {
         ),
         const Spacer(),
         _ChoiceGrid(
+          enabled: choicesEnabled,
           labels: choices,
           onTap: (String label) async {
             await onPick(label == correct);
@@ -701,12 +742,14 @@ class _WordToPictureStep extends StatelessWidget {
     required this.word,
     required this.choices,
     required this.correct,
+    required this.choicesEnabled,
     required this.onPick,
   });
 
   final String word;
   final List<String> choices;
   final String correct;
+  final bool choicesEnabled;
   final Future<void> Function(bool isCorrect) onPick;
 
   @override
@@ -722,6 +765,7 @@ class _WordToPictureStep extends StatelessWidget {
         ),
         const Spacer(),
         _EmojiChoiceGrid(
+          enabled: choicesEnabled,
           emojis: choices,
           onTap: (String e) async {
             await onPick(e == correct);
@@ -732,42 +776,115 @@ class _WordToPictureStep extends StatelessWidget {
   }
 }
 
-class _SentenceStep extends StatelessWidget {
-  const _SentenceStep({
-    required this.sentence,
+class _ClozeSentenceStep extends StatelessWidget {
+  const _ClozeSentenceStep({
+    required this.clozeTemplate,
     required this.choices,
-    required this.correct,
+    required this.choicesEnabled,
     required this.onPick,
   });
 
-  final String sentence;
+  static const String _blankMarker = '___';
+
+  final String clozeTemplate;
   final List<String> choices;
-  final String correct;
-  final Future<void> Function(bool isCorrect) onPick;
+  final bool choicesEnabled;
+  final Future<void> Function(String label) onPick;
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final ColorScheme colors = theme.colorScheme;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Card(
           child: Padding(
             padding: const EdgeInsets.all(16),
-            child: Text(
-              sentence,
-              style: Theme.of(context).textTheme.titleMedium,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                _ClozeRichText(
+                  template: clozeTemplate,
+                  blankMarker: _blankMarker,
+                  textStyle: theme.textTheme.titleMedium,
+                  blankColor: colors.primary,
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  '选出填入空格的词语',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: colors.onSurfaceVariant,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
         const Spacer(),
         _ChoiceGrid(
+          enabled: choicesEnabled,
           labels: choices,
-          onTap: (String label) async {
-            await onPick(label == correct);
-          },
+          onTap: onPick,
         ),
       ],
     );
+  }
+}
+
+class _ClozeRichText extends StatelessWidget {
+  const _ClozeRichText({
+    required this.template,
+    required this.blankMarker,
+    required this.textStyle,
+    required this.blankColor,
+  });
+
+  final String template;
+  final String blankMarker;
+  final TextStyle? textStyle;
+  final Color blankColor;
+
+  @override
+  Widget build(BuildContext context) {
+    final TextStyle base = textStyle ?? Theme.of(context).textTheme.titleMedium!;
+    if (!template.contains(blankMarker)) {
+      return Text(template, style: base);
+    }
+    final List<String> parts = template.split(blankMarker);
+    final List<InlineSpan> spans = <InlineSpan>[];
+    for (int i = 0; i < parts.length; i++) {
+      if (parts[i].isNotEmpty) {
+        spans.add(TextSpan(text: parts[i], style: base));
+      }
+      if (i < parts.length - 1) {
+        spans.add(
+          WidgetSpan(
+            alignment: PlaceholderAlignment.baseline,
+            baseline: TextBaseline.alphabetic,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 2, right: 2, bottom: 2),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(color: blankColor, width: 2.5),
+                  ),
+                ),
+                child: Text(
+                  '        ',
+                  style: base.copyWith(
+                    color: blankColor,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+      }
+    }
+    return Text.rich(TextSpan(style: base, children: spans));
   }
 }
 
@@ -775,10 +892,12 @@ class _ChoiceGrid extends StatelessWidget {
   const _ChoiceGrid({
     required this.labels,
     required this.onTap,
+    this.enabled = true,
   });
 
   final List<String> labels;
   final Future<void> Function(String label) onTap;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
@@ -791,9 +910,11 @@ class _ChoiceGrid extends StatelessWidget {
       children: labels
           .map(
             (String s) => FilledButton(
-              onPressed: () async {
-                await onTap(s);
-              },
+              onPressed: enabled
+                  ? () async {
+                      await onTap(s);
+                    }
+                  : null,
               child: Text(
                 s,
                 textAlign: TextAlign.center,
@@ -809,10 +930,12 @@ class _EmojiChoiceGrid extends StatelessWidget {
   const _EmojiChoiceGrid({
     required this.emojis,
     required this.onTap,
+    this.enabled = true,
   });
 
   final List<String> emojis;
   final Future<void> Function(String emoji) onTap;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
@@ -825,9 +948,11 @@ class _EmojiChoiceGrid extends StatelessWidget {
       children: emojis
           .map(
             (String s) => FilledButton(
-              onPressed: () async {
-                await onTap(s);
-              },
+              onPressed: enabled
+                  ? () async {
+                      await onTap(s);
+                    }
+                  : null,
               child: Text(s, style: const TextStyle(fontSize: 44)),
             ),
           )
