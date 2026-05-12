@@ -80,15 +80,9 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
     await _tts.setSpeechRate(0.45);
 
     final bool englishOk = await _configureEnglishTtsLanguage();
-    if (!englishOk && mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            '未检测到可用的英语朗读语音。请到系统设置 → 无障碍 / 文本转语音 中，'
-            '为当前引擎下载「英语」离线语音数据后再试。',
-          ),
-          duration: Duration(seconds: 6),
-        ),
+    if (!englishOk && kDebugMode) {
+      debugPrint(
+        'WordLite TTS: setLanguage 未返回成功，仍使用系统当前引擎；部分引擎仍可朗读英语。',
       );
     }
 
