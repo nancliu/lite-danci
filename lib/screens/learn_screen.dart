@@ -76,8 +76,36 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
       );
     });
 
+    if (_isAndroid) {
+      // 部分 ColorOS 机型在 Activity 尚未完全就绪时初始化 TTS 会无声。
+      await Future<void>.delayed(const Duration(milliseconds: 300));
+    }
+
+    if (_isAndroid) {
+      try {
+        await _tts.setQueueMode(0);
+      } on Object catch (_) {
+        // 忽略不支持的实现。
+      }
+      try {
+        await _tts.setAudioAttributesForNavigation();
+      } on Object catch (_) {
+        // 部分引擎不支持；忽略。
+      }
+    }
+
     await _tts.setVolume(1.0);
     await _tts.setSpeechRate(0.45);
+    try {
+      await _tts.setPitch(1.0);
+    } on Object catch (_) {
+      // 忽略。
+    }
+
+    if (kDebugMode) {
+      _tts.setStartHandler(() => debugPrint('WordLite TTS: onStart'));
+      _tts.setCompletionHandler(() => debugPrint('WordLite TTS: onComplete'));
+    }
 
     final bool englishOk = await _configureEnglishTtsLanguage();
     if (!englishOk && kDebugMode) {
@@ -187,10 +215,26 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
     if (!_ttsReady) {
       return;
     }
-    await _tts.stop();
-    // Android：speak 默认 focus=false 时不请求音频焦点，部分机型会无声或走错误音频路由。
     if (_isAndroid) {
-      await _tts.speak(text, focus: true);
+      await _tts.stop();
+      // 紧接 stop 再 speak 在部分 ColorOS/无障碍引擎上会丢首帧音频。
+      await Future<void>.delayed(const Duration(milliseconds: 120));
+      await _tts.setVolume(1.0);
+    } else {
+      await _tts.stop();
+    }
+
+    if (_isAndroid) {
+      dynamic r = await _tts.speak(text, focus: true);
+      if (kDebugMode) {
+        debugPrint('WordLite TTS: speak(..., focus: true) -> $r');
+      }
+      if (r != 1) {
+        r = await _tts.speak(text, focus: false);
+        if (kDebugMode) {
+          debugPrint('WordLite TTS: speak(..., focus: false) -> $r');
+        }
+      }
     } else {
       await _tts.speak(text);
     }
