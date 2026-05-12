@@ -37,3 +37,4 @@ Ralph Loop 指：**执行 → 用命令与验收标准评估 → 修复 → 重�
 3. **首页设计**：对照 `docs/superpowers/specs/2026-05-12-wordlite-home-entry-design.md`（含 4.3 进度文案与 5.2 完成态 / 空队列口径），与 `lib/screens/home_screen.dart` 表现一致。
 4. **仓库与持久化**：关键键名与 `WordLiteRepository` 行为未破坏既有学习进度（必要时在真机或干净安装上做一次冒烟：安装 → 学一词 → 杀进程 → 再开 → 检查点仍在）。
 5. **Git**：`.gitignore` 已排除 `build/`、`.dart_tool/`、`android/.gradle/`、`.superpowers/` 等，勿将密钥或本地缓存提交进仓库。
+6. **Android 听音**：学习页「播放读音」可正常发声；实现上 Android 仅用 `WordLiteAndroidTtsPlugin` 单路 TTS，勿在 `LearnScreen` 再 `FlutterTts()`，以免双实例在部分机型上无声或挂起。系统 TTS 相关入口宜放在独立「设置」页（需求草案见 `WordLite_PRD.md` **3.3**），学习页保持简洁。
