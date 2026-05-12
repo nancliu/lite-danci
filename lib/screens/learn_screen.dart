@@ -79,10 +79,17 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
     await _tts.setVolume(1.0);
     await _tts.setSpeechRate(0.45);
 
-    final String tag = await _pickEnglishLanguageTag();
-    final dynamic langOk = await _tts.setLanguage(tag);
-    if (langOk != 1 && kDebugMode) {
-      debugPrint('WordLite TTS: setLanguage("$tag") returned $langOk');
+    final bool englishOk = await _configureEnglishTtsLanguage();
+    if (!englishOk && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            '未检测到可用的英语朗读语音。请到系统设置 → 无障碍 / 文本转语音 中，'
+            '为当前引擎下载「英语」离线语音数据后再试。',
+          ),
+          duration: Duration(seconds: 6),
+        ),
+      );
     }
 
     if (!mounted) {
@@ -93,8 +100,32 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
     });
   }
 
-  /// 优先 en-US，否则在设备已安装的语言中选首个英语变体。
-  Future<String> _pickEnglishLanguageTag() async {
+  /// 依次调用 [FlutterTts.setLanguage]，直到返回 1（成功）。
+  ///
+  /// 部分机型 [getLanguages] 含 `en-US`，但 [setLanguage] 仍返回 0（离线语音包未就绪等），
+  /// 故不能仅凭列表选标签，必须实测返回值。
+  Future<bool> _configureEnglishTtsLanguage() async {
+    final List<String> candidates = await _englishLanguageCandidates();
+    for (final String tag in candidates) {
+      final dynamic ok = await _tts.setLanguage(tag);
+      if (ok == 1) {
+        if (kDebugMode) {
+          debugPrint('WordLite TTS: setLanguage("$tag") ok');
+        }
+        return true;
+      }
+    }
+    if (kDebugMode) {
+      debugPrint(
+        'WordLite TTS: no English setLanguage succeeded; tried '
+        '${candidates.length} tags. User may need system TTS English voice data.',
+      );
+    }
+    return false;
+  }
+
+  /// 生成去重后的英语语言标签尝试顺序。
+  Future<List<String>> _englishLanguageCandidates() async {
     const List<String> preferred = <String>[
       'en-US',
       'en-GB',
@@ -102,26 +133,40 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
       'en-IN',
       'en',
     ];
+    final List<String> out = <String>[];
+    void add(String t) {
+      final String s = t.trim();
+      if (s.isEmpty) {
+        return;
+      }
+      if (!out.contains(s)) {
+        out.add(s);
+      }
+    }
+
+    for (final String p in preferred) {
+      add(p);
+    }
+
     try {
       final dynamic raw = await _tts.getLanguages;
-      if (raw is! List) {
-        return 'en-US';
-      }
-      final Set<String> tags = raw.map((dynamic e) => e.toString()).toSet();
-      for (final String p in preferred) {
-        if (tags.contains(p)) {
-          return p;
-        }
-      }
-      for (final String t in tags) {
-        if (t.toLowerCase().startsWith('en')) {
-          return t;
+      if (raw is List) {
+        final List<String> fromDevice = raw.map((dynamic e) => e.toString()).toList()
+          ..sort();
+        for (final String t in fromDevice) {
+          if (t.toLowerCase().startsWith('en')) {
+            add(t);
+          }
         }
       }
     } on Object catch (_) {
-      // 忽略枚举失败，回退默认标签。
+      // 忽略。
     }
-    return 'en-US';
+
+    for (final String p in preferred) {
+      add(p);
+    }
+    return out;
   }
 
   @override
