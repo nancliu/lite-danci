@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,8 @@ class LearnScreen extends StatefulWidget {
 }
 
 class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
+  static bool get _isAndroid =>
+      !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
   static const List<String> _stepTitles = <String>[
     '看图识词',
     '听音选词',
@@ -64,14 +67,61 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
   }
 
   Future<void> _initTts() async {
-    await _tts.setLanguage('en-US');
+    _tts.setErrorHandler((dynamic message) {
+      if (!mounted) {
+        return;
+      }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('朗读失败：$message')),
+      );
+    });
+
+    await _tts.setVolume(1.0);
     await _tts.setSpeechRate(0.45);
+
+    final String tag = await _pickEnglishLanguageTag();
+    final dynamic langOk = await _tts.setLanguage(tag);
+    if (langOk != 1 && kDebugMode) {
+      debugPrint('WordLite TTS: setLanguage("$tag") returned $langOk');
+    }
+
     if (!mounted) {
       return;
     }
     setState(() {
       _ttsReady = true;
     });
+  }
+
+  /// 优先 en-US，否则在设备已安装的语言中选首个英语变体。
+  Future<String> _pickEnglishLanguageTag() async {
+    const List<String> preferred = <String>[
+      'en-US',
+      'en-GB',
+      'en-AU',
+      'en-IN',
+      'en',
+    ];
+    try {
+      final dynamic raw = await _tts.getLanguages;
+      if (raw is! List) {
+        return 'en-US';
+      }
+      final Set<String> tags = raw.map((dynamic e) => e.toString()).toSet();
+      for (final String p in preferred) {
+        if (tags.contains(p)) {
+          return p;
+        }
+      }
+      for (final String t in tags) {
+        if (t.toLowerCase().startsWith('en')) {
+          return t;
+        }
+      }
+    } on Object catch (_) {
+      // 忽略枚举失败，回退默认标签。
+    }
+    return 'en-US';
   }
 
   @override
@@ -99,7 +149,12 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
       return;
     }
     await _tts.stop();
-    await _tts.speak(text);
+    // Android：speak 默认 focus=false 时不请求音频焦点，部分机型会无声或走错误音频路由。
+    if (_isAndroid) {
+      await _tts.speak(text, focus: true);
+    } else {
+      await _tts.speak(text);
+    }
   }
 
   List<String> _buildEnglishChoices(WordEntry correct) {
