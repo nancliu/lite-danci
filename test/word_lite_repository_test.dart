@@ -16,6 +16,9 @@ const String _kEnergy = 'wl_energy_v1';
 const String _kShards = 'wl_shards_v1';
 const String _kTodayKey = 'wl_today_key_v1';
 const String _kSessionDoneHome = 'wl_session_done_home_v1';
+const String _kTodayDone = 'wl_today_done_v1';
+const String _kYesterdayMastered = 'wl_yesterday_mastered_v1';
+const String _kSkin = 'wl_skin_v1';
 
 String _dateKey(DateTime d) {
   final DateTime t = DateTime(d.year, d.month, d.day);
@@ -293,6 +296,89 @@ void main() {
       final SharedPreferences p = await SharedPreferences.getInstance();
       final Map<String, dynamic> map = _readProgressJson(p);
       expect(_stageForWord(map, wordId), ReviewStage.review_1);
+    });
+
+    test('答错时从 mastered 回退到 review_14（PRD 4.2.3 补充）', () async {
+      const String wordId = 'w_apple';
+      final String day = _dateKey(DateTime.now());
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: day,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        wordId: const WordProgress(
+          wordId: wordId,
+          stage: ReviewStage.mastered,
+          nextReviewAt: null,
+        ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+        _kCheckpoint: jsonEncode(cp.toJson()),
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      await repo.onStepWrong();
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      final Map<String, dynamic> map = _readProgressJson(p);
+      expect(_stageForWord(map, wordId), ReviewStage.review_14);
+    });
+
+    test('换日后今日完成数归零，昨日掌握快照更新为换日时的掌握数', () async {
+      final DateTime yesterday = DateTime.now().subtract(const Duration(days: 1));
+      final String yesterdayKey = _dateKey(yesterday);
+      final List<WordEntry> masteredTwo = WordBank.all.take(2).toList();
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        for (final WordEntry e in masteredTwo)
+          e.id: WordProgress(
+            wordId: e.id,
+            stage: ReviewStage.mastered,
+            nextReviewAt: null,
+          ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+        _kTodayKey: yesterdayKey,
+        _kTodayDone: 99,
+        _kYesterdayMastered: 0,
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      expect(repo.stats.todayCompletedWords, 0);
+      expect(repo.stats.totalMastered, 2);
+      expect(repo.stats.yesterdayMasteredSnapshot, 2);
+      expect(repo.stats.deltaVsYesterday, 0);
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      expect(p.getInt(_kTodayDone), 0);
+      expect(p.getInt(_kYesterdayMastered), 2);
+    });
+
+    test('整段会话完成时 9+1 碎片触发解锁一档皮肤并扣减碎片', () async {
+      const String wordId = 'w_apple';
+      final String day = _dateKey(DateTime.now());
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: day,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kCheckpoint: jsonEncode(cp.toJson()),
+        _kShards: 9,
+        _kSkin: 0,
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      for (int i = 0; i < 4; i++) {
+        await repo.onStepCorrect();
+      }
+      expect(repo.stats.shards, 0);
+      expect(repo.stats.unlockedSkinLevel, 1);
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      expect(p.getInt(_kShards), 0);
+      expect(p.getInt(_kSkin), 1);
     });
   });
 }

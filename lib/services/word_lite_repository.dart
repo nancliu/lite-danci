@@ -249,7 +249,7 @@ class WordLiteRepository extends ChangeNotifier {
     return dueIds.take(take).toList();
   }
 
-  /// 生成今日学习队列（新词 5 + 复习 5～8）。
+  /// 生成今日学习队列：新词至多 [newWordsPerDay]；复习为当日到期词随机抽取，至多 [reviewMax] 个（不硬凑条数）。
   List<String> buildTodayQueue() {
     _rollDailyIfNeeded();
     final List<String> newIds = _computeNewIdsForToday();
