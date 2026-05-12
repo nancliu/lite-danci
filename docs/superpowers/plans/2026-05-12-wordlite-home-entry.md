@@ -179,12 +179,12 @@ test('整段会话完成后首页完成态为 true，重新开始后为 false', 
 **UI 规则（对照 spec）：**
 
 1. **双卡片**：只读展示「新词 · N」「复习 · M」，数据来自 `todayQueuePreviewCounts`；若 `hasActiveCheckpoint`，拆分应以 `checkpoint.queueWordIds` 为准（与 Task 2 的 getter 设计一致）。
-2. **主按钮**：`FilledButton` 主标题 — `hasActiveCheckpoint ? '继续学习' : '开始学习'`（将现有「开始今日学习」改为「开始学习」以符合 spec）。
-3. **副标题**：在按钮下方或 `subtitle` 属性中用 `Text` 显示 `已完成 x / y`：有检查点时 `x = checkpoint.wordIndex`，`y = checkpoint.queueWordIds.length`（与 brainstorming 一致：当前词未完成四步时 `wordIndex` 不前进）。
-4. **完成态 C**：当 `shouldShowHomeSessionCompleteCelebration` 为 `true` 时：主 `FilledButton` **隐藏或改为次要 `OutlinedButton`/小号文字链**，避免视觉焦点；**放大或置顶**现有统计 `Card`（今日完成、能量/碎片/连续等），可拆成「今日成就」区块；保留 AppBar 家长入口。
+2. **主按钮**：非完成态用 `FilledButton`：`hasActiveCheckpoint ? '继续学习' : '开始学习'`。完成态（C）用 `OutlinedButton` 文案 **「再学一组」**（见 `docs/superpowers/specs/2026-05-12-wordlite-home-entry-design.md` 4.3 / 5.2）。
+3. **进度副文案**：有检查点 → `本会话：已完成 x / y`；无检查点且非完成态 → `进度：今日已通关 t / 计划 y 个词`（`t` 与统计卡「今日完成」一致）；完成态 → 总结行「今日已通关 … · 本日计划共 …」。
+4. **完成态 C**：当 `shouldShowHomeSessionCompleteCelebration` 为 `true` 时：主入口为次要 `OutlinedButton`「再学一组」；统计 `Card` 前置并强化为「今日成就」区块；保留 AppBar 家长入口。
 5. **重置今日会话**：在完成态下仍可显示；点击后调用 `abandonCheckpoint()`（并依赖 Task 3 清除完成态标志）。
 
-- [ ] **Step 1（可选 widget 测）:** `pumpWidget` 带 `ChangeNotifierProvider` + 打桩 `WordLiteRepository` 子类或 `TestWidgetsFlutterBinding` + 手工 `notifyListeners`，断言 `find.text('已完成 0 / 2')` 等。
+- [ ] **Step 1（可选 widget 测）:** `pumpWidget` 带 `ChangeNotifierProvider`，断言 `本会话：已完成 0 / 2`、完成态 `再学一组`、`进度：今日已通关` 等（见 `test/home_screen_test.dart`）。
 
 - [ ] **Step 2:** `flutter analyze` 无新增问题。
 
@@ -202,18 +202,18 @@ test('整段会话完成后首页完成态为 true，重新开始后为 false', 
 |-----------|-----------|
 | 双信息卡只读（B） | Task 2 + Task 4 |
 | 同队列 B1、主按钮 2 | Task 4 |
-| 主标题 + 副文案 C | Task 4 |
-| 完成态 C | Task 3 + Task 4 |
+| 主标题 + 副文案 C + 完成态「再学一组」 | Task 4 |
+| 完成态 C + 5.2 空队列口径 | Task 3 + Task 4 |
 | y 与真实队列一致 | Task 1 + Task 2 |
 
 **2. Placeholder 扫描：** 无 TBD；单测中「造数」步骤要求从现有测试复制可运行 JSON。
 
 **3. 类型与命名一致性：** `todayQueuePreviewCounts` 若改为类或 `HomeQueuePreview` record，全计划统一一名称。
 
-4. **已知产品边角（计划中已约束）：**
+4. **已知产品边角（随实现修订，以 design spec 5.2 为准）：**
 
-- 「已完成 x / y」仅在**存在当日检查点**时展示；无检查点且非完成态时，可不展示副文案或展示 `0 / preview.total` — 实现时在 `HomeScreen` 内二选一并写入 `home_screen_test` 断言，避免与「未开始会话」混淆。
-- 完成态与「词库已无可学词」SnackBar 可同时存在：若 `buildTodayQueue` 为空，仍以现有 SnackBar 为准，**不**强制显示完成态 C（可在仓库层：`shouldShow...` 与 `queueEmpty` 互斥）。
+- 进度副文案已拆为 **本会话** / **今日已通关 + 计划** 两行口径，与放弃会话后的统计卡一致。
+- **完成态** 与「暂无可学单词」SnackBar：**不**在仓库层用 `buildTodayQueue` 为空压制完成态；用户点「再学一组」且仍无队列时再 SnackBar（见 design spec 5.2）。
 
 ---
 
