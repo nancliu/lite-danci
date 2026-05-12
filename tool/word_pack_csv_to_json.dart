@@ -5,7 +5,7 @@
 // **首行表头**（须完全一致）：
 // id|word|meaningZh|emoji|exampleEn|exampleClozeEn|exampleFillAnswer|wrong1|wrong2|wrong3|gradeTag
 //
-// gradeTag 可留空。数据行须为 11 列。
+// gradeTag 可留空。emoji 可留空（看图步骤用默认占位）。数据行须为 11 列。
 
 import 'dart:convert';
 import 'dart:io';

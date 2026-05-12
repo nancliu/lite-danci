@@ -2,7 +2,7 @@
 
 ## 增加一批词
 
-1. 按 `docs/superpowers/specs/2026-05-12-wordlite-prd-4.5-word-bank-design.md` 的 JSON 字段写好文件（`exampleClozeEn` 须含 `___`，`exampleFillWrongEn` 至少 3 条）。
+1. 按 `docs/superpowers/specs/2026-05-12-wordlite-prd-4.5-word-bank-design.md` 的 JSON 字段写好文件（`exampleClozeEn` 须含 `___`，`exampleFillWrongEn` 至少 3 条）。**`emoji` 可省略或空字符串**，应用内会使用占位符 `🔤` 参与看图/看词选图；有合适图形时仍建议填写。
 2. 在 `pubspec.yaml` 的 `flutter.assets` 中注册该文件路径。
 3. 在 `lib/data/word_bank.dart` 的 `embeddedPackAssetPaths` 中加入同一路径。
 4. 重新运行应用；单测环境若未加载资源，词表仍为内置列表。

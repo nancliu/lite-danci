@@ -12,6 +12,9 @@ class WordEntry {
     this.gradeTag,
   });
 
+  /// 词包未提供 [emoji] 或为空时，看图/看词选图步骤使用的占位（拉丁字母块）。
+  static const String missingEmojiPlaceholder = '🔤';
+
   final String id;
   final String word;
   final String meaningZh;
@@ -55,7 +58,7 @@ class WordEntry {
       throw const FormatException('WordEntry.word 须为非空字符串');
     }
     final String meaningZh = _reqString(json, 'meaningZh');
-    final String emoji = _reqString(json, 'emoji');
+    final String emoji = _emojiOrPlaceholder(json['emoji']);
     final String exampleEn = _reqString(json, 'exampleEn');
     final String exampleClozeEn = _reqString(json, 'exampleClozeEn');
     if (!exampleClozeEn.contains('___')) {
@@ -82,6 +85,13 @@ class WordEntry {
       exampleFillWrongEn: wrong,
       gradeTag: gradeTag,
     );
+  }
+
+  static String _emojiOrPlaceholder(Object? v) {
+    if (v is String && v.trim().isNotEmpty) {
+      return v.trim();
+    }
+    return missingEmojiPlaceholder;
   }
 
   static String _reqString(Map<String, dynamic> json, String key) {

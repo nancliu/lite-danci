@@ -24,7 +24,7 @@
 - **词包 JSON**（文件级）支持两种顶层形态：
   - 对象：`{ "version": 1, "entries": [ ... ] }`
   - 数组：`[ { ... }, ... ]`
-- **单条 `entries[]` 对象**字段与 `WordEntry` 对齐：`id`, `word`, `meaningZh`, `emoji`, `exampleEn`, `exampleClozeEn`, `exampleFillAnswer`, `exampleFillWrongEn`（字符串数组，**至少 3 个**）、`gradeTag`（可选）。
+- **单条 `entries[]` 对象**字段与 `WordEntry` 对齐：`id`, `word`, `meaningZh`, `emoji`（**可省略或空**，解析为占位符 `🔤`，用于无图单词）、`exampleEn`, `exampleClozeEn`, `exampleFillAnswer`, `exampleFillWrongEn`（字符串数组，**至少 3 个**）、`gradeTag`（可选）。
 - **校验**：`exampleClozeEn` 必须包含子串 `___`；`id` 非空；与内置 **id 重复** 的扩展条目不合并（跳过，避免覆盖内置）。
 
 ## 4. 运行时行为

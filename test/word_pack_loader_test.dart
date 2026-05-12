@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:word_lite/data/word_pack_loader.dart';
+import 'package:word_lite/models/word_entry.dart';
 
 void main() {
   test('解析对象顶层 entries', () {
@@ -20,6 +21,25 @@ void main() {
 [{"id":"x2","word":"b","meaningZh":"二","emoji":"🌟","exampleEn":"B.","exampleClozeEn":"___ there.","exampleFillAnswer":"b","exampleFillWrongEn":["c","d","e"]}]''';
     final WordPackLoadResult r = WordPackLoader.parsePackJson(json);
     expect(r.entries.single.id, 'x2');
+  });
+
+  test('缺 emoji 键时使用占位符', () {
+    final String json = jsonEncode(<String, dynamic>{
+      'entries': <Map<String, dynamic>>[
+        <String, dynamic>{
+          'id': 'x_no_emoji',
+          'word': 'test',
+          'meaningZh': '测',
+          'exampleEn': 'A test.',
+          'exampleClozeEn': 'A ___.',
+          'exampleFillAnswer': 'test',
+          'exampleFillWrongEn': <String>['best', 'rest', 'nest'],
+        },
+      ],
+    });
+    final WordPackLoadResult r = WordPackLoader.parsePackJson(json);
+    expect(r.entries.single.emoji, WordEntry.missingEmojiPlaceholder);
+    expect(r.parseErrors, isEmpty);
   });
 
   test('缺 ___ 时记入 parseErrors', () {
