@@ -61,7 +61,7 @@ void main() {
     await tester.pump();
 
     expect(find.text('继续学习'), findsOneWidget);
-    expect(find.text('已完成 0 / 2'), findsOneWidget);
+    expect(find.text('本会话：已完成 0 / 2'), findsOneWidget);
   });
 
   testWidgets('完成态 C 下主入口为 OutlinedButton 且突出今日成就', (WidgetTester tester) async {
@@ -78,7 +78,8 @@ void main() {
 
     expect(find.text('今日成就'), findsOneWidget);
     expect(find.byType(FilledButton), findsNothing);
-    expect(find.widgetWithText(OutlinedButton, '开始学习'), findsOneWidget);
+    expect(find.widgetWithText(OutlinedButton, '再学一组'), findsOneWidget);
+    expect(find.textContaining('今日已通关'), findsOneWidget);
   });
 
   testWidgets('无检查点时主入口为开始学习 FilledButton', (WidgetTester tester) async {
@@ -88,6 +89,21 @@ void main() {
     await tester.pump();
 
     expect(find.widgetWithText(FilledButton, '开始学习'), findsOneWidget);
-    expect(find.text('已完成'), findsNothing);
+    expect(find.textContaining('进度：今日已通关'), findsOneWidget);
+    expect(find.text('本会话：已完成'), findsNothing);
+  });
+
+  testWidgets('队列预览卡展示新词与复习数量', (WidgetTester tester) async {
+    final WordLiteRepository repo = await _repoFromPrefs(<String, Object>{});
+    final ({int newCount, int reviewCount, int total}) c =
+        repo.todayQueuePreviewCounts;
+
+    await tester.pumpWidget(_wrapHome(repo));
+    await tester.pump();
+
+    expect(find.text('新词'), findsOneWidget);
+    expect(find.text('复习'), findsOneWidget);
+    expect(find.text('${c.newCount}'), findsOneWidget);
+    expect(find.text('${c.reviewCount}'), findsOneWidget);
   });
 }

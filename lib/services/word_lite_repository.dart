@@ -66,16 +66,12 @@ class WordLiteRepository extends ChangeNotifier {
 
   /// 首页「整段会话刚完成」完成态（C）是否应展示。
   ///
-  /// 与「今日队列为空、由 SnackBar 等提示无可学词」互斥：当 [buildTodayQueue]
-  /// 为空时不为 true，避免与空队列提示同时抢焦点。
+  /// 仅在「当日队列最后一词四步成功通关」后置位 [_sessionDoneHomeV1]，故与
+  /// 「暂无可学词」SnackBar 不冲突：会话已结束时队列可能因进度变为空，仍应
+  /// 展示鼓励态；用户点「再学一组」后若仍无可学词，由 [startOrResumeSession]
+  /// 走空队列分支提示。
   bool get shouldShowHomeSessionCompleteCelebration {
-    if (!_sessionDoneHomeV1 || hasActiveCheckpoint) {
-      return false;
-    }
-    if (buildTodayQueue().isEmpty) {
-      return false;
-    }
-    return true;
+    return _sessionDoneHomeV1 && !hasActiveCheckpoint;
   }
 
   Future<void> init() async {

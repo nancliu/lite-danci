@@ -14,6 +14,7 @@ const String _kProgress = 'wl_progress_v1';
 const String _kCheckpoint = 'wl_checkpoint_v1';
 const String _kEnergy = 'wl_energy_v1';
 const String _kShards = 'wl_shards_v1';
+const String _kTodayKey = 'wl_today_key_v1';
 const String _kSessionDoneHome = 'wl_session_done_home_v1';
 
 String _dateKey(DateTime d) {
@@ -218,6 +219,27 @@ void main() {
       expect(repo.shouldShowHomeSessionCompleteCelebration, isFalse);
       final SharedPreferences pAfter = await SharedPreferences.getInstance();
       expect(pAfter.getBool(_kSessionDoneHome), isFalse);
+    });
+
+    test('完成态为 true 时允许当日 buildTodayQueue 为空（词库已全部掌握）', () async {
+      final String day = _dateKey(DateTime.now());
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        for (final WordEntry e in WordBank.all)
+          e.id: WordProgress(
+            wordId: e.id,
+            stage: ReviewStage.mastered,
+            nextReviewAt: null,
+          ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+        _kTodayKey: day,
+        _kSessionDoneHome: true,
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      expect(repo.buildTodayQueue(), isEmpty);
+      expect(repo.shouldShowHomeSessionCompleteCelebration, isTrue);
     });
 
     test('整段会话完成时发放碎片（单词队列即一次会话）', () async {
