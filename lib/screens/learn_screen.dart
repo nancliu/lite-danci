@@ -11,6 +11,7 @@ import '../data/word_bank.dart';
 import '../models/session_checkpoint.dart';
 import '../models/word_entry.dart';
 import '../services/word_lite_repository.dart';
+import 'widgets/cloze_rich_text.dart';
 
 class LearnScreen extends StatefulWidget {
   const LearnScreen({super.key});
@@ -564,6 +565,50 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
     }
   }
 
+  /// 第四步「例句填空」答对后的反馈：朗读完整句 + 短暂停留，再推进。
+  ///
+  /// 视觉填充由 [_ClozeSentenceStep] 内部 setState 完成（在本回调被调用前）。
+  /// 此处只负责音频与节奏：
+  /// 1. 触发整句朗读（fire-and-forget；Android `QUEUE_FLUSH` 会自然处理打断）。
+  /// 2. 等待 1200ms，让用户看到填空 + 听到大部分句子。
+  /// 3. 检查 [mounted] 后再 [onStepCorrect]，避免 1.2s 内退出页面引发竞态。
+  /// 4. 若为末词则 snackbar + pop（与原 `_onPick` 末词路径一致）。
+  Future<void> _onClozeCorrectReveal(
+    BuildContext context,
+    WordLiteRepository repo,
+    String fullSentence,
+  ) async {
+    if (_choicePickLocked) {
+      return;
+    }
+    setState(() {
+      _choicePickLocked = true;
+    });
+    try {
+      unawaited(_speak(fullSentence));
+      await Future<void>.delayed(const Duration(milliseconds: 1200));
+      if (!mounted) {
+        return;
+      }
+      await repo.onStepCorrect();
+      if (!context.mounted) {
+        return;
+      }
+      if (repo.checkpoint == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('今日学习完成，真棒！')),
+        );
+        Navigator.of(context).pop();
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _choicePickLocked = false;
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<WordLiteRepository>(
@@ -615,6 +660,8 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
                     emojiChoices: _emojiOptions ?? _buildEmojiChoices(w),
                     fillWordChoices: _fillWordOptions ?? _buildFillWordChoices(w),
                     onPick: (bool ok) => _onPick(context, repo, ok),
+                    onClozeCorrectReveal: (String fullSentence) =>
+                        _onClozeCorrectReveal(context, repo, fullSentence),
                   ),
                 ),
               ],
@@ -637,6 +684,7 @@ class _StepBody extends StatelessWidget {
     required this.emojiChoices,
     required this.fillWordChoices,
     required this.onPick,
+    required this.onClozeCorrectReveal,
   });
 
   final int step;
@@ -649,9 +697,8 @@ class _StepBody extends StatelessWidget {
   final List<String> fillWordChoices;
   final Future<void> Function(bool isCorrect) onPick;
 
-  static bool _fillMatches(String picked, String expected) {
-    return picked.trim().toLowerCase() == expected.trim().toLowerCase();
-  }
+  /// 第四步答对时由 [_ClozeSentenceStep] 调用：传入完整句以朗读、并触发推进。
+  final Future<void> Function(String fullSentence) onClozeCorrectReveal;
 
   @override
   Widget build(BuildContext context) {
@@ -684,12 +731,17 @@ class _StepBody extends StatelessWidget {
         );
       default:
         return _ClozeSentenceStep(
+          // 词切换时强制重建 State，避免上一个词的 _revealedFill 残留。
+          key: ValueKey<String>('${word.id}|cloze'),
           clozeTemplate: word.exampleClozeEn,
+          expectedAnswer: word.exampleFillAnswer,
+          fullSentence: word.exampleEn,
           choices: fillWordChoices,
           choicesEnabled: choicesEnabled,
-          onPick: (String label) async {
-            await onPick(_fillMatches(label, word.exampleFillAnswer));
+          onWrong: () async {
+            await onPick(false);
           },
+          onCorrectReveal: onClozeCorrectReveal,
         );
     }
   }
@@ -821,20 +873,64 @@ class _WordToPictureStep extends StatelessWidget {
   }
 }
 
-class _ClozeSentenceStep extends StatelessWidget {
+class _ClozeSentenceStep extends StatefulWidget {
   const _ClozeSentenceStep({
+    super.key,
     required this.clozeTemplate,
+    required this.expectedAnswer,
+    required this.fullSentence,
     required this.choices,
     required this.choicesEnabled,
-    required this.onPick,
+    required this.onWrong,
+    required this.onCorrectReveal,
   });
 
   static const String _blankMarker = '___';
 
   final String clozeTemplate;
+
+  /// 第四步唯一正确答案（与 [WordEntry.exampleFillAnswer] 一致；可与 word 字面不同）。
+  final String expectedAnswer;
+
+  /// 完整填好的英文例句，用于答对后朗读（[WordEntry.exampleEn]）。
+  final String fullSentence;
+
   final List<String> choices;
   final bool choicesEnabled;
-  final Future<void> Function(String label) onPick;
+
+  /// 答错路径回调（沿用上层 [_onPick] 的回退逻辑）。
+  final Future<void> Function() onWrong;
+
+  /// 答对路径：本组件先 setState 显示填空填充，再调用此回调由上层处理朗读 + 推进。
+  final Future<void> Function(String fullSentence) onCorrectReveal;
+
+  @override
+  State<_ClozeSentenceStep> createState() => _ClozeSentenceStepState();
+}
+
+class _ClozeSentenceStepState extends State<_ClozeSentenceStep> {
+  /// 非空 → 已答对，渲染时把占位替换为该词的高亮样式。
+  String? _revealedFill;
+
+  static bool _fillMatches(String picked, String expected) {
+    return picked.trim().toLowerCase() == expected.trim().toLowerCase();
+  }
+
+  Future<void> _handlePick(String label) async {
+    // 已经答对进入 reveal 状态后忽略后续点击。
+    if (_revealedFill != null) {
+      return;
+    }
+    final bool correct = _fillMatches(label, widget.expectedAnswer);
+    if (correct) {
+      setState(() {
+        _revealedFill = widget.expectedAnswer;
+      });
+      await widget.onCorrectReveal(widget.fullSentence);
+    } else {
+      await widget.onWrong();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -850,11 +946,12 @@ class _ClozeSentenceStep extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                _ClozeRichText(
-                  template: clozeTemplate,
-                  blankMarker: _blankMarker,
+                ClozeRichText(
+                  template: widget.clozeTemplate,
+                  blankMarker: _ClozeSentenceStep._blankMarker,
                   textStyle: theme.textTheme.titleMedium,
                   blankColor: colors.primary,
+                  filledText: _revealedFill,
                 ),
                 const SizedBox(height: 10),
                 Text(
@@ -869,67 +966,12 @@ class _ClozeSentenceStep extends StatelessWidget {
         ),
         const Spacer(),
         _ChoiceGrid(
-          enabled: choicesEnabled,
-          labels: choices,
-          onTap: onPick,
+          enabled: widget.choicesEnabled && _revealedFill == null,
+          labels: widget.choices,
+          onTap: _handlePick,
         ),
       ],
     );
-  }
-}
-
-class _ClozeRichText extends StatelessWidget {
-  const _ClozeRichText({
-    required this.template,
-    required this.blankMarker,
-    required this.textStyle,
-    required this.blankColor,
-  });
-
-  final String template;
-  final String blankMarker;
-  final TextStyle? textStyle;
-  final Color blankColor;
-
-  @override
-  Widget build(BuildContext context) {
-    final TextStyle base = textStyle ?? Theme.of(context).textTheme.titleMedium!;
-    if (!template.contains(blankMarker)) {
-      return Text(template, style: base);
-    }
-    final List<String> parts = template.split(blankMarker);
-    final List<InlineSpan> spans = <InlineSpan>[];
-    for (int i = 0; i < parts.length; i++) {
-      if (parts[i].isNotEmpty) {
-        spans.add(TextSpan(text: parts[i], style: base));
-      }
-      if (i < parts.length - 1) {
-        spans.add(
-          WidgetSpan(
-            alignment: PlaceholderAlignment.baseline,
-            baseline: TextBaseline.alphabetic,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 2, right: 2, bottom: 2),
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(color: blankColor, width: 2.5),
-                  ),
-                ),
-                child: Text(
-                  '        ',
-                  style: base.copyWith(
-                    color: blankColor,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        );
-      }
-    }
-    return Text.rich(TextSpan(style: base, children: spans));
   }
 }
 
