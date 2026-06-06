@@ -1,0 +1,665 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "hs_play_football",
+      "word": "play football",
+      "meaningZh": "踢足球",
+      "emoji": "⚽",
+      "exampleEn": "Boys like to play football after school.",
+      "exampleClozeEn": "Boys like to play ___ after school.",
+      "exampleFillAnswer": "football",
+      "exampleFillWrongEn": [
+        "basketball",
+        "tennis",
+        "baseball"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_play_basketball",
+      "word": "play basketball",
+      "meaningZh": "打篮球",
+      "emoji": "🏀",
+      "exampleEn": "We play basketball in the gym.",
+      "exampleClozeEn": "We play ___ in the gym.",
+      "exampleFillAnswer": "basketball",
+      "exampleFillWrongEn": [
+        "football",
+        "tennis",
+        "baseball"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_play_pingpong",
+      "word": "play pingpong",
+      "meaningZh": "打乒乓球",
+      "emoji": "🏓",
+      "exampleEn": "My friends play pingpong on weekends.",
+      "exampleClozeEn": "My friends play ___ on weekends.",
+      "exampleFillAnswer": "pingpong",
+      "exampleFillWrongEn": [
+        "tennis",
+        "badminton",
+        "baseball"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_play_table_tennis",
+      "word": "play table tennis",
+      "meaningZh": "打乒乓球",
+      "emoji": "🏓",
+      "exampleEn": "They play ___ in the school club.",
+      "exampleClozeEn": "They play ___ in the school club.",
+      "exampleFillAnswer": "table tennis",
+      "exampleFillWrongEn": [
+        "badminton",
+        "basketball",
+        "football"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_play_soccer",
+      "word": "play soccer",
+      "meaningZh": "踢足球",
+      "emoji": "⚽",
+      "exampleEn": "Children play soccer in the park.",
+      "exampleClozeEn": "Children play ___ in the park.",
+      "exampleFillAnswer": "soccer",
+      "exampleFillWrongEn": [
+        "basketball",
+        "tennis",
+        "baseball"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_play_badminton",
+      "word": "play badminton",
+      "meaningZh": "打羽毛球",
+      "emoji": "🏸",
+      "exampleEn": "We play badminton with our cousins.",
+      "exampleClozeEn": "We play ___ with our cousins.",
+      "exampleFillAnswer": "badminton",
+      "exampleFillWrongEn": [
+        "tennis",
+        "baseball",
+        "football"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_play_hockey",
+      "word": "play hockey",
+      "meaningZh": "打曲棍球",
+      "emoji": "🏒",
+      "exampleEn": "They play hockey on the ice.",
+      "exampleClozeEn": "They play ___ on the ice.",
+      "exampleFillAnswer": "hockey",
+      "exampleFillWrongEn": [
+        "football",
+        "tennis",
+        "baseball"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_play_tennis",
+      "word": "play tennis",
+      "meaningZh": "打网球",
+      "emoji": "🎾",
+      "exampleEn": "My sister can play tennis very well.",
+      "exampleClozeEn": "My sister can play ___ very well.",
+      "exampleFillAnswer": "tennis",
+      "exampleFillWrongEn": [
+        "football",
+        "baseball",
+        "badminton"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_play_baseball",
+      "word": "play baseball",
+      "meaningZh": "打棒球",
+      "emoji": "⚾",
+      "exampleEn": "The boys play baseball every Saturday.",
+      "exampleClozeEn": "The boys play ___ every Saturday.",
+      "exampleFillAnswer": "baseball",
+      "exampleFillWrongEn": [
+        "football",
+        "tennis",
+        "basketball"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_play_volleyball",
+      "word": "play volleyball",
+      "meaningZh": "打排球",
+      "emoji": "🏐",
+      "exampleEn": "We play volleyball on the beach.",
+      "exampleClozeEn": "We play ___ on the beach.",
+      "exampleFillAnswer": "volleyball",
+      "exampleFillWrongEn": [
+        "football",
+        "tennis",
+        "baseball"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_go_hiking",
+      "word": "go hiking",
+      "meaningZh": "徒步旅行",
+      "emoji": "🥾",
+      "exampleEn": "We go hiking in the mountains.",
+      "exampleClozeEn": "We go ___ in the mountains.",
+      "exampleFillAnswer": "hiking",
+      "exampleFillWrongEn": [
+        "swimming",
+        "fishing",
+        "cycling"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_go_cycling",
+      "word": "go cycling",
+      "meaningZh": "自行车赛",
+      "emoji": "🚴",
+      "exampleEn": "They go cycling on Sundays.",
+      "exampleClozeEn": "They go ___ on Sundays.",
+      "exampleFillAnswer": "cycling",
+      "exampleFillWrongEn": [
+        "hiking",
+        "fishing",
+        "jogging"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_go_fishing",
+      "word": "go fishing",
+      "meaningZh": "钓鱼",
+      "emoji": "🎣",
+      "exampleEn": "Dad and I go fishing by the lake.",
+      "exampleClozeEn": "Dad and I go ___ by the lake.",
+      "exampleFillAnswer": "fishing",
+      "exampleFillWrongEn": [
+        "hiking",
+        "boating",
+        "swimming"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_go_boating",
+      "word": "go boating",
+      "meaningZh": "去划船",
+      "emoji": "🚣",
+      "exampleEn": "We go boating on the river.",
+      "exampleClozeEn": "We go ___ on the river.",
+      "exampleFillAnswer": "boating",
+      "exampleFillWrongEn": [
+        "fishing",
+        "swimming",
+        "skating"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_go_jogging",
+      "word": "go jogging",
+      "meaningZh": "慢跑",
+      "emoji": "🏃",
+      "exampleEn": "My mom likes to go jogging in the morning.",
+      "exampleClozeEn": "My mom likes to go ___ in the morning.",
+      "exampleFillAnswer": "jogging",
+      "exampleFillWrongEn": [
+        "hiking",
+        "cycling",
+        "swimming"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_go_swimming",
+      "word": "go swimming",
+      "meaningZh": "去游泳",
+      "emoji": "🏊",
+      "exampleEn": "Let's go swimming this afternoon.",
+      "exampleClozeEn": "Let's go ___ this afternoon.",
+      "exampleFillAnswer": "swimming",
+      "exampleFillWrongEn": [
+        "boating",
+        "fishing",
+        "skating"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_go_skating",
+      "word": "go skating",
+      "meaningZh": "滑冰",
+      "emoji": "⛸️",
+      "exampleEn": "In winter we go skating on the lake.",
+      "exampleClozeEn": "In winter we go ___ on the lake.",
+      "exampleFillAnswer": "skating",
+      "exampleFillWrongEn": [
+        "swimming",
+        "boating",
+        "fishing"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_go_shooting",
+      "word": "go shooting",
+      "meaningZh": "射击",
+      "emoji": "🎯",
+      "exampleEn": "The athletes go shooting every day.",
+      "exampleClozeEn": "The athletes go ___ every day.",
+      "exampleFillAnswer": "shooting",
+      "exampleFillWrongEn": [
+        "hiking",
+        "skating",
+        "boating"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_jump_rope",
+      "word": "jump rope",
+      "meaningZh": "跳绳",
+      "emoji": "🪢",
+      "exampleEn": "Girls jump rope in the playground.",
+      "exampleClozeEn": "Girls jump ___ in the playground.",
+      "exampleFillAnswer": "rope",
+      "exampleFillWrongEn": [
+        "ball",
+        "stick",
+        "net"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_kick_a_shuttlecock",
+      "word": "kick a shuttlecock",
+      "meaningZh": "踢毽子",
+      "emoji": "🏸",
+      "exampleEn": "Chinese kids like to kick a shuttlecock.",
+      "exampleClozeEn": "Chinese kids like to kick a ___.",
+      "exampleFillAnswer": "shuttlecock",
+      "exampleFillWrongEn": [
+        "ball",
+        "rope",
+        "stick"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_run",
+      "word": "run",
+      "meaningZh": "跑步",
+      "emoji": "🏃",
+      "exampleEn": "I can run very fast.",
+      "exampleClozeEn": "I can ___ very fast.",
+      "exampleFillAnswer": "run",
+      "exampleFillWrongEn": [
+        "jump",
+        "swim",
+        "walk"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_cross_country_race",
+      "word": "cross-country race",
+      "meaningZh": "越野跑",
+      "emoji": "🏞️",
+      "exampleEn": "He won the cross-country race last year.",
+      "exampleClozeEn": "He won the ___ last year.",
+      "exampleFillAnswer": "cross-country race",
+      "exampleFillWrongEn": [
+        "football match",
+        "tennis game",
+        "swimming meet"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_watching_tv",
+      "word": "watching TV",
+      "meaningZh": "看电视",
+      "emoji": "📺",
+      "exampleEn": "My hobby is ___ in the evening.",
+      "exampleClozeEn": "My hobby is ___ in the evening.",
+      "exampleFillAnswer": "watching TV",
+      "exampleFillWrongEn": [
+        "reading stories",
+        "playing chess",
+        "singing songs"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_singing_songs",
+      "word": "singing songs",
+      "meaningZh": "唱歌",
+      "emoji": "🎤",
+      "exampleEn": "She enjoys ___ with her friends.",
+      "exampleClozeEn": "She enjoys ___ with her friends.",
+      "exampleFillAnswer": "singing songs",
+      "exampleFillWrongEn": [
+        "watching TV",
+        "reading stories",
+        "playing chess"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_dancing",
+      "word": "dancing",
+      "meaningZh": "跳舞",
+      "emoji": "💃",
+      "exampleEn": "She loves ___ to music.",
+      "exampleClozeEn": "She loves ___ to music.",
+      "exampleFillAnswer": "dancing",
+      "exampleFillWrongEn": [
+        "singing",
+        "reading",
+        "painting"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_reading_stories",
+      "word": "reading stories",
+      "meaningZh": "读故事",
+      "emoji": "📖",
+      "exampleEn": "My favorite hobby is ___ at night.",
+      "exampleClozeEn": "My favorite hobby is ___ at night.",
+      "exampleFillAnswer": "reading stories",
+      "exampleFillWrongEn": [
+        "watching TV",
+        "singing songs",
+        "playing chess"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_painting_pictures",
+      "word": "painting pictures",
+      "meaningZh": "画画",
+      "emoji": "🎨",
+      "exampleEn": "He spends his weekends ___.",
+      "exampleClozeEn": "He spends his weekends ___.",
+      "exampleFillAnswer": "painting pictures",
+      "exampleFillWrongEn": [
+        "reading stories",
+        "singing songs",
+        "playing chess"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_keeping_a_diary",
+      "word": "keeping a diary",
+      "meaningZh": "写日记",
+      "emoji": "📔",
+      "exampleEn": "___ helps me remember my days.",
+      "exampleClozeEn": "___ helps me remember my days.",
+      "exampleFillAnswer": "keeping a diary",
+      "exampleFillWrongEn": [
+        "watching TV",
+        "playing chess",
+        "singing songs"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_jumping_rope",
+      "word": "jumping rope",
+      "meaningZh": "跳绳",
+      "emoji": "🪢",
+      "exampleEn": "The girls are ___ in the yard.",
+      "exampleClozeEn": "The girls are ___ in the yard.",
+      "exampleFillAnswer": "jumping rope",
+      "exampleFillWrongEn": [
+        "playing chess",
+        "singing songs",
+        "reading stories"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_collecting_stickers",
+      "word": "collecting stickers",
+      "meaningZh": "集贴画",
+      "emoji": "🏷️",
+      "exampleEn": "My little brother enjoys ___.",
+      "exampleClozeEn": "My little brother enjoys ___.",
+      "exampleFillAnswer": "collecting stickers",
+      "exampleFillWrongEn": [
+        "collecting stamps",
+        "collecting coins",
+        "collecting dolls"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_collecting_stamps",
+      "word": "collecting stamps",
+      "meaningZh": "集邮",
+      "emoji": "📮",
+      "exampleEn": "Grandpa's hobby is ___.",
+      "exampleClozeEn": "Grandpa's hobby is ___.",
+      "exampleFillAnswer": "collecting stamps",
+      "exampleFillWrongEn": [
+        "collecting stickers",
+        "collecting coins",
+        "collecting dolls"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_collecting_coins",
+      "word": "collecting coins",
+      "meaningZh": "收集硬币",
+      "emoji": "🪙",
+      "exampleEn": "She loves ___ from different countries.",
+      "exampleClozeEn": "She loves ___ from different countries.",
+      "exampleFillAnswer": "collecting coins",
+      "exampleFillWrongEn": [
+        "collecting stamps",
+        "collecting stickers",
+        "collecting dolls"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_collecting_dolls",
+      "word": "collecting dolls",
+      "meaningZh": "收集娃娃",
+      "emoji": "🎎",
+      "exampleEn": "My sister enjoys ___ from many places.",
+      "exampleClozeEn": "My sister enjoys ___ from many places.",
+      "exampleFillAnswer": "collecting dolls",
+      "exampleFillWrongEn": [
+        "collecting stamps",
+        "collecting coins",
+        "collecting stickers"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_listening_to_music",
+      "word": "listening to music",
+      "meaningZh": "听音乐",
+      "emoji": "🎧",
+      "exampleEn": "I relax by ___ after school.",
+      "exampleClozeEn": "I relax by ___ after school.",
+      "exampleFillAnswer": "listening to music",
+      "exampleFillWrongEn": [
+        "watching TV",
+        "reading stories",
+        "playing chess"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_jogging",
+      "word": "jogging",
+      "meaningZh": "慢跑",
+      "emoji": "🏃",
+      "exampleEn": "___ keeps me healthy.",
+      "exampleClozeEn": "___ keeps me healthy.",
+      "exampleFillAnswer": "Jogging",
+      "exampleFillWrongEn": [
+        "Hiking",
+        "Cycling",
+        "Fishing"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_running",
+      "word": "running",
+      "meaningZh": "跑步",
+      "emoji": "🏃",
+      "exampleEn": "___ is great exercise for kids.",
+      "exampleClozeEn": "___ is great exercise for kids.",
+      "exampleFillAnswer": "Running",
+      "exampleFillWrongEn": [
+        "Jogging",
+        "Hiking",
+        "Skating"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_roller_skating",
+      "word": "roller-skating",
+      "meaningZh": "溜旱冰",
+      "emoji": "🛼",
+      "exampleEn": "Kids enjoy ___ in the park.",
+      "exampleClozeEn": "Kids enjoy ___ in the park.",
+      "exampleFillAnswer": "roller-skating",
+      "exampleFillWrongEn": [
+        "rock-climbing",
+        "jogging",
+        "hiking"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_playing_chess",
+      "word": "playing chess",
+      "meaningZh": "下棋",
+      "emoji": "♟️",
+      "exampleEn": "Grandpa enjoys ___ with me.",
+      "exampleClozeEn": "Grandpa enjoys ___ with me.",
+      "exampleFillAnswer": "playing chess",
+      "exampleFillWrongEn": [
+        "watching TV",
+        "reading stories",
+        "singing songs"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_playing_basketball",
+      "word": "playing basketball",
+      "meaningZh": "打篮球",
+      "emoji": "🏀",
+      "exampleEn": "He spends his afternoons ___.",
+      "exampleClozeEn": "He spends his afternoons ___.",
+      "exampleFillAnswer": "playing basketball",
+      "exampleFillWrongEn": [
+        "playing chess",
+        "watching TV",
+        "reading stories"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_playing_computer_games",
+      "word": "playing computer games",
+      "meaningZh": "玩电脑游戏",
+      "emoji": "🎮",
+      "exampleEn": "Many kids enjoy ___ on weekends.",
+      "exampleClozeEn": "Many kids enjoy ___ on weekends.",
+      "exampleFillAnswer": "playing computer games",
+      "exampleFillWrongEn": [
+        "playing chess",
+        "watching TV",
+        "reading stories"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_photography",
+      "word": "photography",
+      "meaningZh": "摄影",
+      "emoji": "📷",
+      "exampleEn": "___ is my dad's hobby.",
+      "exampleClozeEn": "___ is my dad's hobby.",
+      "exampleFillAnswer": "Photography",
+      "exampleFillWrongEn": [
+        "Painting",
+        "Sewing",
+        "Knitting"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_sewing",
+      "word": "sewing",
+      "meaningZh": "缝",
+      "emoji": "🧵",
+      "exampleEn": "Mom is ___ a new dress.",
+      "exampleClozeEn": "Mom is ___ a new dress.",
+      "exampleFillAnswer": "sewing",
+      "exampleFillWrongEn": [
+        "knitting",
+        "painting",
+        "reading"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_knitting",
+      "word": "knitting",
+      "meaningZh": "编织",
+      "emoji": "🧶",
+      "exampleEn": "Grandma is ___ a warm scarf.",
+      "exampleClozeEn": "Grandma is ___ a warm scarf.",
+      "exampleFillAnswer": "knitting",
+      "exampleFillWrongEn": [
+        "sewing",
+        "painting",
+        "reading"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "hs_rock_climbing",
+      "word": "rock-climbing",
+      "meaningZh": "攀岩",
+      "emoji": "🧗",
+      "exampleEn": "She loves ___ on weekends.",
+      "exampleClozeEn": "She loves ___ on weekends.",
+      "exampleFillAnswer": "rock-climbing",
+      "exampleFillWrongEn": [
+        "roller-skating",
+        "hiking",
+        "jogging"
+      ],
+      "gradeTag": "四年级"
+    }
+  ]
+}

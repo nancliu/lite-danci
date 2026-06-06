@@ -1,0 +1,280 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "tv_great_wall",
+      "word": "the Great Wall",
+      "meaningZh": "长城",
+      "emoji": "🏯",
+      "exampleEn": "We visited the Great Wall last summer.",
+      "exampleClozeEn": "We visited ___ last summer.",
+      "exampleFillAnswer": "the Great Wall",
+      "exampleFillWrongEn": ["the Summer Palace", "the Forbidden City", "the Temple of Heaven"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_tiananmen_square",
+      "word": "Tiananmen Square",
+      "meaningZh": "天安门广场",
+      "emoji": "🏛️",
+      "exampleEn": "Tiananmen Square is very large and famous.",
+      "exampleClozeEn": "___ is very large and famous.",
+      "exampleFillAnswer": "Tiananmen Square",
+      "exampleFillWrongEn": ["the Summer Palace", "Beihai Park", "West Lake"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_summer_palace",
+      "word": "the Summer Palace",
+      "meaningZh": "颐和园",
+      "emoji": "🌳",
+      "exampleEn": "My family went boating at the Summer Palace.",
+      "exampleClozeEn": "My family went boating at ___.",
+      "exampleFillAnswer": "the Summer Palace",
+      "exampleFillWrongEn": ["the Great Wall", "Beihai Park", "Mount Tai"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_beihai_park",
+      "word": "Beihai Park",
+      "meaningZh": "北海公园",
+      "emoji": "🌿",
+      "exampleEn": "We flew kites at Beihai Park on Sunday.",
+      "exampleClozeEn": "We flew kites at ___ on Sunday.",
+      "exampleFillAnswer": "Beihai Park",
+      "exampleFillWrongEn": ["the Summer Palace", "Beijing Zoo", "the Temple of Heaven"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_beijing_zoo",
+      "word": "Beijing Zoo",
+      "meaningZh": "北京动物园",
+      "emoji": "🐼",
+      "exampleEn": "The children saw pandas at Beijing Zoo.",
+      "exampleClozeEn": "The children saw pandas at ___.",
+      "exampleFillAnswer": "Beijing Zoo",
+      "exampleFillWrongEn": ["Beihai Park", "the Buddha Palace", "Disneyland"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_temple_of_heaven",
+      "word": "the Temple of Heaven",
+      "meaningZh": "天坛",
+      "emoji": "⛩️",
+      "exampleEn": "Grandpa exercises near the Temple of Heaven every morning.",
+      "exampleClozeEn": "Grandpa exercises near ___ every morning.",
+      "exampleFillAnswer": "the Temple of Heaven",
+      "exampleFillWrongEn": ["the Forbidden City", "the Great Wall", "the Palace Museum"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_forbidden_city",
+      "word": "the Forbidden City",
+      "meaningZh": "紫禁城",
+      "emoji": "🏯",
+      "exampleEn": "The Forbidden City has many ancient buildings.",
+      "exampleClozeEn": "___ has many ancient buildings.",
+      "exampleFillAnswer": "the Forbidden City",
+      "exampleFillWrongEn": ["the Temple of Heaven", "the Great Wall", "Tiananmen Square"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_palace_museum",
+      "word": "the Palace Museum",
+      "meaningZh": "故宫",
+      "emoji": "🏺",
+      "exampleEn": "There are many treasures in the Palace Museum.",
+      "exampleClozeEn": "There are many treasures in ___.",
+      "exampleFillAnswer": "the Palace Museum",
+      "exampleFillWrongEn": ["the Forbidden City", "the Summer Palace", "the Temple of Heaven"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_terracotta_army",
+      "word": "the Terracotta Army",
+      "meaningZh": "兵马俑",
+      "emoji": "🗿",
+      "exampleEn": "The Terracotta Army is in Xi'an.",
+      "exampleClozeEn": "___ is in Xi'an.",
+      "exampleFillAnswer": "the Terracotta Army",
+      "exampleFillWrongEn": ["the Great Wall", "the Buddha Palace", "Mount Emei"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_mount_tai",
+      "word": "Mount Tai",
+      "meaningZh": "泰山",
+      "emoji": "⛰️",
+      "exampleEn": "Many people climb Mount Tai to see the sunrise.",
+      "exampleClozeEn": "Many people climb ___ to see the sunrise.",
+      "exampleFillAnswer": "Mount Tai",
+      "exampleFillWrongEn": ["Mount Emei", "the Great Wall", "Shaolin Temple"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_mount_emei",
+      "word": "Mount Emei",
+      "meaningZh": "峨眉山",
+      "emoji": "🏔️",
+      "exampleEn": "Mount Emei is very tall and beautiful.",
+      "exampleClozeEn": "___ is very tall and beautiful.",
+      "exampleFillAnswer": "Mount Emei",
+      "exampleFillWrongEn": ["Mount Tai", "Shaolin Temple", "West Lake"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_shaolin_temple",
+      "word": "Shaolin Temple",
+      "meaningZh": "少林寺",
+      "emoji": "🥋",
+      "exampleEn": "Shaolin Temple is famous for kung fu.",
+      "exampleClozeEn": "___ is famous for kung fu.",
+      "exampleFillAnswer": "Shaolin Temple",
+      "exampleFillWrongEn": ["the Buddha Palace", "the Temple of Heaven", "Mount Emei"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_west_lake",
+      "word": "West Lake",
+      "meaningZh": "西湖",
+      "emoji": "🏞️",
+      "exampleEn": "West Lake looks like a beautiful painting.",
+      "exampleClozeEn": "___ looks like a beautiful painting.",
+      "exampleFillAnswer": "West Lake",
+      "exampleFillWrongEn": ["Beihai Park", "Mount Tai", "the Summer Palace"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_buddha_palace",
+      "word": "the Buddha Palace",
+      "meaningZh": "布达拉宫",
+      "emoji": "🕌",
+      "exampleEn": "The Buddha Palace is in Tibet.",
+      "exampleClozeEn": "___ is in Tibet.",
+      "exampleFillAnswer": "the Buddha Palace",
+      "exampleFillWrongEn": ["the Palace Museum", "the Temple of Heaven", "the Terracotta Army"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_chinese_tea",
+      "word": "Chinese tea",
+      "meaningZh": "中国茶",
+      "emoji": "🍵",
+      "exampleEn": "Chinese tea is loved by people all over the world.",
+      "exampleClozeEn": "___ is loved by people all over the world.",
+      "exampleFillAnswer": "Chinese tea",
+      "exampleFillWrongEn": ["cherry blossom", "local food", "seafood"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_big_ben",
+      "word": "Big Ben",
+      "meaningZh": "大本钟",
+      "emoji": "🕰️",
+      "exampleEn": "Big Ben is a famous clock in London.",
+      "exampleClozeEn": "___ is a famous clock in London.",
+      "exampleFillAnswer": "Big Ben",
+      "exampleFillWrongEn": ["the Eiffel Tower", "Sydney Opera House", "Disneyland"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_sydney_opera",
+      "word": "Sydney Opera House",
+      "meaningZh": "悉尼歌剧院",
+      "emoji": "🎭",
+      "exampleEn": "Sydney Opera House looks like giant sails.",
+      "exampleClozeEn": "___ looks like giant sails.",
+      "exampleFillAnswer": "Sydney Opera House",
+      "exampleFillWrongEn": ["Big Ben", "the Eiffel Tower", "the Great Wall"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_disneyland",
+      "word": "Disneyland",
+      "meaningZh": "迪士尼乐园",
+      "emoji": "🏰",
+      "exampleEn": "Children love to ride the roller coaster at Disneyland.",
+      "exampleClozeEn": "Children love to ride the roller coaster at ___.",
+      "exampleFillAnswer": "Disneyland",
+      "exampleFillWrongEn": ["Beijing Zoo", "the Summer Palace", "Beihai Park"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_eiffel_tower",
+      "word": "Eiffel Tower",
+      "meaningZh": "埃菲尔铁塔",
+      "emoji": "🗼",
+      "exampleEn": "The Eiffel Tower is in Paris, France.",
+      "exampleClozeEn": "___ is in Paris, France.",
+      "exampleFillAnswer": "Eiffel Tower",
+      "exampleFillWrongEn": ["Big Ben", "Sydney Opera House", "the Buddha Palace"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_cherry_blossom",
+      "word": "cherry blossom",
+      "meaningZh": "樱花",
+      "emoji": "🌸",
+      "exampleEn": "The cherry blossom trees are so pretty in spring.",
+      "exampleClozeEn": "The ___ trees are so pretty in spring.",
+      "exampleFillAnswer": "cherry blossom",
+      "exampleFillWrongEn": ["Chinese tea", "local food", "seafood"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_eat_local_food",
+      "word": "eat local food",
+      "meaningZh": "吃当地小吃",
+      "emoji": "🍜",
+      "exampleEn": "I want to eat local food when I travel.",
+      "exampleClozeEn": "I want to ___ when I travel.",
+      "exampleFillAnswer": "eat local food",
+      "exampleFillWrongEn": ["drink tea", "taste seafood", "buy some souvenirs"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_taste_seafood",
+      "word": "taste seafood",
+      "meaningZh": "吃海鲜",
+      "emoji": "🦐",
+      "exampleEn": "Let's taste seafood at the beach restaurant.",
+      "exampleClozeEn": "Let's ___ at the beach restaurant.",
+      "exampleFillAnswer": "taste seafood",
+      "exampleFillWrongEn": ["eat local food", "drink tea", "win a prize"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_drink_tea",
+      "word": "drink tea",
+      "meaningZh": "喝茶",
+      "emoji": "🫖",
+      "exampleEn": "Grandma likes to drink tea in the garden.",
+      "exampleClozeEn": "Grandma likes to ___ in the garden.",
+      "exampleFillAnswer": "drink tea",
+      "exampleFillWrongEn": ["eat local food", "taste seafood", "buy some souvenirs"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_buy_souvenirs",
+      "word": "buy some souvenirs",
+      "meaningZh": "买纪念品",
+      "emoji": "🎁",
+      "exampleEn": "We can buy some souvenirs at the gift shop.",
+      "exampleClozeEn": "We can ___ at the gift shop.",
+      "exampleFillAnswer": "buy some souvenirs",
+      "exampleFillWrongEn": ["eat local food", "win a prize", "drink tea"],
+      "gradeTag": "六年级"
+    },
+    {
+      "id": "tv_win_prize",
+      "word": "win a prize",
+      "meaningZh": "获奖",
+      "emoji": "🏆",
+      "exampleEn": "She hopes to win a prize in the contest.",
+      "exampleClozeEn": "She hopes to ___ in the contest.",
+      "exampleFillAnswer": "win a prize",
+      "exampleFillWrongEn": ["buy some souvenirs", "taste seafood", "eat local food"],
+      "gradeTag": "六年级"
+    }
+  ]
+}

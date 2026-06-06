@@ -1,0 +1,425 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "per_hardworking",
+      "word": "hardworking",
+      "meaningZh": "刻苦的；勤奋的",
+      "emoji": "💪",
+      "exampleEn": "Tom is a hardworking student.",
+      "exampleClozeEn": "Tom is a ___ student.",
+      "exampleFillAnswer": "hardworking",
+      "exampleFillWrongEn": [
+        "lazy",
+        "shy",
+        "quiet"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_helpful",
+      "word": "helpful",
+      "meaningZh": "乐于助人的",
+      "emoji": "🤝",
+      "exampleEn": "My sister is very helpful at home.",
+      "exampleClozeEn": "My sister is very ___ at home.",
+      "exampleFillAnswer": "helpful",
+      "exampleFillWrongEn": [
+        "lazy",
+        "rude",
+        "shy"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_honest",
+      "word": "honest",
+      "meaningZh": "诚实的",
+      "emoji": "🙌",
+      "exampleEn": "An honest boy never tells lies.",
+      "exampleClozeEn": "An ___ boy never tells lies.",
+      "exampleFillAnswer": "honest",
+      "exampleFillWrongEn": [
+        "angry",
+        "lazy",
+        "shy"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_popular",
+      "word": "popular",
+      "meaningZh": "受欢迎的",
+      "emoji": "🌟",
+      "exampleEn": "She is popular in our class.",
+      "exampleClozeEn": "She is ___ in our class.",
+      "exampleFillAnswer": "popular",
+      "exampleFillWrongEn": [
+        "quiet",
+        "shy",
+        "lazy"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_talkative",
+      "word": "talkative",
+      "meaningZh": "健谈的；爱说话的",
+      "emoji": "💬",
+      "exampleEn": "My brother is very talkative.",
+      "exampleClozeEn": "My brother is very ___.",
+      "exampleFillAnswer": "talkative",
+      "exampleFillWrongEn": [
+        "quiet",
+        "shy",
+        "honest"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_careless",
+      "word": "careless",
+      "meaningZh": "粗心的",
+      "emoji": "😵",
+      "exampleEn": "Don't be careless with your homework.",
+      "exampleClozeEn": "Don't be ___ with your homework.",
+      "exampleFillAnswer": "careless",
+      "exampleFillWrongEn": [
+        "careful",
+        "honest",
+        "kind"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_strict",
+      "word": "strict",
+      "meaningZh": "严格的",
+      "emoji": "📏",
+      "exampleEn": "Our math teacher is very strict.",
+      "exampleClozeEn": "Our math teacher is very ___.",
+      "exampleFillAnswer": "strict",
+      "exampleFillWrongEn": [
+        "funny",
+        "lazy",
+        "shy"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_considerate",
+      "word": "considerate",
+      "meaningZh": "体贴的",
+      "emoji": "💖",
+      "exampleEn": "He is considerate to his parents.",
+      "exampleClozeEn": "He is ___ to his parents.",
+      "exampleFillAnswer": "considerate",
+      "exampleFillWrongEn": [
+        "rude",
+        "lazy",
+        "careless"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_amiable",
+      "word": "amiable",
+      "meaningZh": "亲切的；和蔼的",
+      "emoji": "😊",
+      "exampleEn": "My grandma is an amiable woman.",
+      "exampleClozeEn": "My grandma is an ___ woman.",
+      "exampleFillAnswer": "amiable",
+      "exampleFillWrongEn": [
+        "angry",
+        "rude",
+        "strict"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_blond",
+      "word": "blond",
+      "meaningZh": "金色头发的",
+      "emoji": "👱",
+      "exampleEn": "The girl has blond hair.",
+      "exampleClozeEn": "The girl has ___ hair.",
+      "exampleFillAnswer": "blond",
+      "exampleFillWrongEn": [
+        "curly",
+        "long",
+        "short"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_curly",
+      "word": "curly",
+      "meaningZh": "卷曲的",
+      "emoji": "➰",
+      "exampleEn": "My mom has curly hair.",
+      "exampleClozeEn": "My mom has ___ hair.",
+      "exampleFillAnswer": "curly",
+      "exampleFillWrongEn": [
+        "straight",
+        "blond",
+        "long"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_slim",
+      "word": "slim",
+      "meaningZh": "苗条的",
+      "emoji": "🧍",
+      "exampleEn": "The dancer is tall and slim.",
+      "exampleClozeEn": "The dancer is tall and ___.",
+      "exampleFillAnswer": "slim",
+      "exampleFillWrongEn": [
+        "heavy",
+        "big",
+        "ugly"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_straight",
+      "word": "straight",
+      "meaningZh": "直的",
+      "emoji": "📏",
+      "exampleEn": "She has long straight hair.",
+      "exampleClozeEn": "She has long ___ hair.",
+      "exampleFillAnswer": "straight",
+      "exampleFillWrongEn": [
+        "curly",
+        "blond",
+        "thick"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_ugly",
+      "word": "ugly",
+      "meaningZh": "丑的",
+      "emoji": "👹",
+      "exampleEn": "The witch is ugly in the story.",
+      "exampleClozeEn": "The witch is ___ in the story.",
+      "exampleFillAnswer": "ugly",
+      "exampleFillWrongEn": [
+        "pretty",
+        "kind",
+        "slim"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_big",
+      "word": "big",
+      "meaningZh": "大的；胖的",
+      "emoji": "🐘",
+      "exampleEn": "The elephant has big ears.",
+      "exampleClozeEn": "The elephant has ___ ears.",
+      "exampleFillAnswer": "big",
+      "exampleFillWrongEn": [
+        "small",
+        "thin",
+        "short"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_heavy",
+      "word": "heavy",
+      "meaningZh": "重的",
+      "emoji": "🏋️",
+      "exampleEn": "This box is too heavy for me.",
+      "exampleClozeEn": "This box is too ___ for me.",
+      "exampleFillAnswer": "heavy",
+      "exampleFillWrongEn": [
+        "light",
+        "thin",
+        "slim"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_thin",
+      "word": "thin",
+      "meaningZh": "瘦的；薄的",
+      "emoji": "📄",
+      "exampleEn": "The cat is small and thin.",
+      "exampleClozeEn": "The cat is small and ___.",
+      "exampleFillAnswer": "thin",
+      "exampleFillWrongEn": [
+        "heavy",
+        "big",
+        "thick"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_long",
+      "word": "long",
+      "meaningZh": "长的",
+      "emoji": "📏",
+      "exampleEn": "The giraffe has a long neck.",
+      "exampleClozeEn": "The giraffe has a ___ neck.",
+      "exampleFillAnswer": "long",
+      "exampleFillWrongEn": [
+        "short",
+        "big",
+        "thin"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_new",
+      "word": "new",
+      "meaningZh": "新的",
+      "emoji": "🆕",
+      "exampleEn": "My new hat is red.",
+      "exampleClozeEn": "My ___ hat is red.",
+      "exampleFillAnswer": "new",
+      "exampleFillWrongEn": [
+        "old",
+        "big",
+        "ugly"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_thick",
+      "word": "thick",
+      "meaningZh": "厚的；浓密的",
+      "emoji": "📚",
+      "exampleEn": "This book is very thick.",
+      "exampleClozeEn": "This book is very ___.",
+      "exampleFillAnswer": "thick",
+      "exampleFillWrongEn": [
+        "thin",
+        "small",
+        "light"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_surprised",
+      "word": "surprised",
+      "meaningZh": "惊讶的",
+      "emoji": "😲",
+      "exampleEn": "I was surprised to see him here.",
+      "exampleClozeEn": "I was ___ to see him here.",
+      "exampleFillAnswer": "surprised",
+      "exampleFillWrongEn": [
+        "happy",
+        "tired",
+        "bored"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_interesting",
+      "word": "interesting",
+      "meaningZh": "有趣的",
+      "emoji": "🤩",
+      "exampleEn": "This story is very interesting.",
+      "exampleClozeEn": "This story is very ___.",
+      "exampleFillAnswer": "interesting",
+      "exampleFillWrongEn": [
+        "boring",
+        "ugly",
+        "sad"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_boring",
+      "word": "boring",
+      "meaningZh": "无聊的",
+      "emoji": "🥱",
+      "exampleEn": "The movie was boring last night.",
+      "exampleClozeEn": "The movie was ___ last night.",
+      "exampleFillAnswer": "boring",
+      "exampleFillWrongEn": [
+        "interesting",
+        "funny",
+        "exciting"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_brave",
+      "word": "brave",
+      "meaningZh": "勇敢的",
+      "emoji": "🦁",
+      "exampleEn": "The brave boy saved the cat.",
+      "exampleClozeEn": "The ___ boy saved the cat.",
+      "exampleFillAnswer": "brave",
+      "exampleFillWrongEn": [
+        "scared",
+        "shy",
+        "lazy"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_polite",
+      "word": "polite",
+      "meaningZh": "有礼貌的",
+      "emoji": "🙇",
+      "exampleEn": "He is a polite young boy.",
+      "exampleClozeEn": "He is a ___ young boy.",
+      "exampleFillAnswer": "polite",
+      "exampleFillWrongEn": [
+        "rude",
+        "lazy",
+        "careless"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_clever",
+      "word": "clever",
+      "meaningZh": "聪明的",
+      "emoji": "🧠",
+      "exampleEn": "Monkeys are very clever animals.",
+      "exampleClozeEn": "Monkeys are very ___ animals.",
+      "exampleFillAnswer": "clever",
+      "exampleFillWrongEn": [
+        "silly",
+        "lazy",
+        "shy"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_cute",
+      "word": "cute",
+      "meaningZh": "可爱的",
+      "emoji": "🐰",
+      "exampleEn": "The baby rabbit is so cute.",
+      "exampleClozeEn": "The baby rabbit is so ___.",
+      "exampleFillAnswer": "cute",
+      "exampleFillWrongEn": [
+        "ugly",
+        "heavy",
+        "boring"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "per_handsome",
+      "word": "handsome",
+      "meaningZh": "英俊的",
+      "emoji": "🤵",
+      "exampleEn": "My uncle is a handsome man.",
+      "exampleClozeEn": "My uncle is a ___ man.",
+      "exampleFillAnswer": "handsome",
+      "exampleFillWrongEn": [
+        "ugly",
+        "short",
+        "thin"
+      ],
+      "gradeTag": "四年级"
+    }
+  ]
+}

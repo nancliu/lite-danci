@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "ch_do_housework",
+      "word": "do housework",
+      "meaningZh": "做家务",
+      "emoji": "🧹",
+      "exampleEn": "I do housework with my mom.",
+      "exampleClozeEn": "I ___ with my mom.",
+      "exampleFillAnswer": "do housework",
+      "exampleFillWrongEn": ["walk the dog", "cook the chicken", "go shopping"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_do_the_chores",
+      "word": "do the chores",
+      "meaningZh": "做家务",
+      "emoji": "🧽",
+      "exampleEn": "We do the chores every weekend.",
+      "exampleClozeEn": "We ___ every weekend.",
+      "exampleFillAnswer": "do the chores",
+      "exampleFillWrongEn": ["feed the fish", "sweep the floor", "set the table"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_feed_the_fish",
+      "word": "feed the fish",
+      "meaningZh": "喂鱼",
+      "emoji": "🐟",
+      "exampleEn": "I feed the fish every morning.",
+      "exampleClozeEn": "I ___ every morning.",
+      "exampleFillAnswer": "feed the fish",
+      "exampleFillWrongEn": ["walk the dog", "water the flower", "clean the kitchen"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_wash_clothes",
+      "word": "wash clothes",
+      "meaningZh": "洗衣服",
+      "emoji": "🧺",
+      "exampleEn": "Mom wash clothes on Sunday.",
+      "exampleClozeEn": "Mom ___ on Sunday.",
+      "exampleFillAnswer": "wash clothes",
+      "exampleFillWrongEn": ["sweep the floor", "cook the chicken", "walk the dog"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_water_the_flower",
+      "word": "water the flower",
+      "meaningZh": "浇花",
+      "emoji": "🌷",
+      "exampleEn": "I water the flower after school.",
+      "exampleClozeEn": "I ___ after school.",
+      "exampleFillAnswer": "water the flower",
+      "exampleFillWrongEn": ["feed the fish", "do the dishes", "take out the garbage"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_cook_the_chicken",
+      "word": "cook the chicken",
+      "meaningZh": "炖鸡",
+      "emoji": "🍗",
+      "exampleEn": "Dad cook the chicken for dinner.",
+      "exampleClozeEn": "Dad ___ for dinner.",
+      "exampleFillAnswer": "cook the chicken",
+      "exampleFillWrongEn": ["clean the kitchen", "set the table", "go shopping"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_clean_the_kitchen",
+      "word": "clean the kitchen",
+      "meaningZh": "打扫厨房",
+      "emoji": "🧼",
+      "exampleEn": "I clean the kitchen with dad.",
+      "exampleClozeEn": "I ___ with dad.",
+      "exampleFillAnswer": "clean the kitchen",
+      "exampleFillWrongEn": ["sweep the floor", "do the dishes", "walk the dog"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_walk_the_dog",
+      "word": "walk the dog",
+      "meaningZh": "遛狗",
+      "emoji": "🐶",
+      "exampleEn": "I walk the dog in the park.",
+      "exampleClozeEn": "I ___ in the park.",
+      "exampleFillAnswer": "walk the dog",
+      "exampleFillWrongEn": ["feed the fish", "wash clothes", "go shopping"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_do_the_dishes",
+      "word": "do the dishes",
+      "meaningZh": "洗碗",
+      "emoji": "🍽️",
+      "exampleEn": "I do the dishes after lunch.",
+      "exampleClozeEn": "I ___ after lunch.",
+      "exampleFillAnswer": "do the dishes",
+      "exampleFillWrongEn": ["set the table", "clear the table", "sweep the floor"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_set_the_table",
+      "word": "set the table",
+      "meaningZh": "摆放餐具",
+      "emoji": "🍴",
+      "exampleEn": "I set the table before dinner.",
+      "exampleClozeEn": "I ___ before dinner.",
+      "exampleFillAnswer": "set the table",
+      "exampleFillWrongEn": ["clear the table", "do the dishes", "cook the chicken"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_clear_the_table",
+      "word": "clear the table",
+      "meaningZh": "收拾桌子",
+      "emoji": "🧴",
+      "exampleEn": "We clear the table after dinner.",
+      "exampleClozeEn": "We ___ after dinner.",
+      "exampleFillAnswer": "clear the table",
+      "exampleFillWrongEn": ["set the table", "do the dishes", "take out the garbage"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_take_out_the_garbage",
+      "word": "take out the garbage",
+      "meaningZh": "倒垃圾",
+      "emoji": "🗑️",
+      "exampleEn": "I take out the garbage at night.",
+      "exampleClozeEn": "I ___ at night.",
+      "exampleFillAnswer": "take out the garbage",
+      "exampleFillWrongEn": ["sweep the floor", "walk the dog", "clean the kitchen"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_sweep_the_floor",
+      "word": "sweep the floor",
+      "meaningZh": "扫地",
+      "emoji": "🧹",
+      "exampleEn": "I sweep the floor every day.",
+      "exampleClozeEn": "I ___ every day.",
+      "exampleFillAnswer": "sweep the floor",
+      "exampleFillWrongEn": ["clean the kitchen", "do the dishes", "wash clothes"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_look_after_the_dog",
+      "word": "look after the dog",
+      "meaningZh": "照顾小狗",
+      "emoji": "🐕",
+      "exampleEn": "I look after the dog at home.",
+      "exampleClozeEn": "I ___ at home.",
+      "exampleFillAnswer": "look after the dog",
+      "exampleFillWrongEn": ["walk the dog", "feed the fish", "water the flower"],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "ch_go_shopping",
+      "word": "go shopping",
+      "meaningZh": "买东西",
+      "emoji": "🛒",
+      "exampleEn": "Mom and I go shopping on Saturday.",
+      "exampleClozeEn": "Mom and I ___ on Saturday.",
+      "exampleFillAnswer": "go shopping",
+      "exampleFillWrongEn": ["do housework", "cook the chicken", "clean the kitchen"],
+      "gradeTag": "四年级"
+    }
+  ]
+}

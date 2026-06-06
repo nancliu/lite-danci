@@ -1,0 +1,350 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "clo_wear",
+      "word": "wear",
+      "meaningZh": "穿",
+      "emoji": "👕",
+      "exampleEn": "I wear a hat in summer.",
+      "exampleClozeEn": "I ___ a hat in summer.",
+      "exampleFillAnswer": "wear",
+      "exampleFillWrongEn": [
+        "eat",
+        "see",
+        "make"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_jeans",
+      "word": "jeans",
+      "meaningZh": "牛仔裤",
+      "emoji": "👖",
+      "exampleEn": "I like to wear jeans.",
+      "exampleClozeEn": "I like to wear ___.",
+      "exampleFillAnswer": "jeans",
+      "exampleFillWrongEn": [
+        "pants",
+        "shorts",
+        "skirt"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_cap",
+      "word": "cap",
+      "meaningZh": "帽子",
+      "emoji": "🧢",
+      "exampleEn": "He wears a red cap.",
+      "exampleClozeEn": "He wears a red ___.",
+      "exampleFillAnswer": "cap",
+      "exampleFillWrongEn": [
+        "hat",
+        "scarf",
+        "vest"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_gloves",
+      "word": "gloves",
+      "meaningZh": "手套",
+      "emoji": "🧤",
+      "exampleEn": "I wear gloves in winter.",
+      "exampleClozeEn": "I wear ___ in winter.",
+      "exampleFillAnswer": "gloves",
+      "exampleFillWrongEn": [
+        "socks",
+        "boots",
+        "shorts"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_boots",
+      "word": "boots",
+      "meaningZh": "靴子",
+      "emoji": "👢",
+      "exampleEn": "She has new boots.",
+      "exampleClozeEn": "She has new ___.",
+      "exampleFillAnswer": "boots",
+      "exampleFillWrongEn": [
+        "sandals",
+        "slippers",
+        "sneakers"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_vest",
+      "word": "vest",
+      "meaningZh": "背心",
+      "emoji": "🦺",
+      "exampleEn": "He puts on a vest.",
+      "exampleClozeEn": "He puts on a ___.",
+      "exampleFillAnswer": "vest",
+      "exampleFillWrongEn": [
+        "cap",
+        "scarf",
+        "skirt"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_shorts",
+      "word": "shorts",
+      "meaningZh": "短裤",
+      "emoji": "🩳",
+      "exampleEn": "I wear shorts in summer.",
+      "exampleClozeEn": "I wear ___ in summer.",
+      "exampleFillAnswer": "shorts",
+      "exampleFillWrongEn": [
+        "jeans",
+        "pants",
+        "boots"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_raincoat",
+      "word": "raincoat",
+      "meaningZh": "雨衣",
+      "emoji": "🧥",
+      "exampleEn": "I wear a raincoat in the rain.",
+      "exampleClozeEn": "I wear a ___ in the rain.",
+      "exampleFillAnswer": "raincoat",
+      "exampleFillWrongEn": [
+        "sweater",
+        "hoody",
+        "vest"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_sunglasses",
+      "word": "sunglasses",
+      "meaningZh": "太阳镜",
+      "emoji": "🕶️",
+      "exampleEn": "He wears sunglasses today.",
+      "exampleClozeEn": "He wears ___ today.",
+      "exampleFillAnswer": "sunglasses",
+      "exampleFillWrongEn": [
+        "gloves",
+        "socks",
+        "boots"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_umbrella",
+      "word": "umbrella",
+      "meaningZh": "雨伞",
+      "emoji": "☂️",
+      "exampleEn": "I take my umbrella to school.",
+      "exampleClozeEn": "I take my ___ to school.",
+      "exampleFillAnswer": "umbrella",
+      "exampleFillWrongEn": [
+        "raincoat",
+        "scarf",
+        "cap"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_sweater",
+      "word": "sweater",
+      "meaningZh": "毛衣",
+      "emoji": "🧶",
+      "exampleEn": "I wear a sweater in fall.",
+      "exampleClozeEn": "I wear a ___ in fall.",
+      "exampleFillAnswer": "sweater",
+      "exampleFillWrongEn": [
+        "raincoat",
+        "vest",
+        "shirt"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_pants",
+      "word": "pants",
+      "meaningZh": "长裤",
+      "emoji": "👖",
+      "exampleEn": "These pants are black.",
+      "exampleClozeEn": "These ___ are black.",
+      "exampleFillAnswer": "pants",
+      "exampleFillWrongEn": [
+        "shorts",
+        "boots",
+        "socks"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_socks",
+      "word": "socks",
+      "meaningZh": "袜子",
+      "emoji": "🧦",
+      "exampleEn": "I put on my socks.",
+      "exampleClozeEn": "I put on my ___.",
+      "exampleFillAnswer": "socks",
+      "exampleFillWrongEn": [
+        "gloves",
+        "boots",
+        "shoes"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_stocking",
+      "word": "stocking",
+      "meaningZh": "长袜",
+      "emoji": "🧦",
+      "exampleEn": "She has a red stocking.",
+      "exampleClozeEn": "She has a red ___.",
+      "exampleFillAnswer": "stocking",
+      "exampleFillWrongEn": [
+        "scarf",
+        "glove",
+        "boot"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_sneakers",
+      "word": "sneakers",
+      "meaningZh": "运动鞋",
+      "emoji": "👟",
+      "exampleEn": "My sneakers are white.",
+      "exampleClozeEn": "My ___ are white.",
+      "exampleFillAnswer": "sneakers",
+      "exampleFillWrongEn": [
+        "boots",
+        "sandals",
+        "slippers"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_jumper",
+      "word": "jumper",
+      "meaningZh": "套头衫",
+      "emoji": "🧥",
+      "exampleEn": "I like my new jumper.",
+      "exampleClozeEn": "I like my new ___.",
+      "exampleFillAnswer": "jumper",
+      "exampleFillWrongEn": [
+        "skirt",
+        "cap",
+        "scarf"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_hoody",
+      "word": "hoody",
+      "meaningZh": "帽衫",
+      "emoji": "🧥",
+      "exampleEn": "He wears a black hoody.",
+      "exampleClozeEn": "He wears a black ___.",
+      "exampleFillAnswer": "hoody",
+      "exampleFillWrongEn": [
+        "cap",
+        "vest",
+        "shirt"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_slippers",
+      "word": "slippers",
+      "meaningZh": "拖鞋",
+      "emoji": "🥿",
+      "exampleEn": "I wear slippers at home.",
+      "exampleClozeEn": "I wear ___ at home.",
+      "exampleFillAnswer": "slippers",
+      "exampleFillWrongEn": [
+        "boots",
+        "sneakers",
+        "sandals"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_sandals",
+      "word": "sandals",
+      "meaningZh": "凉鞋",
+      "emoji": "👡",
+      "exampleEn": "She wears sandals in summer.",
+      "exampleClozeEn": "She wears ___ in summer.",
+      "exampleFillAnswer": "sandals",
+      "exampleFillWrongEn": [
+        "boots",
+        "slippers",
+        "sneakers"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_pajamas",
+      "word": "pajamas",
+      "meaningZh": "睡衣",
+      "emoji": "🩱",
+      "exampleEn": "I wear pajamas to bed.",
+      "exampleClozeEn": "I wear ___ to bed.",
+      "exampleFillAnswer": "pajamas",
+      "exampleFillWrongEn": [
+        "jeans",
+        "sweater",
+        "raincoat"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_down_coat",
+      "word": "down coat",
+      "meaningZh": "羽绒服",
+      "emoji": "🧥",
+      "exampleEn": "My down coat is warm.",
+      "exampleClozeEn": "My ___ is warm.",
+      "exampleFillAnswer": "down coat",
+      "exampleFillWrongEn": [
+        "raincoat",
+        "vest",
+        "shirt"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_tshirt",
+      "word": "T-shirt",
+      "meaningZh": "T恤衫",
+      "emoji": "👕",
+      "exampleEn": "I wear a T-shirt to play.",
+      "exampleClozeEn": "I wear a ___ to play.",
+      "exampleFillAnswer": "T-shirt",
+      "exampleFillWrongEn": [
+        "sweater",
+        "raincoat",
+        "jacket"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "clo_running_shoes",
+      "word": "running shoes",
+      "meaningZh": "运动鞋",
+      "emoji": "👟",
+      "exampleEn": "I have new running shoes.",
+      "exampleClozeEn": "I have new ___.",
+      "exampleFillAnswer": "running shoes",
+      "exampleFillWrongEn": [
+        "boots",
+        "sandals",
+        "slippers"
+      ],
+      "gradeTag": "三年级"
+    }
+  ]
+}

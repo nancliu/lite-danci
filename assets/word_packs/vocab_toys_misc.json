@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "tm_doll",
+      "word": "doll",
+      "meaningZh": "洋娃娃",
+      "emoji": "🪆",
+      "exampleEn": "Mary plays with her doll.",
+      "exampleClozeEn": "Mary plays with her ___.",
+      "exampleFillAnswer": "doll",
+      "exampleFillWrongEn": [
+        "bear",
+        "ball",
+        "kite"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_teddy_bear",
+      "word": "teddy bear",
+      "meaningZh": "泰迪熊",
+      "emoji": "🧸",
+      "exampleEn": "I hug my teddy bear at night.",
+      "exampleClozeEn": "I hug my ___ at night.",
+      "exampleFillAnswer": "teddy bear",
+      "exampleFillWrongEn": [
+        "doll",
+        "book",
+        "cup"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_pinwheel",
+      "word": "pinwheel",
+      "meaningZh": "风车",
+      "emoji": "🎐",
+      "exampleEn": "The pinwheel spins in the wind.",
+      "exampleClozeEn": "The ___ spins in the wind.",
+      "exampleFillAnswer": "pinwheel",
+      "exampleFillWrongEn": [
+        "doll",
+        "kite",
+        "ball"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_box",
+      "word": "box",
+      "meaningZh": "盒子",
+      "emoji": "📦",
+      "exampleEn": "The toys are in the box.",
+      "exampleClozeEn": "The toys are in the ___.",
+      "exampleFillAnswer": "box",
+      "exampleFillWrongEn": [
+        "bag",
+        "cup",
+        "car"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_dangerous",
+      "word": "dangerous",
+      "meaningZh": "危险的",
+      "emoji": "⚠️",
+      "exampleEn": "Fire is very dangerous.",
+      "exampleClozeEn": "Fire is very ___.",
+      "exampleFillAnswer": "dangerous",
+      "exampleFillWrongEn": [
+        "safe",
+        "happy",
+        "small"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_safe",
+      "word": "safe",
+      "meaningZh": "安全的",
+      "emoji": "🛡️",
+      "exampleEn": "It is safe to cross now.",
+      "exampleClozeEn": "It is ___ to cross now.",
+      "exampleFillAnswer": "safe",
+      "exampleFillWrongEn": [
+        "dangerous",
+        "fast",
+        "loud"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_halloween",
+      "word": "Halloween",
+      "meaningZh": "万圣节",
+      "emoji": "🎃",
+      "exampleEn": "We wear costumes on Halloween.",
+      "exampleClozeEn": "We wear costumes on ___.",
+      "exampleFillAnswer": "Halloween",
+      "exampleFillWrongEn": [
+        "Thanksgiving",
+        "Christmas",
+        "Sunday"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_thanksgiving",
+      "word": "Thanksgiving",
+      "meaningZh": "感恩节",
+      "emoji": "🦃",
+      "exampleEn": "We eat turkey on Thanksgiving.",
+      "exampleClozeEn": "We eat turkey on ___.",
+      "exampleFillAnswer": "Thanksgiving",
+      "exampleFillWrongEn": [
+        "Halloween",
+        "Christmas",
+        "Monday"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_movie",
+      "word": "movie",
+      "meaningZh": "电影",
+      "emoji": "🎬",
+      "exampleEn": "Let's watch a movie tonight.",
+      "exampleClozeEn": "Let's watch a ___ tonight.",
+      "exampleFillAnswer": "movie",
+      "exampleFillWrongEn": [
+        "book",
+        "song",
+        "game"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_commercial",
+      "word": "commercial",
+      "meaningZh": "广告",
+      "emoji": "📺",
+      "exampleEn": "I do not like this commercial.",
+      "exampleClozeEn": "I do not like this ___.",
+      "exampleFillAnswer": "commercial",
+      "exampleFillWrongEn": [
+        "movie",
+        "song",
+        "show"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_cartoon_city",
+      "word": "Cartoon City",
+      "meaningZh": "动画城",
+      "emoji": "🏙️",
+      "exampleEn": "Cartoon City is on TV at six.",
+      "exampleClozeEn": "___ is on TV at six.",
+      "exampleFillAnswer": "Cartoon City",
+      "exampleFillWrongEn": [
+        "Sports World",
+        "Animal World",
+        "News Time"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_sports_world",
+      "word": "Sports World",
+      "meaningZh": "体育世界",
+      "emoji": "⚽",
+      "exampleEn": "My dad watches Sports World every day.",
+      "exampleClozeEn": "My dad watches ___ every day.",
+      "exampleFillAnswer": "Sports World",
+      "exampleFillWrongEn": [
+        "Cartoon City",
+        "Animal World",
+        "News Time"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_animal_world",
+      "word": "Animal World",
+      "meaningZh": "动物世界",
+      "emoji": "🐾",
+      "exampleEn": "I learn about lions on Animal World.",
+      "exampleClozeEn": "I learn about lions on ___.",
+      "exampleFillAnswer": "Animal World",
+      "exampleFillWrongEn": [
+        "Cartoon City",
+        "Sports World",
+        "News Time"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_east",
+      "word": "east",
+      "meaningZh": "东",
+      "emoji": "🧭",
+      "exampleEn": "The sun rises in the east.",
+      "exampleClozeEn": "The sun rises in the ___.",
+      "exampleFillAnswer": "east",
+      "exampleFillWrongEn": [
+        "west",
+        "south",
+        "north"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_south",
+      "word": "south",
+      "meaningZh": "南",
+      "emoji": "🧭",
+      "exampleEn": "Birds fly to the south in winter.",
+      "exampleClozeEn": "Birds fly to the ___ in winter.",
+      "exampleFillAnswer": "south",
+      "exampleFillWrongEn": [
+        "east",
+        "west",
+        "north"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_west",
+      "word": "west",
+      "meaningZh": "西",
+      "emoji": "🧭",
+      "exampleEn": "The sun sets in the west.",
+      "exampleClozeEn": "The sun sets in the ___.",
+      "exampleFillAnswer": "west",
+      "exampleFillWrongEn": [
+        "east",
+        "south",
+        "north"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_north",
+      "word": "north",
+      "meaningZh": "北",
+      "emoji": "🧭",
+      "exampleEn": "It is cold in the north.",
+      "exampleClozeEn": "It is cold in the ___.",
+      "exampleFillAnswer": "north",
+      "exampleFillWrongEn": [
+        "east",
+        "west",
+        "south"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_in",
+      "word": "in",
+      "meaningZh": "在里面",
+      "emoji": "📥",
+      "exampleEn": "The cat is in the box.",
+      "exampleClozeEn": "The cat is ___ the box.",
+      "exampleFillAnswer": "in",
+      "exampleFillWrongEn": [
+        "on",
+        "under",
+        "behind"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_on",
+      "word": "on",
+      "meaningZh": "在上面",
+      "emoji": "⬆️",
+      "exampleEn": "The book is on the desk.",
+      "exampleClozeEn": "The book is ___ the desk.",
+      "exampleFillAnswer": "on",
+      "exampleFillWrongEn": [
+        "in",
+        "under",
+        "behind"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_under",
+      "word": "under",
+      "meaningZh": "在下面",
+      "emoji": "⬇️",
+      "exampleEn": "The ball is under the chair.",
+      "exampleClozeEn": "The ball is ___ the chair.",
+      "exampleFillAnswer": "under",
+      "exampleFillWrongEn": [
+        "on",
+        "in",
+        "behind"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_from",
+      "word": "from",
+      "meaningZh": "从…来",
+      "emoji": "🛫",
+      "exampleEn": "I am from China.",
+      "exampleClozeEn": "I am ___ China.",
+      "exampleFillAnswer": "from",
+      "exampleFillWrongEn": [
+        "to",
+        "in",
+        "at"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_before",
+      "word": "before",
+      "meaningZh": "在…之前",
+      "emoji": "⏪",
+      "exampleEn": "Wash your hands before lunch.",
+      "exampleClozeEn": "Wash your hands ___ lunch.",
+      "exampleFillAnswer": "before",
+      "exampleFillWrongEn": [
+        "after",
+        "behind",
+        "under"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_behind",
+      "word": "behind",
+      "meaningZh": "在后面",
+      "emoji": "🔙",
+      "exampleEn": "The dog is behind the tree.",
+      "exampleClozeEn": "The dog is ___ the tree.",
+      "exampleFillAnswer": "behind",
+      "exampleFillWrongEn": [
+        "before",
+        "on",
+        "in"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_between",
+      "word": "between",
+      "meaningZh": "在…中间",
+      "emoji": "↔️",
+      "exampleEn": "Sam sits between Tom and Lily.",
+      "exampleClozeEn": "Sam sits ___ Tom and Lily.",
+      "exampleFillAnswer": "between",
+      "exampleFillWrongEn": [
+        "behind",
+        "under",
+        "on"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_next_to",
+      "word": "next to",
+      "meaningZh": "紧挨着",
+      "emoji": "➡️",
+      "exampleEn": "The bag is next to the door.",
+      "exampleClozeEn": "The bag is ___ the door.",
+      "exampleFillAnswer": "next to",
+      "exampleFillWrongEn": [
+        "under",
+        "behind",
+        "in"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_what",
+      "word": "what",
+      "meaningZh": "什么",
+      "emoji": "❓",
+      "exampleEn": "What is your name?",
+      "exampleClozeEn": "___ is your name?",
+      "exampleFillAnswer": "what",
+      "exampleFillWrongEn": [
+        "who",
+        "where",
+        "when"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_when",
+      "word": "when",
+      "meaningZh": "什么时候",
+      "emoji": "⏰",
+      "exampleEn": "When do you go to school?",
+      "exampleClozeEn": "___ do you go to school?",
+      "exampleFillAnswer": "when",
+      "exampleFillWrongEn": [
+        "what",
+        "where",
+        "who"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_where",
+      "word": "where",
+      "meaningZh": "哪里",
+      "emoji": "📍",
+      "exampleEn": "Where is my pencil?",
+      "exampleClozeEn": "___ is my pencil?",
+      "exampleFillAnswer": "where",
+      "exampleFillWrongEn": [
+        "what",
+        "when",
+        "who"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_who",
+      "word": "who",
+      "meaningZh": "谁",
+      "emoji": "🙋",
+      "exampleEn": "Who is your teacher?",
+      "exampleClozeEn": "___ is your teacher?",
+      "exampleFillAnswer": "who",
+      "exampleFillWrongEn": [
+        "what",
+        "where",
+        "when"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_why",
+      "word": "why",
+      "meaningZh": "为什么",
+      "emoji": "🤔",
+      "exampleEn": "Why are you so happy?",
+      "exampleClozeEn": "___ are you so happy?",
+      "exampleFillAnswer": "why",
+      "exampleFillWrongEn": [
+        "what",
+        "who",
+        "when"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_how",
+      "word": "how",
+      "meaningZh": "如何",
+      "emoji": "💡",
+      "exampleEn": "How do you spell this word?",
+      "exampleClozeEn": "___ do you spell this word?",
+      "exampleFillAnswer": "how",
+      "exampleFillWrongEn": [
+        "what",
+        "why",
+        "who"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_which",
+      "word": "which",
+      "meaningZh": "哪个",
+      "emoji": "👉",
+      "exampleEn": "Which color do you like?",
+      "exampleClozeEn": "___ color do you like?",
+      "exampleFillAnswer": "which",
+      "exampleFillWrongEn": [
+        "what",
+        "who",
+        "where"
+      ],
+      "gradeTag": "四年级"
+    },
+    {
+      "id": "tm_whose",
+      "word": "whose",
+      "meaningZh": "谁的",
+      "emoji": "🔑",
+      "exampleEn": "Whose bag is this?",
+      "exampleClozeEn": "___ bag is this?",
+      "exampleFillAnswer": "whose",
+      "exampleFillWrongEn": [
+        "who",
+        "what",
+        "which"
+      ],
+      "gradeTag": "四年级"
+    }
+  ]
+}

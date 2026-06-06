@@ -30,3 +30,17 @@ flutter:
     - assets/word_packs/grade4_vocab.json
     - assets/word_packs/grade5_vocab.json
     - assets/word_packs/grade6_vocab.json
+    - assets/word_packs/vocab_calendar.json
+    - assets/word_packs/vocab_clothing.json
+    - assets/word_packs/vocab_people_jobs.json
+    - assets/word_packs/vocab_home_school.json
+    - assets/word_packs/vocab_food.json
+    - assets/word_packs/vocab_personality.json
+    - assets/word_packs/vocab_toys_misc.json
+    - assets/word_packs/vocab_nature_world.json
+    - assets/word_packs/phrases_activities.json
+    - assets/word_packs/phrases_chores.json
+    - assets/word_packs/phrases_hobbies_sports.json
+    - assets/word_packs/phrases_question.json
+    - assets/word_packs/phrases_illness.json
+    - assets/word_packs/phrases_travel.json

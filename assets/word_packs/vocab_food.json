@@ -1,0 +1,545 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "fd_onion",
+      "word": "onion",
+      "meaningZh": "洋葱",
+      "emoji": "🧅",
+      "exampleEn": "I do not like onion in my food.",
+      "exampleClozeEn": "I do not like ___ in my food.",
+      "exampleFillAnswer": "onion",
+      "exampleFillWrongEn": [
+        "potato",
+        "tomato",
+        "garlic"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_pancake",
+      "word": "pancake",
+      "meaningZh": "薄饼",
+      "emoji": "🥞",
+      "exampleEn": "Mom makes a pancake for me.",
+      "exampleClozeEn": "Mom makes a ___ for me.",
+      "exampleFillAnswer": "pancake",
+      "exampleFillWrongEn": [
+        "pie",
+        "popcorn",
+        "jelly"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_pie",
+      "word": "pie",
+      "meaningZh": "派",
+      "emoji": "🥧",
+      "exampleEn": "I want a big pie for my birthday.",
+      "exampleClozeEn": "I want a big ___ for my birthday.",
+      "exampleFillAnswer": "pie",
+      "exampleFillWrongEn": [
+        "pancake",
+        "popcorn",
+        "jelly"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_popcorn",
+      "word": "popcorn",
+      "meaningZh": "爆米花",
+      "emoji": "🍿",
+      "exampleEn": "We eat popcorn at the movies.",
+      "exampleClozeEn": "We eat ___ at the movies.",
+      "exampleFillAnswer": "popcorn",
+      "exampleFillWrongEn": [
+        "pie",
+        "pancake",
+        "jelly"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_jelly",
+      "word": "jelly",
+      "meaningZh": "果冻",
+      "emoji": "🍮",
+      "exampleEn": "The jelly is sweet and soft.",
+      "exampleClozeEn": "The ___ is sweet and soft.",
+      "exampleFillAnswer": "jelly",
+      "exampleFillWrongEn": [
+        "pie",
+        "pancake",
+        "popcorn"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_coffee",
+      "word": "coffee",
+      "meaningZh": "咖啡",
+      "emoji": "☕",
+      "exampleEn": "Dad drinks coffee every morning.",
+      "exampleClozeEn": "Dad drinks ___ every morning.",
+      "exampleFillAnswer": "coffee",
+      "exampleFillWrongEn": [
+        "coke",
+        "pop",
+        "tea"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_coke",
+      "word": "coke",
+      "meaningZh": "可乐",
+      "emoji": "🥤",
+      "exampleEn": "I want a cold coke now.",
+      "exampleClozeEn": "I want a cold ___ now.",
+      "exampleFillAnswer": "coke",
+      "exampleFillWrongEn": [
+        "coffee",
+        "pop",
+        "tea"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_pop",
+      "word": "pop",
+      "meaningZh": "汽水",
+      "emoji": "🥤",
+      "exampleEn": "Can I have a pop, please?",
+      "exampleClozeEn": "Can I have a ___, please?",
+      "exampleFillAnswer": "pop",
+      "exampleFillWrongEn": [
+        "coffee",
+        "coke",
+        "tea"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_black_tea",
+      "word": "black tea",
+      "meaningZh": "红茶",
+      "emoji": "🍵",
+      "exampleEn": "My mom likes black tea with milk.",
+      "exampleClozeEn": "My mom likes ___ with milk.",
+      "exampleFillAnswer": "black tea",
+      "exampleFillWrongEn": [
+        "green tea",
+        "coffee",
+        "coke"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_green_tea",
+      "word": "green tea",
+      "meaningZh": "绿茶",
+      "emoji": "🍵",
+      "exampleEn": "Grandpa drinks green tea after lunch.",
+      "exampleClozeEn": "Grandpa drinks ___ after lunch.",
+      "exampleFillAnswer": "green tea",
+      "exampleFillWrongEn": [
+        "black tea",
+        "coffee",
+        "coke"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_supper",
+      "word": "supper",
+      "meaningZh": "晚餐",
+      "emoji": "🍽️",
+      "exampleEn": "We have supper at seven.",
+      "exampleClozeEn": "We have ___ at seven.",
+      "exampleFillAnswer": "supper",
+      "exampleFillWrongEn": [
+        "lunch",
+        "breakfast",
+        "snack"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_bowl",
+      "word": "bowl",
+      "meaningZh": "碗",
+      "emoji": "🥣",
+      "exampleEn": "I eat rice from a bowl.",
+      "exampleClozeEn": "I eat rice from a ___.",
+      "exampleFillAnswer": "bowl",
+      "exampleFillWrongEn": [
+        "plate",
+        "dish",
+        "wok"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_wok",
+      "word": "wok",
+      "meaningZh": "锅",
+      "emoji": "🍳",
+      "exampleEn": "Mom cooks food in a wok.",
+      "exampleClozeEn": "Mom cooks food in a ___.",
+      "exampleFillAnswer": "wok",
+      "exampleFillWrongEn": [
+        "bowl",
+        "plate",
+        "dish"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_plate",
+      "word": "plate",
+      "meaningZh": "盘子",
+      "emoji": "🍽️",
+      "exampleEn": "Put the cake on a plate.",
+      "exampleClozeEn": "Put the cake on a ___.",
+      "exampleFillAnswer": "plate",
+      "exampleFillWrongEn": [
+        "bowl",
+        "dish",
+        "wok"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_dish",
+      "word": "dish",
+      "meaningZh": "碟子",
+      "emoji": "🍽️",
+      "exampleEn": "I wash the dish after dinner.",
+      "exampleClozeEn": "I wash the ___ after dinner.",
+      "exampleFillAnswer": "dish",
+      "exampleFillWrongEn": [
+        "bowl",
+        "plate",
+        "wok"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_chopsticks",
+      "word": "chopsticks",
+      "meaningZh": "筷子",
+      "emoji": "🥢",
+      "exampleEn": "I can eat with chopsticks.",
+      "exampleClozeEn": "I can eat with ___.",
+      "exampleFillAnswer": "chopsticks",
+      "exampleFillWrongEn": [
+        "fork",
+        "spoon",
+        "knife"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_fork",
+      "word": "fork",
+      "meaningZh": "叉子",
+      "emoji": "🍴",
+      "exampleEn": "Please give me a fork.",
+      "exampleClozeEn": "Please give me a ___.",
+      "exampleFillAnswer": "fork",
+      "exampleFillWrongEn": [
+        "spoon",
+        "knife",
+        "chopsticks"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_spoon",
+      "word": "spoon",
+      "meaningZh": "勺子",
+      "emoji": "🥄",
+      "exampleEn": "I eat soup with a spoon.",
+      "exampleClozeEn": "I eat soup with a ___.",
+      "exampleFillAnswer": "spoon",
+      "exampleFillWrongEn": [
+        "fork",
+        "knife",
+        "chopsticks"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_knife",
+      "word": "knife",
+      "meaningZh": "刀",
+      "emoji": "🔪",
+      "exampleEn": "Cut the apple with a knife.",
+      "exampleClozeEn": "Cut the apple with a ___.",
+      "exampleFillAnswer": "knife",
+      "exampleFillWrongEn": [
+        "fork",
+        "spoon",
+        "chopsticks"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_meat",
+      "word": "meat",
+      "meaningZh": "肉",
+      "emoji": "🍖",
+      "exampleEn": "The dog likes to eat meat.",
+      "exampleClozeEn": "The dog likes to eat ___.",
+      "exampleFillAnswer": "meat",
+      "exampleFillWrongEn": [
+        "tofu",
+        "soup",
+        "noodles"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_jiaozi",
+      "word": "jiaozi",
+      "meaningZh": "饺子",
+      "emoji": "🥟",
+      "exampleEn": "We eat jiaozi on New Year.",
+      "exampleClozeEn": "We eat ___ on New Year.",
+      "exampleFillAnswer": "jiaozi",
+      "exampleFillWrongEn": [
+        "noodles",
+        "mantou",
+        "tofu"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_noodles",
+      "word": "noodles",
+      "meaningZh": "面条",
+      "emoji": "🍜",
+      "exampleEn": "I love hot noodles for lunch.",
+      "exampleClozeEn": "I love hot ___ for lunch.",
+      "exampleFillAnswer": "noodles",
+      "exampleFillWrongEn": [
+        "jiaozi",
+        "mantou",
+        "tofu"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_tofu",
+      "word": "tofu",
+      "meaningZh": "豆腐",
+      "emoji": "🍲",
+      "exampleEn": "Tofu is soft and white.",
+      "exampleClozeEn": "___ is soft and white.",
+      "exampleFillAnswer": "tofu",
+      "exampleFillWrongEn": [
+        "meat",
+        "beef",
+        "soup"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_beef",
+      "word": "beef",
+      "meaningZh": "牛肉",
+      "emoji": "🥩",
+      "exampleEn": "Dad cooks beef for dinner.",
+      "exampleClozeEn": "Dad cooks ___ for dinner.",
+      "exampleFillAnswer": "beef",
+      "exampleFillWrongEn": [
+        "tofu",
+        "soup",
+        "noodles"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_beijing_duck",
+      "word": "Beijing duck",
+      "meaningZh": "北京烤鸭",
+      "emoji": "🦆",
+      "exampleEn": "Beijing duck is very famous.",
+      "exampleClozeEn": "___ is very famous.",
+      "exampleFillAnswer": "Beijing duck",
+      "exampleFillWrongEn": [
+        "seafood",
+        "beef",
+        "tofu"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_seafood",
+      "word": "seafood",
+      "meaningZh": "海鲜",
+      "emoji": "🦐",
+      "exampleEn": "We eat seafood at the beach.",
+      "exampleClozeEn": "We eat ___ at the beach.",
+      "exampleFillAnswer": "seafood",
+      "exampleFillWrongEn": [
+        "beef",
+        "meat",
+        "tofu"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_mantou",
+      "word": "mantou",
+      "meaningZh": "馒头",
+      "emoji": "🍞",
+      "exampleEn": "I eat a mantou for breakfast.",
+      "exampleClozeEn": "I eat a ___ for breakfast.",
+      "exampleFillAnswer": "mantou",
+      "exampleFillWrongEn": [
+        "jiaozi",
+        "noodles",
+        "tofu"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_hot_dog",
+      "word": "hot dog",
+      "meaningZh": "热狗",
+      "emoji": "🌭",
+      "exampleEn": "I want a hot dog for lunch.",
+      "exampleClozeEn": "I want a ___ for lunch.",
+      "exampleFillAnswer": "hot dog",
+      "exampleFillWrongEn": [
+        "pie",
+        "pancake",
+        "popcorn"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_oil",
+      "word": "oil",
+      "meaningZh": "油",
+      "emoji": "🫙",
+      "exampleEn": "Mom puts oil in the wok.",
+      "exampleClozeEn": "Mom puts ___ in the wok.",
+      "exampleFillAnswer": "oil",
+      "exampleFillWrongEn": [
+        "salt",
+        "sugar",
+        "sauce"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_salt",
+      "word": "salt",
+      "meaningZh": "盐",
+      "emoji": "🧂",
+      "exampleEn": "Please add some salt to the soup.",
+      "exampleClozeEn": "Please add some ___ to the soup.",
+      "exampleFillAnswer": "salt",
+      "exampleFillWrongEn": [
+        "sugar",
+        "pepper",
+        "oil"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_sugar",
+      "word": "sugar",
+      "meaningZh": "糖",
+      "emoji": "🍬",
+      "exampleEn": "I like sugar in my tea.",
+      "exampleClozeEn": "I like ___ in my tea.",
+      "exampleFillAnswer": "sugar",
+      "exampleFillWrongEn": [
+        "salt",
+        "pepper",
+        "oil"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_pepper",
+      "word": "pepper",
+      "meaningZh": "胡椒粉",
+      "emoji": "🌶️",
+      "exampleEn": "Add a little pepper to the meat.",
+      "exampleClozeEn": "Add a little ___ to the meat.",
+      "exampleFillAnswer": "pepper",
+      "exampleFillWrongEn": [
+        "salt",
+        "sugar",
+        "oil"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_sauce",
+      "word": "sauce",
+      "meaningZh": "酱",
+      "emoji": "🥫",
+      "exampleEn": "I put sauce on my noodles.",
+      "exampleClozeEn": "I put ___ on my noodles.",
+      "exampleFillAnswer": "sauce",
+      "exampleFillWrongEn": [
+        "oil",
+        "salt",
+        "vinegar"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_flour",
+      "word": "flour",
+      "meaningZh": "面粉",
+      "emoji": "🌾",
+      "exampleEn": "We need flour to make bread.",
+      "exampleClozeEn": "We need ___ to make bread.",
+      "exampleFillAnswer": "flour",
+      "exampleFillWrongEn": [
+        "sugar",
+        "salt",
+        "oil"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_soy_sauce",
+      "word": "soy sauce",
+      "meaningZh": "酱油",
+      "emoji": "🫗",
+      "exampleEn": "Chinese food often uses soy sauce.",
+      "exampleClozeEn": "Chinese food often uses ___.",
+      "exampleFillAnswer": "soy sauce",
+      "exampleFillWrongEn": [
+        "vinegar",
+        "oil",
+        "sauce"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "fd_vinegar",
+      "word": "vinegar",
+      "meaningZh": "醋",
+      "emoji": "🍶",
+      "exampleEn": "Vinegar tastes sour.",
+      "exampleClozeEn": "___ tastes sour.",
+      "exampleFillAnswer": "vinegar",
+      "exampleFillWrongEn": [
+        "sugar",
+        "salt",
+        "soy sauce"
+      ],
+      "gradeTag": "三年级"
+    }
+  ]
+}

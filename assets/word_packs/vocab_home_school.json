@@ -1,0 +1,605 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "hs_balcony",
+      "word": "balcony",
+      "meaningZh": "阳台",
+      "emoji": "🏠",
+      "exampleEn": "I water plants on the balcony.",
+      "exampleClozeEn": "I water plants on the ___.",
+      "exampleFillAnswer": "balcony",
+      "exampleFillWrongEn": [
+        "roof",
+        "garden",
+        "kitchen"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_dining_room",
+      "word": "dining room",
+      "meaningZh": "餐厅",
+      "emoji": "🍽️",
+      "exampleEn": "We eat dinner in the dining room.",
+      "exampleClozeEn": "We eat dinner in the ___ room.",
+      "exampleFillAnswer": "dining",
+      "exampleFillWrongEn": [
+        "bed",
+        "bath",
+        "living"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_study",
+      "word": "study",
+      "meaningZh": "书房",
+      "emoji": "📚",
+      "exampleEn": "Dad reads books in the study.",
+      "exampleClozeEn": "Dad reads books in the ___.",
+      "exampleFillAnswer": "study",
+      "exampleFillWrongEn": [
+        "garage",
+        "kitchen",
+        "balcony"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_garage",
+      "word": "garage",
+      "meaningZh": "车库",
+      "emoji": "🚗",
+      "exampleEn": "Our car is in the garage.",
+      "exampleClozeEn": "Our car is in the ___.",
+      "exampleFillAnswer": "garage",
+      "exampleFillWrongEn": [
+        "study",
+        "balcony",
+        "kitchen"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_closet",
+      "word": "closet",
+      "meaningZh": "衣柜",
+      "emoji": "🚪",
+      "exampleEn": "My coat is in the closet.",
+      "exampleClozeEn": "My coat is in the ___.",
+      "exampleFillAnswer": "closet",
+      "exampleFillWrongEn": [
+        "lamp",
+        "clock",
+        "picture"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_wardrobe",
+      "word": "wardrobe",
+      "meaningZh": "衣柜",
+      "emoji": "👕",
+      "exampleEn": "She hangs dresses in the wardrobe.",
+      "exampleClozeEn": "She hangs dresses in the ___.",
+      "exampleFillAnswer": "wardrobe",
+      "exampleFillWrongEn": [
+        "mirror",
+        "shelf",
+        "drawer"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_telephone",
+      "word": "telephone",
+      "meaningZh": "电话",
+      "emoji": "☎️",
+      "exampleEn": "Please answer the telephone.",
+      "exampleClozeEn": "Please answer the ___.",
+      "exampleFillAnswer": "telephone",
+      "exampleFillWrongEn": [
+        "computer",
+        "clock",
+        "lamp"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_tv",
+      "word": "TV",
+      "meaningZh": "电视",
+      "emoji": "📺",
+      "exampleEn": "We watch cartoons on TV.",
+      "exampleClozeEn": "We watch cartoons on ___.",
+      "exampleFillAnswer": "TV",
+      "exampleFillWrongEn": [
+        "computer",
+        "lamp",
+        "clock"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_picture",
+      "word": "picture",
+      "meaningZh": "图片",
+      "emoji": "🖼️",
+      "exampleEn": "There is a picture on the wall.",
+      "exampleClozeEn": "There is a ___ on the wall.",
+      "exampleFillAnswer": "picture",
+      "exampleFillWrongEn": [
+        "lamp",
+        "clock",
+        "closet"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_armchair",
+      "word": "armchair",
+      "meaningZh": "扶手椅",
+      "emoji": "🪑",
+      "exampleEn": "Grandpa sits in the armchair.",
+      "exampleClozeEn": "Grandpa sits in the ___.",
+      "exampleFillAnswer": "armchair",
+      "exampleFillWrongEn": [
+        "lamp",
+        "clock",
+        "picture"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_clock",
+      "word": "clock",
+      "meaningZh": "钟",
+      "emoji": "🕐",
+      "exampleEn": "The clock shows three o'clock.",
+      "exampleClozeEn": "The ___ shows three o'clock.",
+      "exampleFillAnswer": "clock",
+      "exampleFillWrongEn": [
+        "lamp",
+        "picture",
+        "computer"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_clinic",
+      "word": "clinic",
+      "meaningZh": "医务室",
+      "emoji": "🏥",
+      "exampleEn": "The nurse works in the clinic.",
+      "exampleClozeEn": "The nurse works in the ___.",
+      "exampleFillAnswer": "clinic",
+      "exampleFillWrongEn": [
+        "gym",
+        "playground",
+        "washroom"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_music_room",
+      "word": "music room",
+      "meaningZh": "音乐教室",
+      "emoji": "🎵",
+      "exampleEn": "We sing songs in the music room.",
+      "exampleClozeEn": "We sing songs in the ___ room.",
+      "exampleFillAnswer": "music",
+      "exampleFillWrongEn": [
+        "art",
+        "science",
+        "computer"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_science_room",
+      "word": "science room",
+      "meaningZh": "科学教室",
+      "emoji": "🔬",
+      "exampleEn": "We do experiments in the science room.",
+      "exampleClozeEn": "We do experiments in the ___ room.",
+      "exampleFillAnswer": "science",
+      "exampleFillWrongEn": [
+        "music",
+        "art",
+        "computer"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_art_room",
+      "word": "art room",
+      "meaningZh": "美术教室",
+      "emoji": "🎨",
+      "exampleEn": "We paint pictures in the art room.",
+      "exampleClozeEn": "We paint pictures in the ___ room.",
+      "exampleFillAnswer": "art",
+      "exampleFillWrongEn": [
+        "music",
+        "science",
+        "computer"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_computer_room",
+      "word": "computer room",
+      "meaningZh": "计算机教室",
+      "emoji": "🖥️",
+      "exampleEn": "We learn typing in the computer room.",
+      "exampleClozeEn": "We learn typing in the ___ room.",
+      "exampleFillAnswer": "computer",
+      "exampleFillWrongEn": [
+        "music",
+        "art",
+        "science"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_washroom",
+      "word": "washroom",
+      "meaningZh": "洗手间",
+      "emoji": "🚻",
+      "exampleEn": "The washroom is down the hall.",
+      "exampleClozeEn": "The ___ is down the hall.",
+      "exampleFillAnswer": "washroom",
+      "exampleFillWrongEn": [
+        "gym",
+        "clinic",
+        "playground"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_gym",
+      "word": "gym",
+      "meaningZh": "体育馆",
+      "emoji": "🏀",
+      "exampleEn": "We play basketball in the gym.",
+      "exampleClozeEn": "We play basketball in the ___.",
+      "exampleFillAnswer": "gym",
+      "exampleFillWrongEn": [
+        "clinic",
+        "washroom",
+        "playground"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_playground",
+      "word": "playground",
+      "meaningZh": "操场",
+      "emoji": "🏃",
+      "exampleEn": "Children run on the playground.",
+      "exampleClozeEn": "Children run on the ___.",
+      "exampleFillAnswer": "playground",
+      "exampleFillWrongEn": [
+        "gym",
+        "clinic",
+        "washroom"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_floor",
+      "word": "floor",
+      "meaningZh": "楼层",
+      "emoji": "🏢",
+      "exampleEn": "Our classroom is on the second floor.",
+      "exampleClozeEn": "Our classroom is on the second ___.",
+      "exampleFillAnswer": "floor",
+      "exampleFillWrongEn": [
+        "gym",
+        "room",
+        "wall"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_blackboard",
+      "word": "blackboard",
+      "meaningZh": "黑板",
+      "emoji": "📋",
+      "exampleEn": "The teacher writes on the blackboard.",
+      "exampleClozeEn": "The teacher writes on the ___.",
+      "exampleFillAnswer": "blackboard",
+      "exampleFillWrongEn": [
+        "notebook",
+        "folder",
+        "picture"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_art_class",
+      "word": "Art",
+      "meaningZh": "美术课",
+      "emoji": "🎨",
+      "exampleEn": "I like Art class very much.",
+      "exampleClozeEn": "I like ___ class very much.",
+      "exampleFillAnswer": "Art",
+      "exampleFillWrongEn": [
+        "Math",
+        "Music",
+        "Science"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_math_class",
+      "word": "Math",
+      "meaningZh": "数学课",
+      "emoji": "➗",
+      "exampleEn": "We learn numbers in Math class.",
+      "exampleClozeEn": "We learn numbers in ___ class.",
+      "exampleFillAnswer": "Math",
+      "exampleFillWrongEn": [
+        "Art",
+        "Music",
+        "English"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_pe_class",
+      "word": "P.E.",
+      "meaningZh": "体育课",
+      "emoji": "⚽",
+      "exampleEn": "We play games in P.E. class.",
+      "exampleClozeEn": "We play games in ___ class.",
+      "exampleFillAnswer": "P.E.",
+      "exampleFillWrongEn": [
+        "Art",
+        "Math",
+        "Music"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_music_class",
+      "word": "Music",
+      "meaningZh": "音乐课",
+      "emoji": "🎶",
+      "exampleEn": "We sing in Music class.",
+      "exampleClozeEn": "We sing in ___ class.",
+      "exampleFillAnswer": "Music",
+      "exampleFillWrongEn": [
+        "Art",
+        "Math",
+        "Science"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_science_class",
+      "word": "Science",
+      "meaningZh": "科学课",
+      "emoji": "🧪",
+      "exampleEn": "We study plants in Science class.",
+      "exampleClozeEn": "We study plants in ___ class.",
+      "exampleFillAnswer": "Science",
+      "exampleFillWrongEn": [
+        "Music",
+        "Art",
+        "Math"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_handwriting_class",
+      "word": "Handwriting",
+      "meaningZh": "书法课",
+      "emoji": "✍️",
+      "exampleEn": "We practice letters in Handwriting class.",
+      "exampleClozeEn": "We practice letters in ___ class.",
+      "exampleFillAnswer": "Handwriting",
+      "exampleFillWrongEn": [
+        "Math",
+        "Music",
+        "Art"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_notebook",
+      "word": "notebook",
+      "meaningZh": "笔记本",
+      "emoji": "📓",
+      "exampleEn": "I write notes in my notebook.",
+      "exampleClozeEn": "I write notes in my ___.",
+      "exampleFillAnswer": "notebook",
+      "exampleFillWrongEn": [
+        "folder",
+        "dictionary",
+        "card"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_backpack",
+      "word": "backpack",
+      "meaningZh": "背包",
+      "emoji": "🎒",
+      "exampleEn": "My books are in the backpack.",
+      "exampleClozeEn": "My books are in the ___.",
+      "exampleFillAnswer": "backpack",
+      "exampleFillWrongEn": [
+        "folder",
+        "map",
+        "card"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_schoolbag",
+      "word": "schoolbag",
+      "meaningZh": "书包",
+      "emoji": "🎒",
+      "exampleEn": "My schoolbag is very heavy today.",
+      "exampleClozeEn": "My ___ is very heavy today.",
+      "exampleFillAnswer": "schoolbag",
+      "exampleFillWrongEn": [
+        "notebook",
+        "folder",
+        "dictionary"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_pencil_case",
+      "word": "pencil case",
+      "meaningZh": "文具盒",
+      "emoji": "✏️",
+      "exampleEn": "My pens are in the pencil case.",
+      "exampleClozeEn": "My pens are in the pencil ___.",
+      "exampleFillAnswer": "case",
+      "exampleFillWrongEn": [
+        "box",
+        "bag",
+        "folder"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_brush",
+      "word": "brush",
+      "meaningZh": "毛笔",
+      "emoji": "🖌️",
+      "exampleEn": "She paints with a brush.",
+      "exampleClozeEn": "She paints with a ___.",
+      "exampleFillAnswer": "brush",
+      "exampleFillWrongEn": [
+        "crayon",
+        "pencil",
+        "marker"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_scissors",
+      "word": "scissors",
+      "meaningZh": "剪刀",
+      "emoji": "✂️",
+      "exampleEn": "Cut the paper with the scissors.",
+      "exampleClozeEn": "Cut the paper with the ___.",
+      "exampleFillAnswer": "scissors",
+      "exampleFillWrongEn": [
+        "stapler",
+        "brush",
+        "crayon"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_folder",
+      "word": "folder",
+      "meaningZh": "文件夹",
+      "emoji": "📁",
+      "exampleEn": "Put your papers in the folder.",
+      "exampleClozeEn": "Put your papers in the ___.",
+      "exampleFillAnswer": "folder",
+      "exampleFillWrongEn": [
+        "notebook",
+        "card",
+        "map"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_crayon",
+      "word": "crayon",
+      "meaningZh": "蜡笔",
+      "emoji": "🖍️",
+      "exampleEn": "I draw with a red crayon.",
+      "exampleClozeEn": "I draw with a red ___.",
+      "exampleFillAnswer": "crayon",
+      "exampleFillWrongEn": [
+        "brush",
+        "pencil",
+        "marker"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_dictionary",
+      "word": "dictionary",
+      "meaningZh": "字典",
+      "emoji": "📖",
+      "exampleEn": "I find new words in the dictionary.",
+      "exampleClozeEn": "I find new words in the ___.",
+      "exampleFillAnswer": "dictionary",
+      "exampleFillWrongEn": [
+        "notebook",
+        "folder",
+        "map"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_glue_stick",
+      "word": "glue stick",
+      "meaningZh": "胶棒",
+      "emoji": "🧴",
+      "exampleEn": "Use a glue stick to stick the paper.",
+      "exampleClozeEn": "Use a glue ___ to stick the paper.",
+      "exampleFillAnswer": "stick",
+      "exampleFillWrongEn": [
+        "tape",
+        "pin",
+        "clip"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_pencil_sharpener",
+      "word": "pencil sharpener",
+      "meaningZh": "转笔刀",
+      "emoji": "✏️",
+      "exampleEn": "I use a pencil sharpener every day.",
+      "exampleClozeEn": "I use a pencil ___ every day.",
+      "exampleFillAnswer": "sharpener",
+      "exampleFillWrongEn": [
+        "case",
+        "box",
+        "holder"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_card",
+      "word": "card",
+      "meaningZh": "卡片",
+      "emoji": "🎴",
+      "exampleEn": "I send a card to my friend.",
+      "exampleClozeEn": "I send a ___ to my friend.",
+      "exampleFillAnswer": "card",
+      "exampleFillWrongEn": [
+        "map",
+        "folder",
+        "notebook"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "hs_stapler",
+      "word": "stapler",
+      "meaningZh": "订书器",
+      "emoji": "📎",
+      "exampleEn": "Use the stapler to join the papers.",
+      "exampleClozeEn": "Use the ___ to join the papers.",
+      "exampleFillAnswer": "stapler",
+      "exampleFillWrongEn": [
+        "scissors",
+        "brush",
+        "folder"
+      ],
+      "gradeTag": "三年级"
+    }
+  ]
+}

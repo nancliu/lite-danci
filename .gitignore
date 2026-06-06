@@ -26,3 +26,6 @@ android/.gradle/
 
 # Superpowers brainstorm companion sessions
 .superpowers/
+
+# Claude Code runtime
+.claude/scheduled_tasks.lock

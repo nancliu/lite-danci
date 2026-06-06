@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "qu_how_often",
+      "word": "how often",
+      "meaningZh": "多久；多常",
+      "emoji": "❓",
+      "exampleEn": "How often do you exercise?",
+      "exampleClozeEn": "___ do you exercise?",
+      "exampleFillAnswer": "How often",
+      "exampleFillWrongEn": ["How many", "How long", "What time"],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "qu_how_many",
+      "word": "how many",
+      "meaningZh": "多少（个）",
+      "emoji": "❓",
+      "exampleEn": "How many apples do you have?",
+      "exampleClozeEn": "___ apples do you have?",
+      "exampleFillAnswer": "How many",
+      "exampleFillWrongEn": ["How much", "What time", "How often"],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "qu_how_much",
+      "word": "how much",
+      "meaningZh": "多少钱",
+      "emoji": "💰",
+      "exampleEn": "How much is this book?",
+      "exampleClozeEn": "___ is this book?",
+      "exampleFillAnswer": "How much",
+      "exampleFillWrongEn": ["How many", "How old", "What color"],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "qu_what_day",
+      "word": "what day",
+      "meaningZh": "哪一天",
+      "emoji": "📅",
+      "exampleEn": "What day is today?",
+      "exampleClozeEn": "___ is today?",
+      "exampleFillAnswer": "What day",
+      "exampleFillWrongEn": ["What time", "How many", "What color"],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "qu_what_time",
+      "word": "what time",
+      "meaningZh": "什么时间",
+      "emoji": "⏰",
+      "exampleEn": "What time is it?",
+      "exampleClozeEn": "___ is it?",
+      "exampleFillAnswer": "What time",
+      "exampleFillWrongEn": ["What day", "How many", "How much"],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "qu_what_color",
+      "word": "what color",
+      "meaningZh": "什么颜色",
+      "emoji": "🎨",
+      "exampleEn": "What color do you like?",
+      "exampleClozeEn": "___ do you like?",
+      "exampleFillAnswer": "What color",
+      "exampleFillWrongEn": ["What kind", "How many", "What time"],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "qu_what_kind_of",
+      "word": "what kind of",
+      "meaningZh": "哪一种类",
+      "emoji": "🏷️",
+      "exampleEn": "What kind of food do you like?",
+      "exampleClozeEn": "___ food do you like?",
+      "exampleFillAnswer": "What kind of",
+      "exampleFillWrongEn": ["How many", "What color", "How much"],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "qu_how_old",
+      "word": "how old",
+      "meaningZh": "多大",
+      "emoji": "🎂",
+      "exampleEn": "How old are you?",
+      "exampleClozeEn": "___ are you?",
+      "exampleFillAnswer": "How old",
+      "exampleFillWrongEn": ["How many", "How much", "How long"],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "qu_how_long",
+      "word": "how long",
+      "meaningZh": "多长时间",
+      "emoji": "📏",
+      "exampleEn": "How long is the river?",
+      "exampleClozeEn": "___ is the river?",
+      "exampleFillAnswer": "How long",
+      "exampleFillWrongEn": ["How often", "How many", "How old"],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "qu_how_about",
+      "word": "how about",
+      "meaningZh": "怎么样",
+      "emoji": "💡",
+      "exampleEn": "How about a cup of tea?",
+      "exampleClozeEn": "___ a cup of tea?",
+      "exampleFillAnswer": "How about",
+      "exampleFillWrongEn": ["What about", "How many", "What time"],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "qu_what_about",
+      "word": "what about",
+      "meaningZh": "怎么样",
+      "emoji": "🤔",
+      "exampleEn": "What about going to the park?",
+      "exampleClozeEn": "___ going to the park?",
+      "exampleFillAnswer": "What about",
+      "exampleFillWrongEn": ["How about", "How many", "What time"],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "qu_whats_wrong",
+      "word": "what's wrong",
+      "meaningZh": "怎么了",
+      "emoji": "😟",
+      "exampleEn": "What's wrong with you?",
+      "exampleClozeEn": "___ with you?",
+      "exampleFillAnswer": "What's wrong",
+      "exampleFillWrongEn": ["How about", "What about", "How many"],
+      "gradeTag": "三年级"
+    }
+  ]
+}

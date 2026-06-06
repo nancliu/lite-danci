@@ -1,0 +1,620 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "nw_sky",
+      "word": "sky",
+      "meaningZh": "天空",
+      "emoji": "🌌",
+      "exampleEn": "The sky is blue today.",
+      "exampleClozeEn": "The ___ is blue today.",
+      "exampleFillAnswer": "sky",
+      "exampleFillWrongEn": [
+        "sea",
+        "lake",
+        "cloud"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_wind",
+      "word": "wind",
+      "meaningZh": "风",
+      "emoji": "💨",
+      "exampleEn": "The wind is strong tonight.",
+      "exampleClozeEn": "The ___ is strong tonight.",
+      "exampleFillAnswer": "wind",
+      "exampleFillWrongEn": [
+        "rain",
+        "snow",
+        "fog"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_sea",
+      "word": "sea",
+      "meaningZh": "大海",
+      "emoji": "🌊",
+      "exampleEn": "We swim in the sea every summer.",
+      "exampleClozeEn": "We swim in the ___ every summer.",
+      "exampleFillAnswer": "sea",
+      "exampleFillWrongEn": [
+        "sky",
+        "tree",
+        "road"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_land",
+      "word": "land",
+      "meaningZh": "陆地",
+      "emoji": "🏞️",
+      "exampleEn": "The bird flew over the land.",
+      "exampleClozeEn": "The bird flew over the ___.",
+      "exampleFillAnswer": "land",
+      "exampleFillWrongEn": [
+        "water",
+        "cloud",
+        "moon"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_air",
+      "word": "air",
+      "meaningZh": "空气",
+      "emoji": "🌬️",
+      "exampleEn": "The air smells fresh after the rain.",
+      "exampleClozeEn": "The ___ smells fresh after the rain.",
+      "exampleFillAnswer": "air",
+      "exampleFillWrongEn": [
+        "food",
+        "water",
+        "wind"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_bench",
+      "word": "bench",
+      "meaningZh": "长凳",
+      "emoji": "🪑",
+      "exampleEn": "She sat on the bench in the park.",
+      "exampleClozeEn": "She sat on the ___ in the park.",
+      "exampleFillAnswer": "bench",
+      "exampleFillWrongEn": [
+        "chair",
+        "table",
+        "bed"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_asia",
+      "word": "Asia",
+      "meaningZh": "亚洲",
+      "emoji": "🌏",
+      "exampleEn": "China is a big country in Asia.",
+      "exampleClozeEn": "China is a big country in ___.",
+      "exampleFillAnswer": "Asia",
+      "exampleFillWrongEn": [
+        "Europe",
+        "Africa",
+        "Oceania"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_europe",
+      "word": "Europe",
+      "meaningZh": "欧洲",
+      "emoji": "🌍",
+      "exampleEn": "France is in Europe.",
+      "exampleClozeEn": "France is in ___.",
+      "exampleFillAnswer": "Europe",
+      "exampleFillWrongEn": [
+        "Asia",
+        "Africa",
+        "Oceania"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_africa",
+      "word": "Africa",
+      "meaningZh": "非洲",
+      "emoji": "🌍",
+      "exampleEn": "Many lions live in Africa.",
+      "exampleClozeEn": "Many lions live in ___.",
+      "exampleFillAnswer": "Africa",
+      "exampleFillWrongEn": [
+        "Asia",
+        "Europe",
+        "Oceania"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_north_america",
+      "word": "North America",
+      "meaningZh": "北美洲",
+      "emoji": "🌎",
+      "exampleEn": "Canada is in North America.",
+      "exampleClozeEn": "Canada is in ___.",
+      "exampleFillAnswer": "North America",
+      "exampleFillWrongEn": [
+        "South America",
+        "Africa",
+        "Europe"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_south_america",
+      "word": "South America",
+      "meaningZh": "南美洲",
+      "emoji": "🌎",
+      "exampleEn": "Brazil is in South America.",
+      "exampleClozeEn": "Brazil is in ___.",
+      "exampleFillAnswer": "South America",
+      "exampleFillWrongEn": [
+        "North America",
+        "Asia",
+        "Europe"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_oceania",
+      "word": "Oceania",
+      "meaningZh": "大洋洲",
+      "emoji": "🌏",
+      "exampleEn": "Australia is in Oceania.",
+      "exampleClozeEn": "Australia is in ___.",
+      "exampleFillAnswer": "Oceania",
+      "exampleFillWrongEn": [
+        "Asia",
+        "Europe",
+        "Africa"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_germany",
+      "word": "Germany",
+      "meaningZh": "德国",
+      "emoji": "🇩🇪",
+      "exampleEn": "Germany is famous for its cars.",
+      "exampleClozeEn": "___ is famous for its cars.",
+      "exampleFillAnswer": "Germany",
+      "exampleFillWrongEn": [
+        "Spain",
+        "Egypt",
+        "Korea"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_spain",
+      "word": "Spain",
+      "meaningZh": "西班牙",
+      "emoji": "🇪🇸",
+      "exampleEn": "Spain has many sunny beaches.",
+      "exampleClozeEn": "___ has many sunny beaches.",
+      "exampleFillAnswer": "Spain",
+      "exampleFillWrongEn": [
+        "Italy",
+        "Germany",
+        "Denmark"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_egypt",
+      "word": "Egypt",
+      "meaningZh": "埃及",
+      "emoji": "🇪🇬",
+      "exampleEn": "Egypt is famous for its pyramids.",
+      "exampleClozeEn": "___ is famous for its pyramids.",
+      "exampleFillAnswer": "Egypt",
+      "exampleFillWrongEn": [
+        "Italy",
+        "Spain",
+        "Thailand"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_thailand",
+      "word": "Thailand",
+      "meaningZh": "泰国",
+      "emoji": "🇹🇭",
+      "exampleEn": "Thailand has many beautiful temples.",
+      "exampleClozeEn": "___ has many beautiful temples.",
+      "exampleFillAnswer": "Thailand",
+      "exampleFillWrongEn": [
+        "Korea",
+        "Egypt",
+        "Italy"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_korea",
+      "word": "Korea",
+      "meaningZh": "韩国",
+      "emoji": "🇰🇷",
+      "exampleEn": "Korea is famous for K-pop music.",
+      "exampleClozeEn": "___ is famous for K-pop music.",
+      "exampleFillAnswer": "Korea",
+      "exampleFillWrongEn": [
+        "Thailand",
+        "Germany",
+        "Spain"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_italy",
+      "word": "Italy",
+      "meaningZh": "意大利",
+      "emoji": "🇮🇹",
+      "exampleEn": "Italy is famous for pizza and pasta.",
+      "exampleClozeEn": "___ is famous for pizza and pasta.",
+      "exampleFillAnswer": "Italy",
+      "exampleFillWrongEn": [
+        "Spain",
+        "Denmark",
+        "Egypt"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_denmark",
+      "word": "Denmark",
+      "meaningZh": "丹麦",
+      "emoji": "🇩🇰",
+      "exampleEn": "Denmark is a small country in Europe.",
+      "exampleClozeEn": "___ is a small country in Europe.",
+      "exampleFillAnswer": "Denmark",
+      "exampleFillWrongEn": [
+        "Korea",
+        "Thailand",
+        "Egypt"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_uk",
+      "word": "the United Kingdom",
+      "meaningZh": "英国",
+      "emoji": "🇬🇧",
+      "exampleEn": "London is the capital of the United Kingdom.",
+      "exampleClozeEn": "London is the capital of ___.",
+      "exampleFillAnswer": "the United Kingdom",
+      "exampleFillWrongEn": [
+        "the United States",
+        "Germany",
+        "Italy"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_us",
+      "word": "the United States",
+      "meaningZh": "美国",
+      "emoji": "🇺🇸",
+      "exampleEn": "New York is a big city in the United States.",
+      "exampleClozeEn": "New York is a big city in ___.",
+      "exampleFillAnswer": "the United States",
+      "exampleFillWrongEn": [
+        "the United Kingdom",
+        "Spain",
+        "Korea"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_russian",
+      "word": "Russian",
+      "meaningZh": "俄语",
+      "emoji": "🗣️",
+      "exampleEn": "She is learning Russian at school.",
+      "exampleClozeEn": "She is learning ___ at school.",
+      "exampleFillAnswer": "Russian",
+      "exampleFillWrongEn": [
+        "Japanese",
+        "German",
+        "Korean"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_japanese",
+      "word": "Japanese",
+      "meaningZh": "日语",
+      "emoji": "🗣️",
+      "exampleEn": "He can speak Japanese very well.",
+      "exampleClozeEn": "He can speak ___ very well.",
+      "exampleFillAnswer": "Japanese",
+      "exampleFillWrongEn": [
+        "Russian",
+        "Thai",
+        "Italian"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_german",
+      "word": "German",
+      "meaningZh": "德语",
+      "emoji": "🗣️",
+      "exampleEn": "My uncle teaches German at school.",
+      "exampleClozeEn": "My uncle teaches ___ at school.",
+      "exampleFillAnswer": "German",
+      "exampleFillWrongEn": [
+        "Spanish",
+        "Danish",
+        "Korean"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_spanish",
+      "word": "Spanish",
+      "meaningZh": "西班牙语",
+      "emoji": "🗣️",
+      "exampleEn": "Many people in the world speak Spanish.",
+      "exampleClozeEn": "Many people in the world speak ___.",
+      "exampleFillAnswer": "Spanish",
+      "exampleFillWrongEn": [
+        "German",
+        "Italian",
+        "Thai"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_egyptian",
+      "word": "Egyptian",
+      "meaningZh": "埃及语",
+      "emoji": "🗣️",
+      "exampleEn": "He wants to learn Egyptian one day.",
+      "exampleClozeEn": "He wants to learn ___ one day.",
+      "exampleFillAnswer": "Egyptian",
+      "exampleFillWrongEn": [
+        "Russian",
+        "Korean",
+        "Danish"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_thai",
+      "word": "Thai",
+      "meaningZh": "泰语",
+      "emoji": "🗣️",
+      "exampleEn": "She speaks a little Thai.",
+      "exampleClozeEn": "She speaks a little ___.",
+      "exampleFillAnswer": "Thai",
+      "exampleFillWrongEn": [
+        "Japanese",
+        "Italian",
+        "German"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_italian",
+      "word": "Italian",
+      "meaningZh": "意大利语",
+      "emoji": "🗣️",
+      "exampleEn": "My teacher is from Rome and speaks Italian.",
+      "exampleClozeEn": "My teacher is from Rome and speaks ___.",
+      "exampleFillAnswer": "Italian",
+      "exampleFillWrongEn": [
+        "Spanish",
+        "Danish",
+        "Thai"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_korean",
+      "word": "Korean",
+      "meaningZh": "韩语",
+      "emoji": "🗣️",
+      "exampleEn": "I am learning Korean from videos.",
+      "exampleClozeEn": "I am learning ___ from videos.",
+      "exampleFillAnswer": "Korean",
+      "exampleFillWrongEn": [
+        "Japanese",
+        "Russian",
+        "German"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_danish",
+      "word": "Danish",
+      "meaningZh": "丹麦语",
+      "emoji": "🗣️",
+      "exampleEn": "People in Denmark speak Danish.",
+      "exampleClozeEn": "People in Denmark speak ___.",
+      "exampleFillAnswer": "Danish",
+      "exampleFillWrongEn": [
+        "German",
+        "Italian",
+        "Spanish"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_tokyo",
+      "word": "Tokyo",
+      "meaningZh": "东京",
+      "emoji": "🗼",
+      "exampleEn": "Tokyo is the capital of Japan.",
+      "exampleClozeEn": "___ is the capital of Japan.",
+      "exampleFillAnswer": "Tokyo",
+      "exampleFillWrongEn": [
+        "Paris",
+        "London",
+        "Sydney"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_paris",
+      "word": "Paris",
+      "meaningZh": "巴黎",
+      "emoji": "🗼",
+      "exampleEn": "Paris is the capital of France.",
+      "exampleClozeEn": "___ is the capital of France.",
+      "exampleFillAnswer": "Paris",
+      "exampleFillWrongEn": [
+        "London",
+        "Tokyo",
+        "Moscow"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_london",
+      "word": "London",
+      "meaningZh": "伦敦",
+      "emoji": "🎡",
+      "exampleEn": "London has many old buildings.",
+      "exampleClozeEn": "___ has many old buildings.",
+      "exampleFillAnswer": "London",
+      "exampleFillWrongEn": [
+        "Paris",
+        "Sydney",
+        "Toronto"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_sydney",
+      "word": "Sydney",
+      "meaningZh": "悉尼",
+      "emoji": "🌉",
+      "exampleEn": "Sydney is a beautiful city in Australia.",
+      "exampleClozeEn": "___ is a beautiful city in Australia.",
+      "exampleFillAnswer": "Sydney",
+      "exampleFillWrongEn": [
+        "Tokyo",
+        "London",
+        "Moscow"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_toronto",
+      "word": "Toronto",
+      "meaningZh": "多伦多",
+      "emoji": "🏙️",
+      "exampleEn": "Toronto is a big city in Canada.",
+      "exampleClozeEn": "___ is a big city in Canada.",
+      "exampleFillAnswer": "Toronto",
+      "exampleFillWrongEn": [
+        "Sydney",
+        "Paris",
+        "Tokyo"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_moscow",
+      "word": "Moscow",
+      "meaningZh": "莫斯科",
+      "emoji": "🏛️",
+      "exampleEn": "Moscow is the capital of Russia.",
+      "exampleClozeEn": "___ is the capital of Russia.",
+      "exampleFillAnswer": "Moscow",
+      "exampleFillWrongEn": [
+        "London",
+        "Toronto",
+        "Sydney"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_hong_kong",
+      "word": "Hong Kong",
+      "meaningZh": "香港",
+      "emoji": "🌃",
+      "exampleEn": "Hong Kong has tall buildings and a busy harbor.",
+      "exampleClozeEn": "___ has tall buildings and a busy harbor.",
+      "exampleFillAnswer": "Hong Kong",
+      "exampleFillWrongEn": [
+        "Lhasa",
+        "Tokyo",
+        "Toronto"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_lhasa",
+      "word": "Lhasa",
+      "meaningZh": "拉萨",
+      "emoji": "🏔️",
+      "exampleEn": "Lhasa is high up in the mountains.",
+      "exampleClozeEn": "___ is high up in the mountains.",
+      "exampleFillAnswer": "Lhasa",
+      "exampleFillWrongEn": [
+        "Hong Kong",
+        "Paris",
+        "London"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_washington_dc",
+      "word": "Washington D.C.",
+      "meaningZh": "华盛顿特区",
+      "emoji": "🏛️",
+      "exampleEn": "Washington D.C. is the capital of the United States.",
+      "exampleClozeEn": "___ is the capital of the United States.",
+      "exampleFillAnswer": "Washington D.C.",
+      "exampleFillWrongEn": [
+        "Toronto",
+        "Sydney",
+        "Moscow"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_tibet",
+      "word": "Tibet",
+      "meaningZh": "西藏",
+      "emoji": "🏔️",
+      "exampleEn": "Tibet has the highest mountains in the world.",
+      "exampleClozeEn": "___ has the highest mountains in the world.",
+      "exampleFillAnswer": "Tibet",
+      "exampleFillWrongEn": [
+        "Inner Mongolia",
+        "Hong Kong",
+        "Lhasa"
+      ],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "nw_inner_mongolia",
+      "word": "Inner Mongolia",
+      "meaningZh": "内蒙古",
+      "emoji": "🐎",
+      "exampleEn": "Inner Mongolia has wide green grasslands.",
+      "exampleClozeEn": "___ has wide green grasslands.",
+      "exampleFillAnswer": "Inner Mongolia",
+      "exampleFillWrongEn": [
+        "Tibet",
+        "Hong Kong",
+        "Lhasa"
+      ],
+      "gradeTag": "五年级"
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "pj_uncle",
+      "word": "uncle",
+      "meaningZh": "叔叔；舅舅",
+      "emoji": "👨",
+      "exampleEn": "My uncle drives a bus.",
+      "exampleClozeEn": "My ___ drives a bus.",
+      "exampleFillAnswer": "uncle",
+      "exampleFillWrongEn": [
+        "aunt",
+        "father",
+        "cousin"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_aunt",
+      "word": "aunt",
+      "meaningZh": "阿姨；姑姑",
+      "emoji": "👩",
+      "exampleEn": "My aunt bakes nice cakes.",
+      "exampleClozeEn": "My ___ bakes nice cakes.",
+      "exampleFillAnswer": "aunt",
+      "exampleFillWrongEn": [
+        "uncle",
+        "mother",
+        "sister"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_cousin",
+      "word": "cousin",
+      "meaningZh": "表(堂)兄弟姐妹",
+      "emoji": "🧑",
+      "exampleEn": "My cousin is the same age as me.",
+      "exampleClozeEn": "My ___ is the same age as me.",
+      "exampleFillAnswer": "cousin",
+      "exampleFillWrongEn": [
+        "uncle",
+        "aunt",
+        "friend"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_grandfather",
+      "word": "grandfather",
+      "meaningZh": "祖父；外祖父",
+      "emoji": "👴",
+      "exampleEn": "My grandfather reads the newspaper every morning.",
+      "exampleClozeEn": "My ___ reads the newspaper every morning.",
+      "exampleFillAnswer": "grandfather",
+      "exampleFillWrongEn": [
+        "grandmother",
+        "father",
+        "uncle"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_grandmother",
+      "word": "grandmother",
+      "meaningZh": "祖母；外祖母",
+      "emoji": "👵",
+      "exampleEn": "My grandmother tells me funny stories.",
+      "exampleClozeEn": "My ___ tells me funny stories.",
+      "exampleFillAnswer": "grandmother",
+      "exampleFillWrongEn": [
+        "grandfather",
+        "mother",
+        "aunt"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_grandparents",
+      "word": "grandparents",
+      "meaningZh": "祖父母；外祖父母",
+      "emoji": "👴",
+      "exampleEn": "I visit my grandparents on Sundays.",
+      "exampleClozeEn": "I visit my ___ on Sundays.",
+      "exampleFillAnswer": "grandparents",
+      "exampleFillWrongEn": [
+        "parents",
+        "cousins",
+        "classmates"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_parents",
+      "word": "parents",
+      "meaningZh": "父母",
+      "emoji": "👨‍👩‍👧",
+      "exampleEn": "My parents love me very much.",
+      "exampleClozeEn": "My ___ love me very much.",
+      "exampleFillAnswer": "parents",
+      "exampleFillWrongEn": [
+        "grandparents",
+        "friends",
+        "cousins"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_classmate",
+      "word": "classmate",
+      "meaningZh": "同学",
+      "emoji": "🧑‍🎓",
+      "exampleEn": "My classmate sits next to me.",
+      "exampleClozeEn": "My ___ sits next to me.",
+      "exampleFillAnswer": "classmate",
+      "exampleFillWrongEn": [
+        "teacher",
+        "brother",
+        "father"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_child",
+      "word": "child",
+      "meaningZh": "孩子",
+      "emoji": "🧒",
+      "exampleEn": "The child is playing in the park.",
+      "exampleClozeEn": "The ___ is playing in the park.",
+      "exampleFillAnswer": "child",
+      "exampleFillWrongEn": [
+        "man",
+        "woman",
+        "lady"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_man",
+      "word": "man",
+      "meaningZh": "男人",
+      "emoji": "👨",
+      "exampleEn": "The man is reading a book.",
+      "exampleClozeEn": "The ___ is reading a book.",
+      "exampleFillAnswer": "man",
+      "exampleFillWrongEn": [
+        "woman",
+        "child",
+        "boy"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_woman",
+      "word": "woman",
+      "meaningZh": "女人",
+      "emoji": "👩",
+      "exampleEn": "The woman is walking her dog.",
+      "exampleClozeEn": "The ___ is walking her dog.",
+      "exampleFillAnswer": "woman",
+      "exampleFillWrongEn": [
+        "man",
+        "child",
+        "girl"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_lady",
+      "word": "lady",
+      "meaningZh": "女士",
+      "emoji": "👩",
+      "exampleEn": "The lady is wearing a red hat.",
+      "exampleClozeEn": "The ___ is wearing a red hat.",
+      "exampleFillAnswer": "lady",
+      "exampleFillWrongEn": [
+        "gentleman",
+        "man",
+        "child"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_gentleman",
+      "word": "gentleman",
+      "meaningZh": "先生；绅士",
+      "emoji": "🤵",
+      "exampleEn": "The gentleman opened the door for me.",
+      "exampleClozeEn": "The ___ opened the door for me.",
+      "exampleFillAnswer": "gentleman",
+      "exampleFillWrongEn": [
+        "lady",
+        "woman",
+        "child"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_mr",
+      "word": "Mr.",
+      "meaningZh": "先生",
+      "emoji": "👨",
+      "exampleEn": "Mr. Smith is my teacher.",
+      "exampleClozeEn": "___ Smith is my teacher.",
+      "exampleFillAnswer": "Mr.",
+      "exampleFillWrongEn": [
+        "Mrs.",
+        "Ms.",
+        "Miss"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_mrs",
+      "word": "Mrs.",
+      "meaningZh": "夫人；太太",
+      "emoji": "👩",
+      "exampleEn": "Mrs. Green is a kind lady.",
+      "exampleClozeEn": "___ Green is a kind lady.",
+      "exampleFillAnswer": "Mrs.",
+      "exampleFillWrongEn": [
+        "Mr.",
+        "Ms.",
+        "Miss"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_miss",
+      "word": "Miss",
+      "meaningZh": "小姐",
+      "emoji": "👧",
+      "exampleEn": "Miss Lee teaches us English.",
+      "exampleClozeEn": "___ Lee teaches us English.",
+      "exampleFillAnswer": "Miss",
+      "exampleFillWrongEn": [
+        "Mr.",
+        "Mrs.",
+        "Ms."
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_twins",
+      "word": "twins",
+      "meaningZh": "双胞胎",
+      "emoji": "👯",
+      "exampleEn": "The twins look exactly the same.",
+      "exampleClozeEn": "The ___ look exactly the same.",
+      "exampleFillAnswer": "twins",
+      "exampleFillWrongEn": [
+        "cousins",
+        "friends",
+        "brothers"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_dentist",
+      "word": "dentist",
+      "meaningZh": "牙医",
+      "emoji": "🦷",
+      "exampleEn": "The dentist looks at my teeth.",
+      "exampleClozeEn": "The ___ looks at my teeth.",
+      "exampleFillAnswer": "dentist",
+      "exampleFillWrongEn": [
+        "doctor",
+        "nurse",
+        "teacher"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_manager",
+      "word": "manager",
+      "meaningZh": "经理",
+      "emoji": "💼",
+      "exampleEn": "The manager works in a big office.",
+      "exampleClozeEn": "The ___ works in a big office.",
+      "exampleFillAnswer": "manager",
+      "exampleFillWrongEn": [
+        "cleaner",
+        "driver",
+        "cook"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_cleaner",
+      "word": "cleaner",
+      "meaningZh": "清洁工",
+      "emoji": "🧹",
+      "exampleEn": "The cleaner sweeps the floor.",
+      "exampleClozeEn": "The ___ sweeps the floor.",
+      "exampleFillAnswer": "cleaner",
+      "exampleFillWrongEn": [
+        "cook",
+        "driver",
+        "manager"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_mailman",
+      "word": "mailman",
+      "meaningZh": "邮递员",
+      "emoji": "📮",
+      "exampleEn": "The mailman brings letters to our house.",
+      "exampleClozeEn": "The ___ brings letters to our house.",
+      "exampleFillAnswer": "mailman",
+      "exampleFillWrongEn": [
+        "policeman",
+        "driver",
+        "cleaner"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_policeman",
+      "word": "policeman",
+      "meaningZh": "警察",
+      "emoji": "👮",
+      "exampleEn": "The policeman helps us cross the road.",
+      "exampleClozeEn": "The ___ helps us cross the road.",
+      "exampleFillAnswer": "policeman",
+      "exampleFillWrongEn": [
+        "mailman",
+        "driver",
+        "cook"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_waiter",
+      "word": "waiter",
+      "meaningZh": "男服务员",
+      "emoji": "🤵",
+      "exampleEn": "The waiter brings us the menu.",
+      "exampleClozeEn": "The ___ brings us the menu.",
+      "exampleFillAnswer": "waiter",
+      "exampleFillWrongEn": [
+        "waitress",
+        "cook",
+        "manager"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_waitress",
+      "word": "waitress",
+      "meaningZh": "女服务员",
+      "emoji": "💁‍♀️",
+      "exampleEn": "The waitress is very friendly.",
+      "exampleClozeEn": "The ___ is very friendly.",
+      "exampleFillAnswer": "waitress",
+      "exampleFillWrongEn": [
+        "waiter",
+        "singer",
+        "dancer"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_salesclerk",
+      "word": "salesclerk",
+      "meaningZh": "售货员",
+      "emoji": "🛍️",
+      "exampleEn": "The salesclerk helps me find a toy.",
+      "exampleClozeEn": "The ___ helps me find a toy.",
+      "exampleFillAnswer": "salesclerk",
+      "exampleFillWrongEn": [
+        "waiter",
+        "cleaner",
+        "driver"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_hairdresser",
+      "word": "hairdresser",
+      "meaningZh": "理发师",
+      "emoji": "💇",
+      "exampleEn": "The hairdresser cuts my hair short.",
+      "exampleClozeEn": "The ___ cuts my hair short.",
+      "exampleFillAnswer": "hairdresser",
+      "exampleFillWrongEn": [
+        "dentist",
+        "cook",
+        "manager"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_actor",
+      "word": "actor",
+      "meaningZh": "男演员",
+      "emoji": "🎭",
+      "exampleEn": "The actor is on TV tonight.",
+      "exampleClozeEn": "The ___ is on TV tonight.",
+      "exampleFillAnswer": "actor",
+      "exampleFillWrongEn": [
+        "actress",
+        "singer",
+        "dancer"
+      ],
+      "gradeTag": "三年级"
+    },
+    {
+      "id": "pj_actress",
+      "word": "actress",
+      "meaningZh": "女演员",
+      "emoji": "🎬",
+      "exampleEn": "The actress wears a pretty dress.",
+      "exampleClozeEn": "The ___ wears a pretty dress.",
+      "exampleFillAnswer": "actress",
+      "exampleFillWrongEn": [
+        "actor",
+        "waitress",
+        "dancer"
+      ],
+      "gradeTag": "三年级"
+    }
+  ]
+}

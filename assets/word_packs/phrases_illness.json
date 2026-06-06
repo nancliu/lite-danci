@@ -1,0 +1,280 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "ill_have_a_cold",
+      "word": "have a cold",
+      "meaningZh": "感冒",
+      "emoji": "🤧",
+      "exampleEn": "I have a cold, so I drink hot water.",
+      "exampleClozeEn": "I ___, so I drink hot water.",
+      "exampleFillAnswer": "have a cold",
+      "exampleFillWrongEn": ["have a fever", "have a headache", "be tired"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_have_a_headache",
+      "word": "have a headache",
+      "meaningZh": "头疼",
+      "emoji": "🤕",
+      "exampleEn": "I have a headache and want to rest.",
+      "exampleClozeEn": "I ___ and want to rest.",
+      "exampleFillAnswer": "have a headache",
+      "exampleFillWrongEn": ["have a toothache", "have an earache", "be sleepy"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_have_a_stomachache",
+      "word": "have a stomachache",
+      "meaningZh": "胃疼",
+      "emoji": "🤢",
+      "exampleEn": "I have a stomachache after lunch.",
+      "exampleClozeEn": "I ___ after lunch.",
+      "exampleFillAnswer": "have a stomachache",
+      "exampleFillWrongEn": ["have a cold", "have a fever", "have a running nose"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_have_a_toothache",
+      "word": "have a toothache",
+      "meaningZh": "牙疼",
+      "emoji": "🦷",
+      "exampleEn": "I have a toothache and must see a dentist.",
+      "exampleClozeEn": "I ___ and must see a dentist.",
+      "exampleFillAnswer": "have a toothache",
+      "exampleFillWrongEn": ["have a headache", "have an earache", "have a cold"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_have_an_earache",
+      "word": "have an earache",
+      "meaningZh": "耳朵疼",
+      "emoji": "👂",
+      "exampleEn": "I have an earache and cannot hear well.",
+      "exampleClozeEn": "I ___ and cannot hear well.",
+      "exampleFillAnswer": "have an earache",
+      "exampleFillWrongEn": ["have a toothache", "have a headache", "be tired"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_have_a_fever",
+      "word": "have a fever",
+      "meaningZh": "发烧",
+      "emoji": "🌡️",
+      "exampleEn": "I have a fever and stay in bed.",
+      "exampleClozeEn": "I ___ and stay in bed.",
+      "exampleFillAnswer": "have a fever",
+      "exampleFillWrongEn": ["have a cold", "have a headache", "be sleepy"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_have_a_running_nose",
+      "word": "have a running nose",
+      "meaningZh": "流鼻涕",
+      "emoji": "👃",
+      "exampleEn": "I have a running nose and need tissues.",
+      "exampleClozeEn": "I ___ and need tissues.",
+      "exampleFillAnswer": "have a running nose",
+      "exampleFillWrongEn": ["have a cold", "have a fever", "have a headache"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_be_tired",
+      "word": "be tired",
+      "meaningZh": "疲劳的",
+      "emoji": "😩",
+      "exampleEn": "I am tired after a long walk.",
+      "exampleClozeEn": "I ___ after a long walk.",
+      "exampleFillAnswer": "be tired",
+      "exampleFillWrongEn": ["be sleepy", "have a cold", "have a fever"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_be_sleepy",
+      "word": "be sleepy",
+      "meaningZh": "犯困的",
+      "emoji": "😴",
+      "exampleEn": "I am sleepy and want to go to bed.",
+      "exampleClozeEn": "I ___ and want to go to bed.",
+      "exampleFillAnswer": "be sleepy",
+      "exampleFillWrongEn": ["be tired", "have a headache", "have a cold"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_drink_more_water",
+      "word": "drink more water",
+      "meaningZh": "多喝水",
+      "emoji": "💧",
+      "exampleEn": "You should drink more water every day.",
+      "exampleClozeEn": "You should ___ every day.",
+      "exampleFillAnswer": "drink more water",
+      "exampleFillWrongEn": ["drink milk every day", "exercise every day", "go to bed early"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_drink_milk_every_day",
+      "word": "drink milk every day",
+      "meaningZh": "每天喝奶",
+      "emoji": "🥛",
+      "exampleEn": "I drink milk every day to stay strong.",
+      "exampleClozeEn": "I ___ to stay strong.",
+      "exampleFillAnswer": "drink milk every day",
+      "exampleFillWrongEn": ["drink more water", "exercise every day", "get up early"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_exercise_every_day",
+      "word": "exercise every day",
+      "meaningZh": "每天锻炼",
+      "emoji": "🏃",
+      "exampleEn": "We should exercise every day to keep healthy.",
+      "exampleClozeEn": "We should ___ to keep healthy.",
+      "exampleFillAnswer": "exercise every day",
+      "exampleFillWrongEn": ["drink more water", "go to bed early", "get up early"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_go_to_bed_early",
+      "word": "go to bed early",
+      "meaningZh": "早睡",
+      "emoji": "🛏️",
+      "exampleEn": "Children should go to bed early at night.",
+      "exampleClozeEn": "Children should ___ at night.",
+      "exampleFillAnswer": "go to bed early",
+      "exampleFillWrongEn": ["get up early", "exercise every day", "drink more water"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_get_up_early",
+      "word": "get up early",
+      "meaningZh": "早起",
+      "emoji": "🌅",
+      "exampleEn": "I get up early to read English.",
+      "exampleClozeEn": "I ___ to read English.",
+      "exampleFillAnswer": "get up early",
+      "exampleFillWrongEn": ["go to bed early", "exercise every day", "drink milk every day"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_wash_hands_before_eating",
+      "word": "wash hands before eating",
+      "meaningZh": "饭前洗手",
+      "emoji": "🧼",
+      "exampleEn": "We must wash hands before eating.",
+      "exampleClozeEn": "We must ___.",
+      "exampleFillAnswer": "wash hands before eating",
+      "exampleFillWrongEn": ["brush teeth twice a day", "drink more water", "exercise every day"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_brush_teeth_twice_a_day",
+      "word": "brush teeth twice a day",
+      "meaningZh": "一天刷牙两次",
+      "emoji": "🪥",
+      "exampleEn": "I brush teeth twice a day to stay healthy.",
+      "exampleClozeEn": "I ___ to stay healthy.",
+      "exampleFillAnswer": "brush teeth twice a day",
+      "exampleFillWrongEn": ["wash hands before eating", "drink more water", "go to bed early"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_see_a_doctor",
+      "word": "see a doctor",
+      "meaningZh": "看医生",
+      "emoji": "👨‍⚕️",
+      "exampleEn": "You should see a doctor when you are ill.",
+      "exampleClozeEn": "You should ___ when you are ill.",
+      "exampleFillAnswer": "see a doctor",
+      "exampleFillWrongEn": ["take some medicine", "drink more water", "go to bed early"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_take_some_medicine",
+      "word": "take some medicine",
+      "meaningZh": "吃药",
+      "emoji": "💊",
+      "exampleEn": "I take some medicine when I have a cold.",
+      "exampleClozeEn": "I ___ when I have a cold.",
+      "exampleFillAnswer": "take some medicine",
+      "exampleFillWrongEn": ["see a doctor", "drink more water", "go to bed early"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_eat_too_much_candy",
+      "word": "eat too much candy",
+      "meaningZh": "吃太多糖",
+      "emoji": "🍬",
+      "exampleEn": "Don't eat too much candy or your teeth will hurt.",
+      "exampleClozeEn": "Don't ___ or your teeth will hurt.",
+      "exampleFillAnswer": "eat too much candy",
+      "exampleFillWrongEn": ["eat too much meat", "eat too much junk food", "drink too much pop"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_eat_too_much_meat",
+      "word": "eat too much meat",
+      "meaningZh": "吃太多肉",
+      "emoji": "🍖",
+      "exampleEn": "Don't eat too much meat at dinner.",
+      "exampleClozeEn": "Don't ___ at dinner.",
+      "exampleFillAnswer": "eat too much meat",
+      "exampleFillWrongEn": ["eat too much candy", "eat too much junk food", "drink too much pop"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_stay_up_late",
+      "word": "stay up late",
+      "meaningZh": "熬夜",
+      "emoji": "🌙",
+      "exampleEn": "Don't stay up late on school nights.",
+      "exampleClozeEn": "Don't ___ on school nights.",
+      "exampleFillAnswer": "stay up late",
+      "exampleFillWrongEn": ["watch too much TV", "play computer games for too long", "eat too much candy"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_watch_too_much_tv",
+      "word": "watch too much TV",
+      "meaningZh": "看太多电视",
+      "emoji": "📺",
+      "exampleEn": "Don't watch too much TV after school.",
+      "exampleClozeEn": "Don't ___ after school.",
+      "exampleFillAnswer": "watch too much TV",
+      "exampleFillWrongEn": ["stay up late", "play computer games for too long", "eat too much candy"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_eat_too_much_junk_food",
+      "word": "eat too much junk food",
+      "meaningZh": "吃太多垃圾食品",
+      "emoji": "🍔",
+      "exampleEn": "Don't eat too much junk food every day.",
+      "exampleClozeEn": "Don't ___ every day.",
+      "exampleFillAnswer": "eat too much junk food",
+      "exampleFillWrongEn": ["eat too much candy", "eat too much meat", "drink too much pop"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_drink_too_much_pop",
+      "word": "drink too much pop",
+      "meaningZh": "喝太多汽水",
+      "emoji": "🥤",
+      "exampleEn": "Don't drink too much pop in summer.",
+      "exampleClozeEn": "Don't ___ in summer.",
+      "exampleFillAnswer": "drink too much pop",
+      "exampleFillWrongEn": ["eat too much candy", "eat too much junk food", "eat too much meat"],
+      "gradeTag": "五年级"
+    },
+    {
+      "id": "ill_play_computer_games_for_too_long",
+      "word": "play computer games for too long",
+      "meaningZh": "玩太久电脑游戏",
+      "emoji": "🎮",
+      "exampleEn": "Don't play computer games for too long after school.",
+      "exampleClozeEn": "Don't ___ after school.",
+      "exampleFillAnswer": "play computer games for too long",
+      "exampleFillWrongEn": ["watch too much TV", "stay up late", "eat too much junk food"],
+      "gradeTag": "五年级"
+    }
+  ]
+}
