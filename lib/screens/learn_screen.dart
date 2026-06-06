@@ -8,6 +8,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:provider/provider.dart';
 
 import '../data/word_bank.dart';
+import '../models/session_checkpoint.dart';
 import '../models/word_entry.dart';
 import '../services/word_lite_repository.dart';
 
@@ -48,6 +49,10 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
   /// 答错后的冷却：防止连续乱点刷过当前步。
   bool _choicePickLocked = false;
 
+  /// 上一次「自动朗读」的 (词|步骤) 键；避免同一步骤重建时重复发音。
+  /// 用户仍可通过「播放读音」按钮再次手动朗读。
+  String? _lastAutoSpokenKey;
+
   void _ensureChoices(WordEntry w, int step) {
     final String k = '${w.id}|$step';
     if (_choiceKey == k) {
@@ -60,6 +65,16 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
       _emojiOptions = _buildEmojiChoices(w);
     } else {
       _fillWordOptions = _buildFillWordChoices(w);
+    }
+    // 进入「听音选词」步骤时自动朗读一次；TTS 未就绪则等下一帧由按钮恢复。
+    if (step == 1 && _lastAutoSpokenKey != k) {
+      _lastAutoSpokenKey = k;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) {
+          return;
+        }
+        unawaited(_speak(w.word));
+      });
     }
   }
 
@@ -79,12 +94,41 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
         setState(() {
           _ttsReady = true;
         });
+        // TTS 刚就绪：若当前停在「听音选词」且未自动播过，补一次自动朗读。
+        _autoSpeakIfListenStep();
       }
       final WordLiteRepository r = context.read<WordLiteRepository>();
       if (r.checkpoint == null) {
         Navigator.of(context).maybePop();
       }
     });
+  }
+
+  /// 当前若在「听音选词」步骤且该 (词|步) 未自动播过，则朗读一次。
+  /// 用于 TTS 异步就绪后补播首屏，避免恢复检查点直落听音步时无声。
+  void _autoSpeakIfListenStep() {
+    if (!mounted) {
+      return;
+    }
+    final WordLiteRepository r = context.read<WordLiteRepository>();
+    final SessionCheckpoint? cp = r.checkpoint;
+    if (cp == null) {
+      return;
+    }
+    final int step = cp.stepIndex.clamp(0, 3);
+    if (step != 1) {
+      return;
+    }
+    final WordEntry? w = r.currentWord();
+    if (w == null) {
+      return;
+    }
+    final String k = '${w.id}|$step';
+    if (_lastAutoSpokenKey == k) {
+      return;
+    }
+    _lastAutoSpokenKey = k;
+    unawaited(_speak(w.word));
   }
 
   Future<void> _initTts() async {
@@ -174,6 +218,7 @@ class _LearnScreenState extends State<LearnScreen> with WidgetsBindingObserver {
     setState(() {
       _ttsReady = true;
     });
+    _autoSpeakIfListenStep();
   }
 
   /// 调试：将 [getTtsEngines] 与当前默认包名打到日志。
