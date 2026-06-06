@@ -553,9 +553,9 @@ class _HomeStatsCard extends StatelessWidget {
                   : theme.textTheme.bodyLarge,
             ),
             const SizedBox(height: 4),
+            // 孩子能理解的连续天数 + 碎片（已完成整段会话才有），不展示能量数字
             Text(
-              '能量 ${stats.energy} · 碎片 ${stats.shards} · '
-              '连续 ${stats.streakDays} 天',
+              '碎片 ${stats.shards} · 连续 ${stats.streakDays} 天',
               style: emphasize
                   ? theme.textTheme.bodyLarge
                   : theme.textTheme.bodyMedium,
@@ -566,6 +566,10 @@ class _HomeStatsCard extends StatelessWidget {
                 '已获勋章：${stats.unlockedBadges.map((b) => b.emoji).join(' ')}',
                 style: theme.textTheme.bodyLarge,
               ),
+            ],
+            if (emphasize) ...[
+              const SizedBox(height: 10),
+              _RecentCheckInDots(stats: stats),
             ],
             const SizedBox(height: 4),
             Text(
@@ -578,5 +582,65 @@ class _HomeStatsCard extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+/// 最近 7 天打卡格子（孩子页用，纯视觉鼓励）。
+///
+/// 每天一格：有完成数则填实色，否则灰色虚框。今天用主题色，其余按是否
+/// 学习过显示绿/灰。从 [WordLiteRepository.recentDailyStats] 读取。
+class _RecentCheckInDots extends StatelessWidget {
+  const _RecentCheckInDots({required this.stats});
+  final UserStats stats;
+
+  @override
+  Widget build(BuildContext context) {
+    final WordLiteRepository repo = context.read<WordLiteRepository>();
+    final Map<String, dynamic> daily = repo.recentDailyStats(days: 7);
+    final ColorScheme cs = Theme.of(context).colorScheme;
+
+    final DateTime today = _today();
+    final List<Widget> dots = <Widget>[];
+    for (int i = 6; i >= 0; i--) {
+      final DateTime d = today.subtract(Duration(days: i));
+      final String k = _dateKey(d);
+      final bool done = daily.containsKey(k);
+      final bool isToday = i == 0;
+      Color color;
+      if (done && isToday) {
+        color = cs.primary;
+      } else if (done) {
+        color = cs.primary.withValues(alpha: 0.55);
+      } else {
+        color = cs.onSurfaceVariant.withValues(alpha: 0.2);
+      }
+      dots.add(
+        Container(
+          width: 22,
+          height: 22,
+          margin: const EdgeInsets.symmetric(horizontal: 3),
+          decoration: BoxDecoration(
+            color: color,
+            shape: BoxShape.circle,
+            border: isToday
+                ? Border.all(color: cs.primary, width: 2)
+                : null,
+          ),
+        ),
+      );
+    }
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: dots,
+    );
+  }
+
+  static DateTime _today() {
+    final DateTime n = DateTime.now();
+    return DateTime(n.year, n.month, n.day);
+  }
+
+  static String _dateKey(DateTime d) {
+    return '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
   }
 }

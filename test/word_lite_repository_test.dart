@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:word_lite/data/word_bank.dart';
+import 'package:word_lite/models/daily_stats.dart';
 import 'package:word_lite/models/review_stage.dart';
 import 'package:word_lite/models/session_checkpoint.dart';
 import 'package:word_lite/models/word_entry.dart';
@@ -795,6 +796,192 @@ void main() {
       expect(repo.checkpoint, isNull);
       final SharedPreferences p = await SharedPreferences.getInstance();
       expect(_stageForWord(_readProgressJson(p), wordId), ReviewStage.review_1);
+    });
+
+    // --- DailyStats / 错题 / 年级聚合 等家长页数据 API ---
+
+    test('完成一词时当日 DailyStats.completedWords += 1 且按时段累计', () async {
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      await repo.startOrResumeSession();
+      for (int i = 0; i < 4; i++) {
+        await repo.onStepCorrect();
+      }
+      final String today = _dateKey(DateTime.now());
+      final stats = repo.statsForDay(today);
+      expect(stats, isNotNull);
+      expect(stats!.completedWords, 1);
+      // 时段分布之和等于完成数
+      final int sum = stats.morningCount + stats.afternoonCount + stats.eveningCount;
+      expect(sum, 1);
+    });
+
+    test('答错触发 DailyStats.wrongCount += 1 + WordProgress.wrongCount += 1',
+        () async {
+      const String wordId = 'w_apple';
+      final String day = _dateKey(DateTime.now());
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: day,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kCheckpoint: jsonEncode(cp.toJson()),
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      await repo.onStepWrong();
+      await repo.onStepWrong();
+      final stats = repo.statsForDay(day);
+      expect(stats?.wrongCount, 2);
+      // 词的累计错次也对
+      final top = repo.topWrongWords();
+      expect(top.length, 1);
+      expect(top.first.word.id, wordId);
+      expect(top.first.wrongCount, 2);
+    });
+
+    test('整段会话完成时 DailyStats.sessionsCompleted += 1', () async {
+      const String wordId = 'w_apple';
+      final String day = _dateKey(DateTime.now());
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: day,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kCheckpoint: jsonEncode(cp.toJson()),
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      for (int i = 0; i < 4; i++) {
+        await repo.onStepCorrect();
+      }
+      expect(repo.statsForDay(day)?.sessionsCompleted, 1);
+    });
+
+    test('词从 review_14 进入 mastered 时 masteredDelta += 1', () async {
+      const String wordId = 'w_apple';
+      final String day = _dateKey(DateTime.now());
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: day,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        wordId: WordProgress(
+          wordId: wordId,
+          stage: ReviewStage.review_14,
+          nextReviewAt: DateTime.now().subtract(const Duration(days: 1)),
+        ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+        _kCheckpoint: jsonEncode(cp.toJson()),
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      for (int i = 0; i < 4; i++) {
+        await repo.onStepCorrect();
+      }
+      expect(repo.statsForDay(day)?.masteredDelta, 1);
+    });
+
+    test('topWrongWords 按错次降序、限 limit 个、错次=0 的不计', () async {
+      // 给前 5 个词分别预置 wrongCount = 1,2,3,4,5
+      final List<WordEntry> samples = WordBank.all.take(5).toList();
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        for (int i = 0; i < samples.length; i++)
+          samples[i].id: WordProgress(
+            wordId: samples[i].id,
+            stage: ReviewStage.learning,
+            nextReviewAt: null,
+            wrongCount: i + 1,
+          ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      final top = repo.topWrongWords(limit: 3);
+      expect(top.length, 3);
+      expect(top.map((e) => e.wrongCount).toList(), <int>[5, 4, 3]);
+    });
+
+    test('masteryByGradeTag 按 gradeTag 聚合 mastered 与 total', () async {
+      WordBank.resetForTest();
+      await WordBank.loadEmbeddedPacks();
+      // 取 grade1 的前 3 个词置 mastered
+      final List<WordEntry> g1Sample =
+          WordBank.all.where((e) => e.gradeTag == '一年级').take(3).toList();
+      expect(g1Sample.length, 3);
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        for (final WordEntry e in g1Sample)
+          e.id: WordProgress(
+            wordId: e.id,
+            stage: ReviewStage.mastered,
+            nextReviewAt: null,
+          ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      final agg = repo.masteryByGradeTag();
+      expect(agg.containsKey('一年级'), isTrue);
+      expect(agg['一年级']!.mastered, 3);
+      expect(agg['一年级']!.total, greaterThan(3)); // 一年级总词数 ≥ 抽样的 3
+    });
+
+    test('recentDailyStats 返回最近 N 天有记录的部分（升序）', () async {
+      // 直接写入两天历史（前天 + 今天）
+      final DateTime today = DateTime.now();
+      final String todayKey = _dateKey(today);
+      final String dayBeforeKey =
+          _dateKey(today.subtract(const Duration(days: 2)));
+      final Map<String, dynamic> dailyMap = <String, dynamic>{
+        dayBeforeKey: DailyStats(
+                dayKey: dayBeforeKey, completedWords: 3, wrongCount: 1)
+            .toJson(),
+        todayKey: DailyStats(
+                dayKey: todayKey, completedWords: 5, wrongCount: 2)
+            .toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        'wl_daily_stats_v1': jsonEncode(dailyMap),
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      final Map<String, DailyStats> recent7 = repo.recentDailyStats(days: 7);
+      // 前天与今天都在 7 天窗口内，应该都返回
+      expect(recent7.length, 2);
+      expect(recent7.containsKey(todayKey), isTrue);
+      expect(recent7.containsKey(dayBeforeKey), isTrue);
+      expect(recent7[todayKey]!.completedWords, 5);
+    });
+
+    test('WordProgress.wrongCount 旧存档无该字段时按 0 解析', () async {
+      // 模拟旧版进度（没有 wrongCount）
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        'w_apple': <String, dynamic>{
+          'wordId': 'w_apple',
+          'stage': 'learning',
+          'nextReviewAt': null,
+          // 故意不带 wrongCount
+        },
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      // topWrongWords 应为空（错次都是 0）
+      expect(repo.topWrongWords(), isEmpty);
     });
   });
 }

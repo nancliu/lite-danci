@@ -3,7 +3,11 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
 import '../models/badge.dart';
+import '../models/daily_stats.dart';
+import '../models/word_entry.dart';
 import '../services/word_lite_repository.dart';
+import 'widgets/time_of_day_bar.dart';
+import 'widgets/weekly_chart.dart';
 
 class ParentScreen extends StatelessWidget {
   const ParentScreen({super.key});
@@ -57,6 +61,14 @@ class ParentScreen extends StatelessWidget {
                 unlockedSkinLevel: s.unlockedSkinLevel,
                 streakBonus: s.streakEnergyBonus,
               ),
+              const SizedBox(height: 12),
+              _WeeklyChartCard(daily: r.recentDailyStats(days: 7)),
+              const SizedBox(height: 12),
+              _TimeOfDayCard(daily: r.recentDailyStats(days: 7)),
+              const SizedBox(height: 12),
+              _GradeMasteryCard(byTag: r.masteryByGradeTag()),
+              const SizedBox(height: 12),
+              _TopWrongCard(top: r.topWrongWords(limit: 10)),
               const SizedBox(height: 16),
               const _AppVersionFooter(),
             ],
@@ -275,6 +287,205 @@ class _InfoTile extends StatelessWidget {
               subtitle,
               style: Theme.of(context).textTheme.bodySmall,
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ────────────────────────────────────────────────────────
+// 家长页 4 张新数据卡
+// ────────────────────────────────────────────────────────
+
+/// 近 7 天完成趋势柱状图。——家长页。
+class _WeeklyChartCard extends StatelessWidget {
+  const _WeeklyChartCard({required this.daily});
+  final Map<String, DailyStats> daily;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('学习趋势', style: theme.textTheme.titleMedium),
+            const SizedBox(height: 8),
+            WeeklyChart(daily: daily),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// 学习时段分布卡。——家长页。
+class _TimeOfDayCard extends StatelessWidget {
+  const _TimeOfDayCard({required this.daily});
+  final Map<String, DailyStats> daily;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    int m = 0, a = 0, e = 0;
+    for (final DailyStats s in daily.values) {
+      m += s.morningCount;
+      a += s.afternoonCount;
+      e += s.eveningCount;
+    }
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('学习时段', style: theme.textTheme.titleMedium),
+            const SizedBox(height: 8),
+            TimeOfDayBar(morning: m, afternoon: a, evening: e),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// 按 gradeTag 的掌握度进度条卡。——家长页。
+class _GradeMasteryCard extends StatelessWidget {
+  const _GradeMasteryCard({required this.byTag});
+  final Map<String, ({int mastered, int total})> byTag;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final ColorScheme cs = theme.colorScheme;
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('词库掌握情况', style: theme.textTheme.titleMedium),
+            const SizedBox(height: 8),
+            if (byTag.isEmpty)
+              Text(
+                '暂无数据',
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: cs.onSurfaceVariant,
+                ),
+              )
+            else
+              ...byTag.entries.map((MapEntry<String, ({int mastered, int total})> e) {
+                final int m = e.value.mastered;
+                final int t = e.value.total;
+                final double ratio = t > 0 ? m / t : 0.0;
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 6),
+                  child: Row(
+                    children: <Widget>[
+                      SizedBox(
+                        width: 64,
+                        child: Text(
+                          e.key,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: cs.onSurfaceVariant,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(4),
+                          child: LinearProgressIndicator(
+                            value: ratio,
+                            minHeight: 12,
+                            backgroundColor:
+                                cs.onSurfaceVariant.withValues(alpha: 0.15),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      SizedBox(
+                        width: 56,
+                        child: Text(
+                          '$m / $t',
+                          textAlign: TextAlign.end,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: cs.onSurfaceVariant,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// 错题前 10 词卡。——家长页。
+class _TopWrongCard extends StatelessWidget {
+  const _TopWrongCard({required this.top});
+  final List<({WordEntry word, int wrongCount})> top;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final ColorScheme cs = theme.colorScheme;
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('常错词（前 ${top.length}）', style: theme.textTheme.titleMedium),
+            const SizedBox(height: 8),
+            if (top.isEmpty)
+              Text(
+                '目前没有答错过任何词，保持住！',
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: cs.onSurfaceVariant,
+                ),
+              )
+            else
+              ...top.map(
+                (t) => Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 3),
+                  child: Row(
+                    children: <Widget>[
+                      Text(t.word.emoji, style: const TextStyle(fontSize: 24)),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          '${t.word.word}（${t.word.meaningZh}）',
+                          style: theme.textTheme.bodyMedium,
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: cs.errorContainer,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Text(
+                          '${t.wrongCount} 次',
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: cs.onErrorContainer,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
           ],
         ),
       ),

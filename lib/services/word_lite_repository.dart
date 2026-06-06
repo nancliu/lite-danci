@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/word_bank.dart';
 import '../models/badge.dart';
+import '../models/daily_stats.dart';
 import '../models/review_stage.dart';
 import '../models/session_checkpoint.dart';
 import '../models/user_stats.dart';
@@ -45,6 +46,10 @@ class WordLiteRepository extends ChangeNotifier {
   SharedPreferences? _prefs;
   Map<String, WordProgress> _progress = <String, WordProgress>{};
   SessionCheckpoint? _checkpoint;
+  /// 按日聚合的历史统计；键为 [DailyStats.dayKey]。仅保留最近 [_dailyStatsKeepDays] 天。
+  Map<String, DailyStats> _dailyStats = <String, DailyStats>{};
+  /// 历史数据保留天数；超出窗口自动裁剪，避免存档无界增长。
+  static const int _dailyStatsKeepDays = 60;
   int _energy = 0;
   int _shards = 0;
   int _unlockedSkinLevel = 0;
@@ -148,6 +153,14 @@ class WordLiteRepository extends ChangeNotifier {
     _streakDays = p.getInt(_kStreak) ?? 0;
     _yesterdayMasteredSnapshot = p.getInt(_kYesterdayMastered) ?? 0;
     _sessionDoneHomeV1 = p.getBool(_kSessionDoneHome) ?? false;
+    final String? dailyRaw = p.getString(_kDailyStats);
+    if (dailyRaw != null && dailyRaw.isNotEmpty) {
+      final Map<String, dynamic> map =
+          jsonDecode(dailyRaw) as Map<String, dynamic>;
+      _dailyStats = map.map((String k, dynamic v) {
+        return MapEntry(k, DailyStats.fromJson(v as Map<String, dynamic>));
+      });
+    }
   }
 
   void _rollDailyIfNeeded() {
@@ -200,6 +213,12 @@ class WordLiteRepository extends ChangeNotifier {
       await p.remove(_kLastStudy);
     }
     await p.setBool(_kSessionDoneHome, _sessionDoneHomeV1);
+    // 写入前裁剪到最近 [_dailyStatsKeepDays] 天，避免无界增长
+    _pruneDailyStats();
+    final Map<String, dynamic> dailyMap = _dailyStats.map(
+      (String k, DailyStats v) => MapEntry(k, v.toJson()),
+    );
+    await p.setString(_kDailyStats, jsonEncode(dailyMap));
   }
 
   String _dateKey(DateTime d) {
@@ -382,7 +401,11 @@ class WordLiteRepository extends ChangeNotifier {
       wordId: w.id,
       stage: rolled,
       nextReviewAt: ReviewSrs.nextReviewAtAfterWrongRollback(rolled, now),
+      wrongCount: (existing?.wrongCount ?? 0) + 1,
     );
+    // 累计到当日错题计数
+    final DailyStats today = _ensureDailyStats(_dateKey(now));
+    today.wrongCount += 1;
     await _persist();
     notifyListeners();
   }
@@ -397,10 +420,11 @@ class WordLiteRepository extends ChangeNotifier {
       return;
     }
     if (success) {
+      final DateTime now = DateTime.now();
       final WordProgress? before = _progress[w.id];
-      final WordProgress next =
-          _advanceAfterSuccess(w.id, before, DateTime.now());
-      _progress[w.id] = next;
+      final WordProgress next = _advanceAfterSuccess(w.id, before, now);
+      // 保留 wrongCount（advance 不应清零累积错次，错次只受 onStepWrong 影响）
+      _progress[w.id] = next.copyWith(wrongCount: before?.wrongCount ?? 0);
       _todayCompleted += 1;
       _touchStreak();
       // 基础 +1，连续学习达阈值后再加成（+1/+2/+3，上限 +3）。
@@ -414,6 +438,25 @@ class WordLiteRepository extends ChangeNotifier {
                   ? 1
                   : 0;
       _energy += 1 + bonus;
+      // 当日聚合：完成数、时段、新晋 mastered
+      final DailyStats today = _ensureDailyStats(_dateKey(now));
+      today.completedWords += 1;
+      final bool nowMastered = next.stage == ReviewStage.mastered;
+      final bool wasMastered = before?.stage == ReviewStage.mastered;
+      if (nowMastered && !wasMastered) {
+        today.masteredDelta += 1;
+      }
+      switch (DayPeriodFromHour.fromHour(now.hour)) {
+        case DayPeriod.morning:
+          today.morningCount += 1;
+          break;
+        case DayPeriod.afternoon:
+          today.afternoonCount += 1;
+          break;
+        case DayPeriod.evening:
+          today.eveningCount += 1;
+          break;
+      }
       await _prefs?.setInt(_kTodayDone, _todayCompleted);
     }
 
@@ -424,6 +467,8 @@ class WordLiteRepository extends ChangeNotifier {
         _shards += shardsPerSessionCompleted;
         _tryUnlockSkin();
         _sessionDoneHomeV1 = true;
+        // 整段会话完成：当日 session 计数 +1
+        _ensureDailyStats(_dateKey(DateTime.now())).sessionsCompleted += 1;
       }
     } else {
       _checkpoint = SessionCheckpoint(
@@ -494,6 +539,93 @@ class WordLiteRepository extends ChangeNotifier {
     return ReviewSrs.progressAfterWordSuccess(wordId, before, now);
   }
 
+  // --- 历史数据（DailyStats）相关 ---
+
+  /// 拿到/创建当日聚合记录；为不存在的 dayKey 即时建空记录。
+  DailyStats _ensureDailyStats(String dayKey) {
+    return _dailyStats.putIfAbsent(
+      dayKey,
+      () => DailyStats(dayKey: dayKey),
+    );
+  }
+
+  /// 持久化前裁剪历史，仅保留最近 [_dailyStatsKeepDays] 天。
+  void _pruneDailyStats() {
+    if (_dailyStats.length <= _dailyStatsKeepDays) {
+      return;
+    }
+    final List<String> sorted = _dailyStats.keys.toList()..sort();
+    final int toRemove = sorted.length - _dailyStatsKeepDays;
+    for (int i = 0; i < toRemove; i++) {
+      _dailyStats.remove(sorted[i]);
+    }
+  }
+
+  /// 家长页周趋势用：最近 N 天的 dayKey → DailyStats 映射（按时间升序）。
+  /// 没有记录的日期不在 map 中（UI 渲染时按需补 0）。
+  Map<String, DailyStats> recentDailyStats({int days = 7}) {
+    final DateTime today = _startOfDay(DateTime.now());
+    final Map<String, DailyStats> out = <String, DailyStats>{};
+    for (int i = days - 1; i >= 0; i--) {
+      final String k = _dateKey(today.subtract(Duration(days: i)));
+      final DailyStats? s = _dailyStats[k];
+      if (s != null) {
+        out[k] = s;
+      }
+    }
+    return out;
+  }
+
+  /// 指定日的聚合记录；不存在返回 null。
+  DailyStats? statsForDay(String dayKey) => _dailyStats[dayKey];
+
+  /// 错题最多的前 N 个词，按 wrongCount 降序；零错次的词不计入。
+  List<({WordEntry word, int wrongCount})> topWrongWords({int limit = 10}) {
+    final List<({WordEntry word, int wrongCount})> all = <({WordEntry word, int wrongCount})>[];
+    for (final MapEntry<String, WordProgress> e in _progress.entries) {
+      if (e.value.wrongCount <= 0) {
+        continue;
+      }
+      final WordEntry? w = WordBank.byId(e.key);
+      if (w == null) {
+        continue;
+      }
+      all.add((word: w, wrongCount: e.value.wrongCount));
+    }
+    all.sort((a, b) => b.wrongCount.compareTo(a.wrongCount));
+    if (all.length > limit) {
+      return all.sublist(0, limit);
+    }
+    return all;
+  }
+
+  /// 按 gradeTag 聚合掌握度：{tag: (mastered: x, total: y)}。
+  /// 没有 gradeTag 的词归入键 "未分类"；返回顺序按 gradeTag 字母升序。
+  Map<String, ({int mastered, int total})> masteryByGradeTag() {
+    final Map<String, ({int mastered, int total})> tmp =
+        <String, ({int mastered, int total})>{};
+    final Map<String, int> totalByTag = <String, int>{};
+    final Map<String, int> masteredByTag = <String, int>{};
+    for (final WordEntry e in WordBank.all) {
+      final String tag = (e.gradeTag == null || e.gradeTag!.isEmpty)
+          ? '未分类'
+          : e.gradeTag!;
+      totalByTag[tag] = (totalByTag[tag] ?? 0) + 1;
+      final WordProgress? wp = _progress[e.id];
+      if (wp != null && wp.stage == ReviewStage.mastered) {
+        masteredByTag[tag] = (masteredByTag[tag] ?? 0) + 1;
+      }
+    }
+    final List<String> tags = totalByTag.keys.toList()..sort();
+    for (final String t in tags) {
+      tmp[t] = (
+        mastered: masteredByTag[t] ?? 0,
+        total: totalByTag[t]!,
+      );
+    }
+    return tmp;
+  }
+
   static const String _kProgress = 'wl_progress_v1';
   static const String _kCheckpoint = 'wl_checkpoint_v1';
   static const String _kEnergy = 'wl_energy_v1';
@@ -505,4 +637,5 @@ class WordLiteRepository extends ChangeNotifier {
   static const String _kStreak = 'wl_streak_v1';
   static const String _kYesterdayMastered = 'wl_yesterday_mastered_v1';
   static const String _kSessionDoneHome = 'wl_session_done_home_v1';
+  static const String _kDailyStats = 'wl_daily_stats_v1';
 }
