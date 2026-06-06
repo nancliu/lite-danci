@@ -1,0 +1,1330 @@
+《新起点英语》小学单词归类
+ 
+seasons: (季节)
+   spring              春季
+   summer             夏季
+fall                秋季
+   winter              冬季
+
+weather: (天气)
+   warm               温暖的
+   hot                 炎热的
+cool                 凉爽的
+   cold                寒冷的
+   rainy               下雨的
+   sunny               晴朗的
+   snowy              下雪的
+windy               多风的
+   cloudy              多云的
+   foggy               有雾的
+   smoggy             有霾的
+
+clothes: (服装)
+wear                穿
+coat                大衣
+down coat           羽绒服
+jeans               牛仔裤
+cap                 帽子
+gloves              手套
+scarf                围巾
+boots                靴子
+T-shirt               T恤衫
+vest                 背心
+shorts               短裤
+skirt                 短裙
+dress                连衣裙
+raincoat              雨衣
+sunglasses           太阳镜
+umbrella             雨伞
+jacket               夹克衫
+sweater              毛衣
+pants                长裤
+socks                袜子
+stocking              长袜
+shoes                 鞋
+sneakers              运动鞋
+running shoes          运动鞋
+jumper                套头衫
+hoody                 帽衫
+slippers               拖鞋
+sandals                凉鞋
+pajamas               睡衣
+
+family members:
+ (家庭成员)
+father                父亲
+mother               母亲
+brother               兄弟
+sister                 姐妹
+uncle                 叔叔
+aunt                  姑姑
+cousin                堂兄弟姐妹
+grandmother           奶奶
+grandfather            爷爷            
+parents                父母
+grandparents           祖父母
+
+People: (人物)
+boy                  男孩
+girl                  女孩
+child (children)         孩子（们）
+classmate              同学
+friend                 朋友
+man (men)             男人（们）
+woman (women)        女人（们）
+Miss                  ……小姐     
+Mr.                   ……先生
+Mrs.                  ...... 夫人
+Ms.                   ……女士
+Santa Claus         圣诞老人
+Christmas father     圣诞老人
+twins              双胞胎
+lady               女士
+gentleman          绅士
+Sir                先生
+Madame            夫人
+
+Jobs: (职业)         
+teacher             教师
+cook               厨师
+doctor              医生
+nurse               护士
+dentist              牙医
+driver              司机
+manager            经理
+singer              歌手
+dancer             舞蹈演员
+cleaner             清洁工
+writer              作家
+engineer            工程师
+mailman            邮递员
+policeman           警察
+waiter              男服务员
+waitress            女服务员
+salesclerk           售货员
+hairdresser          理发师
+computer programmer
+计算机程序编辑员
+artist        艺术家；（尤指）画家 
+painter              画家 
+actor               男演员 
+actress              女演员   
+writer               作家  
+poet                诗人
+musician            音乐家 
+scientist             科学家
+inventor             发明家
+astronaut             宇航员   
+detective             侦探    
+professor             教授    
+president  （学院的）院长 、总统 
+Chairman             主席，总统
+principal           （中小学）校长
+head teacher           班主任
+
+personality: (性格)
+shy                害羞的
+friendly             友善的
+hardworking         刻苦的
+helpful             乐于助人的
+honest              诚实的
+quiet               安静的
+popular             受欢迎的
+talkative            健谈的
+smart               聪明的
+lazy                懒惰的
+funny               有趣的
+careless             粗心的
+kind                善良的
+strict               严格的
+considerate          体贴的
+amiable             亲切的
+
+appearance （外貌类）
+blond                金黄色的
+curly                卷曲的
+slim                 苗条的
+straight              直的
+tall                  高的
+short                 矮的
+old                  年长的
+ugly                 丑陋的
+big                  大的，胖的
+young                年轻的
+small                 小的
+long                    长的
+pretty                 漂亮的
+strong                强壮的
+heavy                  重的
+thin                    瘦的
+
+body：(身体部位)
+body                  身体
+head                    头
+face                    脸
+nose                  鼻子
+eye                   眼睛
+ear                   耳朵
+mouth                   嘴
+tooth（teeth复数）     牙齿
+arm                   手臂                     
+leg                      腿
+hand                     手
+finger                  手指
+foot  （feet复数）        脚         
+hair                     头发
+tail                     尾巴
+neck                    脖子
+toe                     脚趾
+wing                    翅膀
+knee                    膝盖
+
+Hobby： （爱好）
+watching TV          看电视
+singing songs           唱歌     
+dancing                跳舞
+swimming              游泳
+reading stories         读故事
+painting pictures            画画
+keeping a diary            写日记
+jumping rope               跳绳
+collecting stickers           集贴画
+collecting stamps              集邮
+collecting dolls            收集娃娃
+collecting coins            收集硬币
+listening to music            听音乐
+hiking                   徒步旅行
+cycling                  骑自行车
+fishing                      钓鱼
+jogging                     慢跑
+running                     跑步
+roller-skating               溜旱冰
+swimming                   游泳
+skating                      滑冰
+skiing                       滑雪
+roller-skating                 轮滑
+playing computer games  玩电脑游戏
+playing chess                 下棋
+playing basketball           打篮球
+photography                 摄影
+sewing                        缝
+knitting                     编织
+rock-climbing                攀岩
+
+Sports (体育运动)
+play basketball            打篮球
+play pingpong           打乒乓球
+play table tennis         打乒乓球
+play soccer               踢足球
+play football              踢足球
+play badminton         打羽毛球
+play hockey            打曲棍球
+play tennis               打网球
+play baseball             打棒球
+play volleyball            打排球
+go hiking              徒步旅行
+go cycling             自行车赛
+go fishing                 钓鱼
+go boating               去划船
+go jogging                 慢跑
+go roller-skating           溜旱冰
+go swimming             去游泳
+go skating                  滑冰
+go fencing                 击剑
+go shooting                射击
+jump rope                  跳绳
+kick a shuttlecock          踢毽子
+run	跑步
+cross - country race       越野跑
+equestrianism              马术
+
+Activities:(活动类)
+get up               起床
+have breakfast        吃早饭
+have lunch           吃午饭
+have supper          吃晚饭
+have lesson          上课
+go to school          上学
+go to bed            睡觉
+go home            回家
+do homework        做作业
+write a letter         写信
+send an e-mail        发邮件
+send a short massage   发短信
+draw pictures         画画
+learn to act           学表演
+learn Taekwondo      学跆拳道
+finish the art project    完成手工制作
+study for a test        复习准备考试
+make a phone call      打电话
+make a model plane        制作模型
+go to the drama club      参加戏剧社
+go for a walk            去散步
+go for a picnic           去野餐
+go to concerts          听音乐会
+go to the movies          看电影
+see a film                看电影
+drive bumper cars        开碰碰车
+do jigsaw puzzles          拼拼图
+do art projects             做手工
+play Legos            玩乐高玩具
+see an art show         参观美术展
+see dinosaurs             参观恐龙
+see the sunrise              看日出
+see ice lanterns              看冰灯
+see wild animals         看野生动物
+visit the library          参观图书馆
+watch a soccer match      看足球赛
+fly a kite                  放风筝
+buy a skateboard            买滑板
+play in the school band    参加校乐队
+play the flute                吹长笛
+play the drum                 敲鼓
+play the piano               弹钢琴
+practice the piano        练习弹钢琴
+play in the snow          玩雪
+plant trees               植树
+climb a hill              爬山
+make a snowman        堆雪人
+travel to Harbin       去哈尔滨旅游
+celebrate Spring Festival  庆春节
+visit grandparents       看祖父母
+learn to make dumplings  学包饺子
+learn Wushu            学武术
+help parents do chores 帮父母做家务
+bring back sausages      带回香肠
+eat local food           吃当地小吃
+taste seafood          吃海鲜
+drink tea              喝茶
+buy some souvenirs     买纪念品
+take picture            拍照
+win a prize            获奖
+write poems           写诗
+play the bell           敲铃铛
+play the drum kit       敲架子鼓 
+play the snare drum     敲小鼓
+play the bass drum      敲大鼓
+play the triangle        敲三角铁
+play the tambourine     敲铃鼓 
+play the castanets       敲响板
+play the maracas        敲砂槌 
+play the cymbals        敲钹
+play the gong           敲锣
+play the organ          弹管风琴 
+play the piano accordion    弹手风琴
+play the electronic keyboard弹电子琴
+play the timpani          弹定音鼓
+play the xylophone        弹木琴
+play the celesta          弹钢片琴
+play the tubular bells      弹管钟
+play the guitar           弹吉他
+play the harp            弹竖琴
+play the electric guitar    弹电吉他
+play the bass            弹贝司
+play the zither           弹古筝
+play the Konghou        弹箜篌
+play the violin           拉小提琴
+play the viola            拉中提琴
+play the cello            拉大提琴
+play the double bass   拉倍低音提琴
+play the horn            吹号
+play the trumpet         吹小号
+play the piccolo          吹短笛
+play the clarinet         吹单簧管
+play the Oboe           吹双簧管
+play the saxophone       吹萨克斯
+play the English horn     吹英国管
+play the bassoon         吹大管
+
+do chores： 做家务 
+do housework         做家务
+feed the fish           喂鱼        
+wash clothes          洗衣服
+water the flower        浇花
+cook the chicken       炖鸡
+clean the kitchen       打扫厨房
+walk the dog          遛狗
+do the dishes          洗碗
+set the table           摆放餐具
+clear the table          收拾桌子
+take out the garbage     倒垃圾
+sweep the floor         扫地
+look after the dog       照顾小狗
+go shopping           买东西
+
+time: (时间)
+day                  白天
+am.                  上午
+pm.                  下午
+year                  年
+time                 时间
+second                秒
+hour                 小时
+minute               分钟
+o’clock               钟点
+afternoon             下午
+morning              早上
+evening               傍晚
+night                 夜里
+the day after tomorrow   后天
+today                 今天
+tomorrow              明天
+yesterday              昨天
+now                  现在
+last year              去年
+next month            下个月
+future                将来
+
+频率词
+often                常常
+never                从不
+usually              通常地
+always              总是
+sometimes           有时
+once a week          一周一次
+twice a week         一周两次
+three times a week     一周三次
+every day             每天
+seldom               很少、不常
+
+Week：(周，星期)   
+Sunday              星期天
+Monday             星期一
+Tuesday             星期二 
+Wednesday          星期三
+Thursday            星期四
+Friday              星期五
+Saturday            星期六
+weekend            周末
+weekday            工作日
+
+Month：(月份) 
+January             一月
+February            二月
+March              三月
+April               四月
+May                五月
+June                六月
+July                七月
+August              八月
+September           九月
+October             十月
+November           十一月
+December           十二月
+
+序数词
+first                  第一
+second                第二
+third                  第三
+fourth                 第四
+fifth                  第五
+sixth                  第六
+eighth                 第八
+ninth                  第九
+tenth                  第十
+twelfth                第十二
+twentieth              第二十
+
+Numbers: (数字)
+one                  一
+two                  二
+three                 三
+four                  四
+five                  五
+six                   六
+seven                七
+eight                 八
+nine                  九
+ten                   十
+eleven               十一
+twelve               十二 
+thirteen              十三
+fourteen             十四
+fifteen               十五
+sixteen              十六    
+seventeen            十七
+eighteen            十八
+nineteen            十九
+twenty              二十
+twenty-one          二十一
+thirty               三十
+forty               四十
+fifty               五十
+sixty               六十
+seventy             七十
+eighty              八十
+ninety              九十
+hundred             一百
+thousand            一千
+million              一百万
+billion               十亿
+trillion               万亿
+
+home：(家庭房间)
+bedroom	卧室
+balcony	阳台
+bathroom            浴室
+kitchen              厨房
+living room           客厅
+dining room          餐厅
+study                书房
+balcony              阳台
+garage               车库
+
+furniture: (家具)
+closet               衣柜
+wardrobe            衣柜
+telephone            电话
+computer            电脑
+TV                 电视
+bed                 床
+picture              图片
+table               桌子
+lamp               台灯
+armchair            手扶椅
+clock               钟表
+fridge               冰箱
+
+building(建筑物)
+place               地点
+community          社区
+street               街道
+bank               银行
+bakery              面包房
+restaurant           餐馆
+newspaper stand      报摊
+nursery school       幼儿院
+primary school       小学
+drugstore            药店
+bookshop           书店
+bookstore           书店
+grocery store        杂货店
+gas station          加油站
+police station        警察局
+subway station       地铁站
+coffee shop          咖啡店
+cinema             电影院
+theatre              剧院
+hairdresser’s         理发店
+beauty shop         美发店
+park               公园
+zoo                动物园
+home               家
+house              房子
+hotel               宾馆
+bus stop            车站
+hospital            医院
+post office          邮局
+supermarket         超市
+department store     百货商场
+shopping center     购物中心
+gallery            美术馆
+gym              体育馆
+museum           博物馆
+university          大学
+stadium            体育馆
+square             广场
+clinic              诊所
+office              办公室
+floor               楼层
+crossing            十字路口
+footbridge          天桥
+crosswalk          人行横道
+sidewalk           人行道
+underpass          地下通道
+
+School room: (专用教室) 
+library             图书馆
+clinic              诊所
+office             办公室
+music room        音乐教室
+science room       科学教室
+art room           美术教室
+computer room      电脑教室
+washroom          洗手间
+gym              体育馆
+floor              楼层
+playground         操场
+
+classroom: (教室)
+door                门
+window             窗户
+blackboard           黑板
+desk                课桌
+chair                椅子
+
+classes: (课程)
+Art                 美术
+Chinese             汉语
+English             英语
+Math               数学
+P.E.                体育课
+Computer           计算机
+Music              音乐
+Science             科学
+Moral Character      思品
+Dance               形体
+Single-chip           单片机
+Handwriting         书法
+Calligraphy          书法
+Practice              实践
+Robot                机器人   
+
+Stationary：(文具) 
+eraser               橡皮
+book                书
+ruler                尺子
+notebook             笔记本
+backpack             背包
+schoolbag            书包
+pencil case           文具盒
+brush                毛笔
+disk                 磁盘
+whiteout             涂改液
+stapler               订书器
+scissors              剪刀
+folder               文件夹
+crayon               蜡笔
+paper                纸
+dictionary            字典
+glue stick            胶棒
+pencil sharpener       转笔刀
+map                 地图
+card                 卡片
+
+food: (食物)
+fruit: 水果
+apple               苹果
+banana              香蕉                
+grape               葡萄
+melon              西瓜
+orange              桔子
+peach               桃子
+pear                梨
+pineapple            菠萝
+strawberry           草莓
+cherry               樱桃
+
+drink: 饮料
+milk               牛奶
+tea                 茶
+juice               果汁
+water               水
+coffee              咖啡
+coke               可口可乐
+ice cream           冰激凌
+pop                汽水
+black tea            红茶
+green tea            绿茶
+
+vegetables: 蔬菜
+carrot              胡萝卜
+cucumber           黄瓜
+egg                鸡蛋
+onion              洋葱
+potato              土豆
+tomato             西红柿
+
+Pudding: 甜点类
+cake                蛋糕
+pancake             薄饼
+pie                 派
+chocolate            巧克力
+popcorn             爆米花
+ice cream            冰激凌
+jelly                果冻
+cheese                奶油
+candy                 糖果
+
+meal: 正餐类
+breakfast              早餐
+lunch                 午餐
+supper                晚餐
+dinner                大餐
+
+dinnerware: 餐具类
+bowl                  碗
+wok                   锅
+plate                  盘子
+dish                   碟子
+chopsticks              筷子
+fork                   叉子
+spoon                  勺子
+knife                   刀
+
+Chinese Food:  中餐类
+meatball	肉丸子
+egg	鸡蛋
+meat	肉
+jiaozi	饺子
+noodles	面条
+tofu	豆腐
+chicken	鸡肉
+fish	鱼肉
+beef	牛肉
+Beijing duck	烤鸭
+rice	米饭
+pancake              煎饼
+seafood              海鲜
+soup                 汤
+morning tea           早茶
+mantou	馒头
+
+Western Style Food: 西餐类
+hamburger	汉堡包
+sandwich	三明治
+pizza	披萨
+hot dog	热狗
+salad	沙拉
+sausage	香肠
+junk food             垃圾食品
+
+Flavoring: 调料类
+oil	油
+salt	盐
+sugar	糖
+pepper	胡椒粉
+sauce	酱
+flour	面粉
+soy sauce	酱油
+vinegar	醋
+
+动词类
+wash	洗
+cut	切
+crack	敲碎
+mix	混合
+put	放
+stir-fry	快炒
+add	加
+serve	将饭菜摆上桌
+
+Dish: 菜肴类
+stir-fried meat and potatoes	
+土豆炖肉
+stir-fried rice and vegetables	
+蔬菜炒饭
+stir-fried tomato and eggs	
+西红柿炒鸡蛋
+stir-fried cucumber and eggs	
+黄瓜炒鸡蛋
+cucumber salad	
+凉拌黄瓜
+
+illness: (疾病)
+have a cold           感冒
+have a headache       头疼
+have a stomachache    胃疼
+have a toothache       牙疼
+have an earache        耳朵疼
+have a fever           发烧
+have a running nose    流鼻涕
+be tired              疲劳的
+be sleepy             犯困的
+
+Keeping Healthy（保持健康）
+Should 应该
+drink more water           多喝水
+drink milk every day        每天喝奶
+exercise every day          每天锻炼
+go to bed early             早睡
+get up early               早起
+get plenty of sleep          睡够觉
+wash hands before eating    饭前洗手
+brush teeth twice a day  一天刷牙两次
+see a doctor / dentist   看医生 / 牙医
+take some medicine    吃药
+eat more vegetables and fruits and less meat           多吃蔬菜水果少吃肉
+
+shouldn’t 不应该
+drink too much pop      喝太多汽水
+eat too much candy       吃太多糖
+eat too much meat        吃太多肉
+eat with dirty hands     不洗手吃东西
+eat junk food every day  
+每天吃垃圾食品
+eat too much junk food
+吃太多垃圾食品
+stay up late         熬夜
+watch too much TV  看太多电视
+leave garbage everywhere 乱扔垃圾
+play computer games for too long
+                玩太久电脑游戏
+play too much on the computer
+              
+safety:(安全规则)
+dangerous            危险的
+safe                 安全的
+Be careful            小心点
+traffic light           交通灯
+Please use the footbridge.
+请使用过街天桥
+Please use the crosswalk.
+请使用人行横道
+Please use the underpass.
+请使用地下通道
+Please use the sidewalk.
+请使用人行道
+Don’t climb the window.
+不要爬窗户
+Don’t run downstairs.
+不要往楼下跑
+Don’t play with fire.
+不要玩火
+Don’t touch it.       不要碰它
+Don’t climb over the fence.
+不要翻越护栏
+Don’t cross the street  
+不要横穿马路
+Don’t play in the street.
+不要在街上玩
+
+nature：（自然）  
+moon                   月亮      
+sun                    太阳 
+Mars                   火星
+earth                   地球    
+land                    陆地
+ocean                   海洋
+sea                     大海     
+beach                   海滩
+air                      空气 
+hill                     小山
+mountain                高山
+forest                   森林
+rain                      雨
+river                   河流
+sky                    天空
+star                    星星
+lake                      湖
+bridge                    桥
+tree                      树
+flower                    花
+grass                     草
+wind                     风
+snow                     雪
+snow-capped mountain     雪山
+temple                  庙宇
+bridge                    桥
+bench                   长凳
+cloud                   云彩    
+pollution                污染          
+peace                   和平    
+Spaceship             宇宙飞船  
+robot                   机器人
+
+festival: (节假日)
+birthday                 生日
+Children’s Day         儿童节
+Christmas             圣诞节
+New Year               元旦
+Spring Festival           春节
+Chinese New Year        春节
+Teachers’ Day          教师节
+Mid-Autumn Day       中秋节
+Moon Festival          中秋节
+Thanksgiving           感恩节
+Halloween             万圣节
+vacation                 假期
+holiday                  假期   
+the summer vacation       暑假
+the winter vacation        寒假
+dragon dance             舞龙
+paper-cut                剪纸
+bell                     铃铛
+present                  礼物
+gift                     礼物
+
+Animals: (动物)
+pet                   宠物
+mammal：哺乳动物   
+cat                   猫
+dog                   狗
+pig                   猪
+rabbit                兔子
+tiger                 老虎
+elephant              大象
+monkey              猴子
+panda                熊猫
+horse                马
+hippo                河马     
+zebra                斑马  
+lion                 狮子
+giraffe               长颈鹿
+whale                鲸  
+bear                  熊 
+fox                  狐狸
+mouse（mice 复数）  老鼠
+kangaroo             袋鼠
+koala                树袋熊，考拉
+sheep                绵羊
+goat                 山羊
+reptile：爬行动物   
+turtle                乌龟
+snake                蛇
+crocodile             鳄鱼 
+dinosaur              恐龙  
+bird：鸟
+chicken               鸡
+duck                 鸭子
+parrot                鹦鹉
+ostrich               鸵鸟  
+penguin              企鹅  
+hummingbird          蜂鸟 
+fish： 鱼
+goldfish              金鱼
+shark                鲨鱼    
+insect：昆虫   
+butterfly              蝴蝶
+bee                  蜜蜂
+
+color：(颜色)
+black                黑色的
+blue                 蓝色的 
+brown               棕色的
+green                绿色的 
+orange               桔色的 
+pink               粉色的 
+purple             紫色的 
+red                红色的
+yellow             黄色的
+white              白色的
+
+Continent: (洲)
+Asia                亚洲  
+Europe              欧洲   
+Africa               非洲  
+North America       北美洲  
+South America       南美洲  
+Oceania            大洋洲
+Antarctica           南极洲 
+
+Countries(国家)
+Russia              俄罗斯
+Canada             加拿大
+China              中国
+the United Kingdom   英国
+Australia            澳大利亚
+The United States     美国
+France              法国
+Germany            德国
+Japan               日本
+Spain               西班牙
+Egypt               埃及  
+Thailand             泰国
+Korea               韩国
+Italy                意大利
+Denmark              丹麦
+
+City：城市 
+province：省份
+Inner Mongolia       内蒙古
+Tibet                 西藏
+city:  城市
+Hong Kong          香港
+Lhasa               拉萨
+London              伦敦
+Washington.D.C       华盛顿
+Los Angeles          洛杉矶
+Moscow             莫斯科
+Paris                巴黎
+Tokyo               东京
+Toronto              多伦多
+Sydney	           悉尼
+Ottawa              渥太华
+
+Language: (语言)
+Russian             俄语
+English             英语
+Chinese             汉语 
+French              法语     
+German             德语
+Japanese            日语    
+Spanish             西班牙语
+Egyptian            埃及语
+Thai                泰语
+Italian              意大利语
+Korean              韩语 
+Danish              丹麦语
+
+direction: (方位)
+east                东，东方 
+south               南，南方   
+west                西，西方   
+north               北，北方  
+in                  在里面
+on       在上面；在……指时间
+under                  在下面
+from             从……来
+like         像，如何（指天气）
+at      在……(指时间的某一点)
+before             在……之前
+*across from       在……对面
+*behind               在后面
+*between          在……中间
+*next to               紧挨着
+*beside            在……旁边
+ 
+Travel: (旅游)
+the Red Square             红场
+CN tower         多伦多电视塔
+Beijing duck           北京烤鸭
+Beijing Opera              京剧
+the Great Wall              长城  
+Tiananmen Square     天安门广场
+the Summer Palace         颐和园
+Beihai Park             北海公园
+Beijing Zoo           北京动物园
+the Temple of Heaven        天坛
+the Forbidden City         紫禁城
+the Palace Museum          故宫
+Temple Fair                庙会
+Qin warriors              兵马俑
+the Terracotta Army        兵马俑
+Mount Tai                  泰山
+Mount Emei              峨眉山
+Shaolin Temple           少林寺
+West Lake                 西湖
+the Buddha Palace       布达拉宫
+Chinese tea               中国茶
+garden                     园林
+silk                       丝绸 
+Big Ben                 大本钟
+Sydney Opera House   悉尼歌剧院
+Disneyland           迪斯尼乐园
+Eiffel Tower          埃菲尔铁塔
+cherry blossom              樱花
+pyramid                  金字塔  
+palace                     宫殿 
+safari park            野生动物园
+forest                      森林
+
+transportation: 
+(交通工具)
+bike                    自行车
+bus                   公共汽车
+car                     小汽车
+plane                     飞机
+ship                      轮船
+boat                      小船
+taxi                     出租车
+train                      火车
+van                     客货车
+subway                    地铁
+bike                     自行车
+scooter                  电瓶车
+
+toys: (玩具)
+ball                        球
+teddy bear               玩具熊
+doll                    洋娃娃
+pinwheel                  风车
+box                      盒子
+
+TV Show 电视节目类
+children’s show       儿童类节目
+music show          音乐类节目
+weather report          天气预报
+entertainment show      娱乐节目
+talk show       访谈节目、脱口秀
+nature show          自然类节目
+cooking show         烹饪类节目
+sports show           体育类节目
+Peking opera               京剧
+news show           新闻类节目
+movie	电影
+commercial	广告
+Cartoon City		   动画城
+Chinese Music Video	中国音乐电视
+Sports World	体育世界
+The Dragon Club	小神龙俱乐部
+The Magic Earth	神奇地球
+Comedy	喜剧
+Action	动作电影
+Quiz	智力问答
+Animal World	动物世界
+Artist’s Life	艺术人生
+Game Show	游戏节目
+The Morning News	早间新闻
+Afternoon News	午后新闻
+Jim’ s Kitchen	吉姆的厨房
+
+Feeling （情绪类）
+interesting                有趣的
+exciting              激动人心的
+cool                       酷的
+just so-so                 一般的
+boring                   无趣的
+fun                      有趣的
+easy                     容易的
+hard                     困难的
+emotion：（情绪）
+angry                    生气的
+excited                   兴奋的
+happy                    高兴的
+sad                      伤心的
+surprised                 惊讶的
+proud                    自豪的
+nervous                  紧张的
+scared                   害怕的
+
+question: 疑问词
+how           如何；怎样
+what                 什么
+when            什么时候
+where                哪里
+who                   谁
+whose               谁的
+which              哪一个
+why               为什么
+how often      多久；多常
+how many     多少(个……)
+how much          多少钱
+what day           哪一天
+what time        什么时间
+what color        什么颜色
+what kind of      哪一种类
+
+比较级、最高级
+than                  比
+who                  谁
+whose               谁的
+big-bigger-biggest     大的        
+small-smaller-smallest  小的
+new-newer-newest     新的
+old-older-oldest       旧的
+tall-taller-tallest       高的
+short-shorter-shortest  短/矮
+thick-thicker-thickest   厚的
+thin-thinner-thinnest 薄/瘦的
+fast-faster-fastest      快地
+slow---slower—slowest 慢地   
+fast-faster-fastest      快地   
+long-longer-longest    长的
+pretty-prettier-pretties      漂亮的
+hard----harder----hardest    努力地
+  
+good/well-better-best
+
+人称代词
+I ----------my---------me        我
+You ------your------you         你
+He---------his--------him        他
+She--------her--------her         她
+We---------our--------us       我们
+They------their-------the      他们
+
+反义词汇总：
+big——small
+大的    小的
+old——new
+旧的   新的
+pretty——ugly
+漂亮的    丑陋的
+black——white
+黑色的    白色的
+easy——hard
+简单的   困难的
+slim——big
+苗条的   肥胖的
+tall——short
+高的     矮的
+expensive——cheap
+贵的       便宜的
+warm——cool
+暖喝的    凉爽的
+interesting——boring
+有趣的      无聊的
+fast——slow
+快的    慢的
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+单词搭配 
+
+
+
+
+ 
+
+
+
+ 
+
+Place  地点	things to do做的事情
+beach           海滩              	swim               游泳
+Mount Tai       泰山	see the sunrise      看日出
+Shaolin Temple  少林寺	Learn Wushu       学武术
+West Lake       西湖	take picture          拍照
+safari park  野生动物园	see wild animals观看野生动物
+Kuming          昆明	see a flower show   观看花展
+Thailand         泰国	see elephant        观看大象
+Tibet            西藏	see the Buddha Place看不达拉宫
+*Australia    澳大利亚    	see kangaroos      观看袋鼠
+feed the koalas       喂考拉
+*Xi’an           西安	see Dayan Tower    参观大雁塔
+*Harbin        哈尔滨	see the ice lantern show看冰灯
+
+
+
+ 
+ 
+Job 职业	Place  地点	Job 职业	Place  地点
+teacher	school	dentist, doctor, nurse	hospital
+waiter, cook	hotel	hairdresser	beauty shop
+hairdresser’s
+salesclerk	store, supermarket	mailman	post office
+computer programmer	office	policeman	police station
+ 
+
+
+
+
+ 
+动词过去式
+ 
+Regular Verbs(规则动词):
+ 
+1.	词尾直接+(e)d
+play---played
+stay---stayed
+learn---learned
+rain---rained
+snow---snowed
+climb---climbed
+travel---travel(l)ed
+water---watered
+borrow---borrowed
+pull---pulled
+ski---skied
+sew---sewed
+answer---answered
+live---lived
+move---moved
+
+ask---asked
+look---looked
+walk---walked
+work---worked
+cook---cooked
+kick---kicked
+jump---jumped
+dance---danced
+wash---washed
+finish---finished
+watch---watched
+touch---touched
+reach---reached
+help---helped
+
+start---started
+visit---visited
+paint—painted
+want---wanted
+plant---planted
+collect---collected
+celebrate---celebrated
+skate---skated
+taste---tasted
+
+2.	辅音字母+y结尾的，变y为i +ed
+study---studied
+carry---carried
+copy---copied
+try---tried
+fry---fried
+
+3.	重读闭音节，双写末尾的辅音字母+ed
+stop---stopped
+shop---shopped 
+drop---dropped
+fit---fitted
+knit---knitted
+
+
+Irregular Verbs（不规则动词）:
+is /am---was
+are---were
+can---could
+will---would 
+shall---should
+may---might
+
+have/has---had
+go---went
+do---did
+say---said
+make---made
+take---took
+stand---stood
+see---saw
+eat---ate
+lose---lost
+fall---fell
+get---got
+forget---forgot
+
+feel---felt
+sleep---slept
+
+meet---met
+feed---fed
+light---lit
+
+cut---cut
+set---set
+read---read
+must---must
+let---let
+put---put
+hit---hit 
+learn---learnt
+lend---lent
+spend---spent
+send---sent
+
+write---wrote  
+ride---rode
+drive---drove
+win---won
+speak---spoke
+
+swim---swam
+drink---drank
+sing---sang
+sit---sat
+begin---began
+run---ran
+come---came
+
+leave---left
+sweep---swept
+keep---kept
+
+draw---drew
+know---knew
+throw---threw
+grow---grew
+fly---flew
+blow---blew
+
+
+buy---bought
+bring---brought
+think---thought
+teach---taught
+catch---caught
+
+

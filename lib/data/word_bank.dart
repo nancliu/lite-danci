@@ -11,9 +11,18 @@ class WordBank {
   WordBank._();
 
   /// 随应用打包、启动时依次加载并合并的 JSON 资源路径。
+  ///
+  /// 顺序约定：示例小词包 → 一年级 → 二年级 → ... → 六年级。
+  /// 「先学新词」队列将按此顺序消化，与年级递进一致。
   static const List<String> embeddedPackAssetPaths = <String>[
     'assets/word_packs/extra_grade1_sample.json',
     'assets/word_packs/elementary_grade1_more.json',
+    'assets/word_packs/grade1_vocab.json',
+    'assets/word_packs/grade2_vocab.json',
+    'assets/word_packs/grade3_vocab.json',
+    'assets/word_packs/grade4_vocab.json',
+    'assets/word_packs/grade5_vocab.json',
+    'assets/word_packs/grade6_vocab.json',
   ];
 
   static final List<WordEntry> _builtInList = <WordEntry>[
