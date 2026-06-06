@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
 import '../models/badge.dart';
@@ -56,7 +57,39 @@ class ParentScreen extends StatelessWidget {
                 unlockedSkinLevel: s.unlockedSkinLevel,
                 streakBonus: s.streakEnergyBonus,
               ),
+              const SizedBox(height: 16),
+              const _AppVersionFooter(),
             ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+/// 应用版本号小字脚注；运行时从 [PackageInfo] 读取，与 pubspec.yaml 始终一致。
+class _AppVersionFooter extends StatelessWidget {
+  const _AppVersionFooter();
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return FutureBuilder<PackageInfo>(
+      future: PackageInfo.fromPlatform(),
+      builder: (BuildContext context, AsyncSnapshot<PackageInfo> snap) {
+        final String text;
+        if (snap.connectionState != ConnectionState.done || !snap.hasData) {
+          text = ' ';
+        } else {
+          final PackageInfo info = snap.data!;
+          text = 'WordLite v${info.version} (build ${info.buildNumber})';
+        }
+        return Center(
+          child: Text(
+            text,
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
           ),
         );
       },
