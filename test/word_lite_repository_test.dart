@@ -514,6 +514,159 @@ void main() {
       expect(p.getInt(_kSkin), 1);
     });
 
+    test('皮肤档 4 阶梯（20 碎片）：预置 skin=3 + 19 碎片 → 整段会话+1 解锁 4 档', () async {
+      const String wordId = 'w_apple';
+      final String day = _dateKey(DateTime.now());
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: day,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kCheckpoint: jsonEncode(cp.toJson()),
+        _kShards: 19,
+        _kSkin: 3,
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      for (int i = 0; i < 4; i++) {
+        await repo.onStepCorrect();
+      }
+      // 19 + 1 = 20，4 档成本是 20 → 解锁后 shards 归 0
+      expect(repo.stats.shards, 0);
+      expect(repo.stats.unlockedSkinLevel, 4);
+    });
+
+    test('皮肤档已满 6 时不再扣减；碎片继续累计', () async {
+      const String wordId = 'w_apple';
+      final String day = _dateKey(DateTime.now());
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: day,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kCheckpoint: jsonEncode(cp.toJson()),
+        _kShards: 50,
+        _kSkin: WordLiteRepository.skinLevels, // 已满档
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      for (int i = 0; i < 4; i++) {
+        await repo.onStepCorrect();
+      }
+      // 满档后 _tryUnlockSkin 不再处理；碎片 50+1=51
+      expect(repo.stats.shards, 51);
+      expect(repo.stats.unlockedSkinLevel, WordLiteRepository.skinLevels);
+    });
+
+    test('连续学习 ≥7 天每词额外 +1 能量（基础 1 + 加成 1 = 2）', () async {
+      final DateTime yesterday =
+          DateTime.now().subtract(const Duration(days: 1));
+      final String yesterdayKey = _dateKey(yesterday);
+      final String todayKey = _dateKey(DateTime.now());
+      const String wordId = 'w_apple';
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: todayKey,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        wordId: const WordProgress(
+          wordId: wordId,
+          stage: ReviewStage.learning,
+          nextReviewAt: null,
+        ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+        _kCheckpoint: jsonEncode(cp.toJson()),
+        _kTodayKey: todayKey,
+        _kLastStudy: yesterdayKey,
+        _kStreak: 6, // 完成一词后 streak 升至 7，触发 +1 加成
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      final int energyBefore = repo.stats.energy;
+      for (int i = 0; i < 4; i++) {
+        await repo.onStepCorrect();
+      }
+      expect(repo.stats.streakDays, 7);
+      // 基础 +1 + 连续 ≥7 加成 +1 = +2
+      expect(repo.stats.energy - energyBefore, 2);
+    });
+
+    test('连续学习 ≥21 天能量加成达 +3（基础 1 + 加成 3 = 4）', () async {
+      final DateTime yesterday =
+          DateTime.now().subtract(const Duration(days: 1));
+      final String yesterdayKey = _dateKey(yesterday);
+      final String todayKey = _dateKey(DateTime.now());
+      const String wordId = 'w_apple';
+      final SessionCheckpoint cp = SessionCheckpoint(
+        dayKey: todayKey,
+        queueWordIds: <String>[wordId],
+        wordIndex: 0,
+        stepIndex: 0,
+      );
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        wordId: const WordProgress(
+          wordId: wordId,
+          stage: ReviewStage.learning,
+          nextReviewAt: null,
+        ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+        _kCheckpoint: jsonEncode(cp.toJson()),
+        _kTodayKey: todayKey,
+        _kLastStudy: yesterdayKey,
+        _kStreak: 20, // 完成后 21，命中 +3
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      for (int i = 0; i < 4; i++) {
+        await repo.onStepCorrect();
+      }
+      expect(repo.stats.streakDays, 21);
+      expect(repo.stats.energy, 4);
+    });
+
+    test('勋章按累计 mastered 自动解锁：预置 50 个 mastered 即获学徒勋章',
+        () async {
+      // 用前 50 个内置/已加载词条造一个全 mastered 进度。
+      WordBank.resetForTest();
+      await WordBank.loadEmbeddedPacks();
+      final List<WordEntry> first50 = WordBank.all.take(50).toList();
+      final Map<String, dynamic> progressJson = <String, dynamic>{
+        for (final WordEntry e in first50)
+          e.id: WordProgress(
+            wordId: e.id,
+            stage: ReviewStage.mastered,
+            nextReviewAt: null,
+          ).toJson(),
+      };
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        _kProgress: jsonEncode(progressJson),
+      });
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      expect(repo.stats.totalMastered, 50);
+      expect(repo.stats.unlockedBadges.length, 1);
+      expect(repo.stats.unlockedBadges.first.label, '学徒');
+      // 距下一勋章「学子」（阈值 200）还差 150 词
+      expect(repo.stats.nextBadge?.label, '学子');
+    });
+
+    test('未达任何勋章时 unlockedBadges 为空，nextBadge 是学徒', () async {
+      final WordLiteRepository repo = WordLiteRepository();
+      await repo.init();
+      expect(repo.stats.unlockedBadges, isEmpty);
+      expect(repo.stats.nextBadge?.label, '学徒');
+    });
+
     test('连续自然日学习：昨日 lastStudy 时完成一词 streak+1', () async {
       final DateTime yesterday = DateTime.now().subtract(const Duration(days: 1));
       final String yesterdayKey = _dateKey(yesterday);

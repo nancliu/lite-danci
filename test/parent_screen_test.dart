@@ -79,5 +79,51 @@ void main() {
     expect(find.text('7 天'), findsOneWidget);
     expect(find.text('比昨天提升'), findsOneWidget);
     expect(find.text('+2（掌握数）'), findsOneWidget);
+    // 成长里程卡在下方 — 滚动至可见
+    await tester.scrollUntilVisible(find.text('成长里程'), 200,
+        scrollable: find.byType(Scrollable).first);
+    expect(find.text('成长里程'), findsOneWidget);
+    expect(find.textContaining('距 🌱 学徒 还差'), findsOneWidget);
+    // 奖励卡：streak=7 → 加成 +1 文案
+    await tester.scrollUntilVisible(find.text('奖励进度'), 200,
+        scrollable: find.byType(Scrollable).first);
+    expect(find.text('奖励进度'), findsOneWidget);
+    expect(find.text('连续学习加成：每词额外 +1 能量'), findsOneWidget);
+  });
+
+  testWidgets('累计掌握达 50 时家长页显示学徒勋章已解锁', (WidgetTester tester) async {
+    WordBank.resetForTest();
+    await WordBank.loadEmbeddedPacks();
+    final List<WordEntry> mastered = WordBank.all.take(50).toList();
+    final Map<String, dynamic> progressJson = <String, dynamic>{
+      for (final WordEntry e in mastered)
+        e.id: WordProgress(
+          wordId: e.id,
+          stage: ReviewStage.mastered,
+          nextReviewAt: null,
+        ).toJson(),
+    };
+    final WordLiteRepository repo = await _repoFromPrefs(<String, Object>{
+      _kProgress: jsonEncode(progressJson),
+    });
+    expect(repo.stats.totalMastered, 50);
+    expect(repo.stats.unlockedBadges.length, 1);
+
+    await tester.pumpWidget(
+      ChangeNotifierProvider<WordLiteRepository>.value(
+        value: repo,
+        child: MaterialApp(
+          theme: buildWordLiteTheme(repo.stats.unlockedSkinLevel),
+          home: const ParentScreen(),
+        ),
+      ),
+    );
+    await tester.pump();
+    // 成长里程卡在 ListView 中部，需滚动到可见
+    await tester.scrollUntilVisible(find.text('成长里程'), 200,
+        scrollable: find.byType(Scrollable).first);
+    // 勋章 emoji 都会出现在卡片里；距下一勋章「学子」还差 150 词
+    expect(find.text('🌱'), findsOneWidget);
+    expect(find.textContaining('距 📖 学子 还差 150 词'), findsOneWidget);
   });
 }

@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/word_bank.dart';
+import '../models/badge.dart';
 import '../models/review_stage.dart';
 import '../models/session_checkpoint.dart';
 import '../models/user_stats.dart';
@@ -29,8 +30,17 @@ class WordLiteRepository extends ChangeNotifier {
   static const int reviewMax = 8;
   /// 完成当日整段会话（队列内最后一词四步通关）时发放的碎片数。
   static const int shardsPerSessionCompleted = 1;
+
+  /// 皮肤档位总数（与 [_skinShardCost] 一一对应）。
+  static const int skinLevels = 6;
+
+  /// 解锁第 i+1 档皮肤所需的「增量碎片」。
+  /// 累计阈值：10/20/30/50/75/105（10/+10/+10/+20/+25/+30）。
+  static const List<int> _skinShardCost = <int>[10, 10, 10, 20, 25, 30];
+
+  /// 兼容旧文档常量（PRD §4.3）：单价 10 碎片仅适用前 3 档；4-6 档见
+  /// [_skinShardCost]。保留以避免破坏既有引用。
   static const int shardsPerSkin = 10;
-  static const int skinLevels = 3;
 
   SharedPreferences? _prefs;
   Map<String, WordProgress> _progress = <String, WordProgress>{};
@@ -61,7 +71,19 @@ class WordLiteRepository extends ChangeNotifier {
       lastStudyDateKey: _lastStudyDateKey,
       todayCompletedWords: _todayCompleted,
       yesterdayMasteredSnapshot: _yesterdayMasteredSnapshot,
+      unlockedBadges: _computeUnlockedBadges(mastered),
     );
+  }
+
+  /// 基于累计掌握词数推导已解锁勋章（按 enum 顺序）。
+  static List<GrowthBadge> _computeUnlockedBadges(int totalMastered) {
+    final List<GrowthBadge> out = <GrowthBadge>[];
+    for (final GrowthBadge b in GrowthBadge.values) {
+      if (b.isUnlockedAt(totalMastered)) {
+        out.add(b);
+      }
+    }
+    return out;
   }
 
   SessionCheckpoint? get checkpoint => _checkpoint;
@@ -379,9 +401,19 @@ class WordLiteRepository extends ChangeNotifier {
       final WordProgress next =
           _advanceAfterSuccess(w.id, before, DateTime.now());
       _progress[w.id] = next;
-      _energy += 1;
       _todayCompleted += 1;
       _touchStreak();
+      // 基础 +1，连续学习达阈值后再加成（+1/+2/+3，上限 +3）。
+      // 与 [UserStats.streakEnergyBonus] 同源；用 _touchStreak 后的最新
+      // _streakDays 计算，使「连续 7 天」当天即触发加成。
+      final int bonus = _streakDays >= 21
+          ? 3
+          : _streakDays >= 14
+              ? 2
+              : _streakDays >= 7
+                  ? 1
+                  : 0;
+      _energy += 1 + bonus;
       await _prefs?.setInt(_kTodayDone, _todayCompleted);
     }
 
@@ -444,8 +476,12 @@ class WordLiteRepository extends ChangeNotifier {
   }
 
   void _tryUnlockSkin() {
-    while (_unlockedSkinLevel < skinLevels && _shards >= shardsPerSkin) {
-      _shards -= shardsPerSkin;
+    while (_unlockedSkinLevel < skinLevels) {
+      final int cost = _skinShardCost[_unlockedSkinLevel];
+      if (_shards < cost) {
+        break;
+      }
+      _shards -= cost;
       _unlockedSkinLevel += 1;
     }
   }

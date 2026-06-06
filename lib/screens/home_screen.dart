@@ -371,6 +371,7 @@ class _HomeSlice {
         other.stats.todayCompletedWords == stats.todayCompletedWords &&
         other.stats.yesterdayMasteredSnapshot ==
             stats.yesterdayMasteredSnapshot &&
+        other.stats.unlockedBadges.length == stats.unlockedBadges.length &&
         other.newCount == newCount &&
         other.reviewCount == reviewCount &&
         other.queueTotal == queueTotal &&
@@ -390,6 +391,7 @@ class _HomeSlice {
         stats.lastStudyDateKey,
         stats.todayCompletedWords,
         stats.yesterdayMasteredSnapshot,
+        stats.unlockedBadges.length,
         newCount,
         reviewCount,
         queueTotal,
@@ -558,6 +560,13 @@ class _HomeStatsCard extends StatelessWidget {
                   ? theme.textTheme.bodyLarge
                   : theme.textTheme.bodyMedium,
             ),
+            if (emphasize && stats.unlockedBadges.isNotEmpty) ...<Widget>[
+              const SizedBox(height: 6),
+              Text(
+                '已获勋章：${stats.unlockedBadges.map((b) => b.emoji).join(' ')}',
+                style: theme.textTheme.bodyLarge,
+              ),
+            ],
             const SizedBox(height: 4),
             Text(
               '碎片在完成今日全部单词后获得',
