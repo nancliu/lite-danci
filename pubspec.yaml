@@ -1,7 +1,7 @@
 name: word_lite
 description: WordLite — 小学生英语单词学习（本地离线）
 publish_to: "none"
-version: 0.1.0+1
+version: 0.2.0+2
 
 environment:
   sdk: ">=3.3.0 <4.0.0"
